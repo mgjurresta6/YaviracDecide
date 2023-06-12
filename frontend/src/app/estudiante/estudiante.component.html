@@ -1,0 +1,57 @@
+<div class="formgrid grid">
+    <div class="formgrid grid">
+        <p-panel header="RECEPCIONES CARMEN">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="card flex flex-wrap gap-3 p-fluid">
+                    <div class="flex-auto">
+                        <label> Numero de cedula:</label>
+                            <p-inputNumber mode="decimal" inputId="withoutgrouping" [useGrouping]="false" formControlName="cedula"></p-inputNumber>
+                    </div>
+                    <div class="flex-auto">
+                        <label>Nombres:</label>
+                            <input type="text" pInputText formControlName="nombre"/>
+
+                        <label>Apellidos:</label>
+                            <input type="text" pInputText formControlName="apellido"/>
+                    </div>
+                    <div class="flex-auto">
+                        <label>Correo electronico:</label>
+                            <input type="text" pInputText formControlName="correo"/>
+                    </div>
+                        <div class="cflex-auto">
+                            <label>Carrera:</label>
+                            <select class="form-select" aria-label="Default select example" formControlName="carrera">
+                                <option selected>Selecciona</option>
+                                <option value="Desarrollo de Software">Desarrollo de Software</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Turismo">Turismo</option>
+                              </select>
+                        </div>
+                        <div class="cflex-auto">
+                            <label>Jornada:</label>
+                            <select class="form-select" aria-label="Default select example" formControlName="jornada">
+                                <option selected>Selecciona</option>
+                                <option value="Matutina">Matutina</option>
+                                <option value="Vespertina">Vespertina</option>
+                                <option value="Nocturna">Nocturna</option>
+                              </select>
+                        </div>
+                        <div class="cflex-auto">
+                            <label>Paralelo:</label>
+                            <select class="form-select" aria-label="Default select example" formControlName="paralelo">
+                                <option selected>Selecciona</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                              </select>
+                        </div>
+                    <div class="flex-auto">
+                        <button pButton type="submit" label="Guardar"></button>
+                        <button pButton type="button" class="p-button-warning" label="Actualizar" (click)="updateUsuario()"></button>
+                        <button pButton type="button" class="p-button-success" label="Ver Listado" [routerLink]="['lista-estudiante']"></button>
+                    </div>
+                </div>
+            </form>
+        </p-panel>
+    </div>
+</div>
