@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UsuarioService } from 'src/app/Servicios/usuario.service';
-import { EstudianteService } from './estudiante.service';
+import {Router} from "@angular/router";
+import { EstudianteService } from 'src/app/Servicios/estudiante.service';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class EstudianteComponent {
 
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: FormBuilder, private router: Router,
               private estudianteService: EstudianteService){
     if(this.estudianteService.selectedPerson){
       this.form = formBuilder.group({
@@ -48,6 +48,7 @@ export class EstudianteComponent {
   onSubmit() {
     if (this.form.valid) {
       this.addUsuario();
+      this.router.navigate(['lista-estudiante']);
     } else {
       alert('Formulario No Valido');
     }

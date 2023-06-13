@@ -1,6 +1,6 @@
 <div class="formgrid grid">
-    <div class="formgrid grid">
-        <p-panel header="RECEPCIONES CARMEN">
+    <div class="contenedor">
+        <p-panel>
             <form [formGroup]="form" (ngSubmit)="onSubmit()">
                 <div class="card flex flex-wrap gap-3 p-fluid">
                     <div class="flex-auto">
@@ -18,7 +18,7 @@
                         <label>Correo electronico:</label>
                             <input type="text" pInputText formControlName="correo"/>
                     </div>
-                        <div class="cflex-auto">
+                        <div class="flex-auto">
                             <label>Carrera:</label>
                             <select class="form-select" aria-label="Default select example" formControlName="carrera">
                                 <option selected>Selecciona</option>
@@ -27,7 +27,7 @@
                                 <option value="Turismo">Turismo</option>
                               </select>
                         </div>
-                        <div class="cflex-auto">
+                        <div class="flex-auto">
                             <label>Jornada:</label>
                             <select class="form-select" aria-label="Default select example" formControlName="jornada">
                                 <option selected>Selecciona</option>
@@ -36,7 +36,7 @@
                                 <option value="Nocturna">Nocturna</option>
                               </select>
                         </div>
-                        <div class="cflex-auto">
+                        <div class="flex-auto">
                             <label>Paralelo:</label>
                             <select class="form-select" aria-label="Default select example" formControlName="paralelo">
                                 <option selected>Selecciona</option>
@@ -46,12 +46,11 @@
                               </select>
                         </div>
                     <div class="flex-auto">
-                        <button pButton type="submit" label="Guardar"></button>
-                        <button pButton type="button" class="p-button-warning" label="Actualizar" (click)="updateUsuario()"></button>
-                        <button pButton type="button" class="p-button-success" label="Ver Listado" [routerLink]="['lista-estudiante']"></button>
+                        <button class="btn btn-primary" pButton type="submit" label="Guardar"></button>
                     </div>
                 </div>
             </form>
         </p-panel>
     </div>
 </div>
+<router-outlet></router-outlet>

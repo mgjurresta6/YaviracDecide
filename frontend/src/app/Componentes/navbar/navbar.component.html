@@ -1,7 +1,7 @@
 <div class="nav">
   <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
-        <button #btn type="button" pButton icon="pi pi-bars" (click)="menu.toggle($event)"></button>
+        <button #btn class="btn btn-primary" type="button" pButton icon="pi pi-bars" (click)="menu.toggle($event)"></button>
         <p-tieredMenu #menu [model]="items" [popup]="true"></p-tieredMenu>
     </div>
   </nav>
@@ -12,3 +12,4 @@
     Administrador
   </p> 
 </div>
+<router-outlet></router-outlet>

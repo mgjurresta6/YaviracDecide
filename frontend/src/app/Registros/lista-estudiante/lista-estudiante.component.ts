@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { UsuarioService } from 'src/app/Servicios/usuario.service';
+import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import { EstudianteService } from '../estudiante/estudiante.service';
+import { EstudianteService } from 'src/app/Servicios/estudiante.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-lista-estudiante',
@@ -15,6 +15,7 @@ export class ListaEstudianteComponent {
   constructor(private estudianteService: EstudianteService, private router: Router){
     this.usuario = this.estudianteService.usuario;
   }
+
   crearUsuario(){
     this.estudianteService.selectedPerson = null;
     this.router.navigate(['estudiante']);

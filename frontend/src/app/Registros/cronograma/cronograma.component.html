@@ -1,0 +1,29 @@
+<div class="formgrid grid">
+    <div class="contenedor">
+        <p-panel>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="card flex flex-wrap gap-3 p-fluid">
+                    <div class="flex-auto">
+                            <p-inputNumber mode="decimal" formControlName="id"></p-inputNumber>
+                    </div>
+                    <div class="flex-auto">
+                        <label> Actividad:</label>
+                        <input type="text" pInputText formControlName="actividad"/>
+                    </div>
+                    <div class="flex-auto">
+                        <label>Fecha de Inicio:</label>
+                        <p-calendar formControlName="fechaI" [showIcon]="true"></p-calendar>
+                    </div>
+                    <div class="flex-auto">
+                        <label>Fecha de Finalizacion:</label>
+                        <p-calendar formControlName="fechaF" [showIcon]="true"></p-calendar>
+                    </div>
+                    <div class="flex-auto">
+                        <button class="btn btn-primary" pButton type="submit" label="Guardar"></button>
+                    </div>
+                </div>
+            </form>
+        </p-panel>
+    </div>
+</div>
+<router-outlet></router-outlet>

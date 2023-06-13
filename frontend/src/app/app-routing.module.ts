@@ -1,18 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EstudianteComponent } from './estudiante/estudiante.component';
-import { ListaEstudianteComponent } from './lista-estudiante/lista-estudiante.component';
+import { EstudianteComponent } from './Registros/estudiante/estudiante.component';
+import { ListaEstudianteComponent } from './Registros/lista-estudiante/lista-estudiante.component';
+import { CronogramaComponent } from './Registros/cronograma/cronograma.component';
+import { ListaCronogramaComponent } from './Registros/lista-cronograma/lista-cronograma.component';
 
 const routes: Routes = [
    
   {
-    path:'estudiante',
+    path: 'estudiante',
     component: EstudianteComponent
   },
 
   {
-    path:'lista-estudiante',
+    path: 'lista-estudiante',
     component: ListaEstudianteComponent
+  },
+  {
+    path: 'cronograma',
+    component: CronogramaComponent
+  },
+  {
+    path: 'lista-cronograma',
+    component: ListaCronogramaComponent
   }
 
 ];

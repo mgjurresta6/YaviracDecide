@@ -12,13 +12,17 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './Componentes/navbar/navbar.component';
 import { MenuComponent } from './Componentes/menu/menu.component';
 import { ButtonModule } from 'primeng/button';
-import { EstudianteComponent } from './estudiante/estudiante.component';
+import { EstudianteComponent } from './Registros/estudiante/estudiante.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { TreeSelectModule } from 'primeng/treeselect';
 import { TableModule } from "primeng/table";
-import { ListaEstudianteComponent } from './lista-estudiante/lista-estudiante.component';
+import { ListaEstudianteComponent } from './Registros/lista-estudiante/lista-estudiante.component';
 import { TieredMenuModule } from 'primeng/tieredmenu';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { CalendarModule } from 'primeng/calendar';
+import { CronogramaComponent } from './Registros/cronograma/cronograma.component';
+import { ListaCronogramaComponent } from './Registros/lista-cronograma/lista-cronograma.component';
 
 
 
@@ -29,7 +33,11 @@ import { TieredMenuModule } from 'primeng/tieredmenu';
     NavbarComponent,
     MenuComponent,
     EstudianteComponent,
-    ListaEstudianteComponent
+    ListaEstudianteComponent,
+    CronogramaComponent,
+    ListaCronogramaComponent
+
+
   ],
 
   imports: [
@@ -46,7 +54,9 @@ import { TieredMenuModule } from 'primeng/tieredmenu';
     InputNumberModule,
     TreeSelectModule,
     TableModule,
-    TieredMenuModule
+    TieredMenuModule,
+    AutoCompleteModule,
+    CalendarModule
     
 
   ],
