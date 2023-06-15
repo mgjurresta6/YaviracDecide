@@ -23,6 +23,7 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { CalendarModule } from 'primeng/calendar';
 import { CronogramaComponent } from './Registros/cronograma/cronograma.component';
 import { ListaCronogramaComponent } from './Registros/lista-cronograma/lista-cronograma.component';
+import { CandidatoListaComponent } from './Candidato/candidato-lista/candidato-lista.component';
 
 
 
@@ -35,7 +36,8 @@ import { ListaCronogramaComponent } from './Registros/lista-cronograma/lista-cro
     EstudianteComponent,
     ListaEstudianteComponent,
     CronogramaComponent,
-    ListaCronogramaComponent
+    ListaCronogramaComponent,
+    CandidatoListaComponent
 
 
   ],
