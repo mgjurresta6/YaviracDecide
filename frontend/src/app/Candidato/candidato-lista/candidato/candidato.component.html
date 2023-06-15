@@ -1,0 +1,42 @@
+<div class="formgrid grid">
+    <div class="contenedor">
+        
+        <p-panel>
+            <div class="title"><H3>Registro de candidatos y lista</H3></div>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="card flex flex-wrap gap-3 p-fluid">
+                    <div class="flex-auto">
+                        <label> Nombre de la lista:</label>
+                            <input type="text" pInputText formControlName="nombreLista">
+                    </div>
+                    <br>
+                    <div class="flex-auto">
+                        <label>Nombre de la dignidad:</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="dignidad">
+                            <option selected>Selecciona</option>
+                            <option value="Presidente">Presidente</option>
+                            <option value="Vicepresidente">Vicepresidente</option>
+                            <option value="Consejal">Consejal</option>
+                          </select>
+                    </div>
+                    <br>
+                    <div class="flex-auto">
+                        <label>Nombres completos del responsable de la dignidad:</label>
+                            <input type="text" pInputText formControlName="nombre"/>
+                    </div>
+                    <br>
+                    <div class="flex-auto">
+                        <label>Requisitos del estudiante para ser registrado:</label>
+                            <input type="file" pInputText formControlName="requisitos"/>
+                    </div>
+                    <br>
+                    <div class="flex-auto">
+                        <button class="btn btn-primary" pButton type="submit" label="Guardar"></button>
+                    </div>
+                </div>
+            </form>
+        </p-panel>
+    </div>
+</div>
+<router-outlet></router-outlet>
+

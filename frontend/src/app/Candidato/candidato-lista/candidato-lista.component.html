@@ -1,97 +1,28 @@
-<!DOCTYPE html>
-<!-- Coding By CodingNepal - codingnepalweb.com -->
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!----======== CSS ======== -->
-    <link rel="stylesheet" href="candidato-lista.component.css">
-     
-    <!----===== Iconscout CSS ===== -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
-   <title>Responsive Regisration Form </title>
-</head>
-<body>
-    <div class="container">
-        <header>Registro de Candidatos y Lista</header>
-
-        <form action="#">
-            <div class="form first">
-                <div class="details personal">
-                    <span class="title">Nombre de la lista:</span>
-                    <div class="input-field1">
-                        <input type="text" placeholder="Ingrese el nombre de su lista" required>
-                    </div>
-
-                    <div class="overflow-hidden surface-overlay p-3 border-primary-500 border-2 border-round" style="height: 40px; font-size: 12px ">
-                        <p>Antes de las dignidades de tu lista debes recordar y saber que existen alunos terminos y condiciones
-                            que debes seguir para el correcto registro de la misma. Descarga este PDF para obtener mas información <a href="">Términos y Condiciones.PDF</a>
-                        </p>
-                    </div>
-
-                    <div class="fields">
-                        <div class="input-field">
-                            <label>Nombre de la dignidad:</label>
-                            <select required>
-                                
-                                <option selected></option>
-                                <option>Presidente</option>
-                                <option>Vicepresidente</option>
-                                <option>Consejal</option>
-                            </select>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Nombre del responsable de la dignidad:</label>
-                            <input type="text" placeholder="Ej: Pedro Josue Arteaga Mejía" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Requisito del estudiante para ser registrado:</label>
-                            <input type="file"  required>
-                        </div>
-                        <button class="nextBtn">
-                            <span class="btnText">Agregar</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="details ID">
-                    <span class="title">Dignidades registradas:</span>
-
-                    <br>
-                    <br>
-
-                    <div class="fields">
-                        <div class="input-field">
-                            <label>Logo de la lista:</label>
-                            <input type="file"  required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Color de la campaña o lista:</label>
-                            <input type="color" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Propuestas:</label>
-                            <input type="file"  required>
-                        </div>
-
-                    </div>
-
-                    <button class="nextBtn">
-                        <span class="btnText">Guardar</span>
-                        <i class="uil uil-navigator"></i>
-                    </button>
-                </div> 
-            </div>
-        </form>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<app-candidato></app-candidato>
+  <div class="contenedor">
+      <p-table [value]="usuario"
+      selectionMode="single" [(selection)]="selectedPerson" dataKey="id">
+  <ng-template pTemplate="header">
+  <tr>
+    <th>Nombre de la lista:</th>
+    <th>Dignidad:</th>
+    <th>Nombre del responsable de la dignidad:</th>
+    <th>Requisitos:</th>
+  </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-item>
+  <tr [pSelectableRow]="item">
+    <td>{{item.nombreLista}}</td>
+    <td>{{item.dignidad}}</td>
+    <td>{{item.nombre}}</td>
+    <td>{{item.requisitos}}</td>
+    <td>
+      <button pButton type="button" class="p-button" icon="pi pi-pencil"
+              (click)="editUsuario(item)"></button>
+      <button pButton type="button" class="p-button" icon="pi pi-trash"
+              (click)="deleteUsuario(item.nombre)"></button>
+    </td>
+  </tr>
+  </ng-template>
+  </p-table>
+  </div>
