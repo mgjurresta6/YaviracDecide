@@ -24,6 +24,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { CronogramaComponent } from './Registros/cronograma/cronograma.component';
 import { ListaCronogramaComponent } from './Registros/lista-cronograma/lista-cronograma.component';
 import { CandidatoListaComponent } from './Candidato/candidato-lista/candidato-lista.component';
+import { CandidatoComponent } from './Candidato/candidato-lista/candidato/candidato.component';
 
 
 
@@ -37,7 +38,8 @@ import { CandidatoListaComponent } from './Candidato/candidato-lista/candidato-l
     ListaEstudianteComponent,
     CronogramaComponent,
     ListaCronogramaComponent,
-    CandidatoListaComponent
+    CandidatoListaComponent,
+    CandidatoComponent
 
 
   ],
