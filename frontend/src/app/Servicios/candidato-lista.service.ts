@@ -14,7 +14,7 @@ usuario: any[] = [];
   private loadUsuario(){
     this.usuario = [];
     this.usuario.push(
-      { nombreLista: 'Abejitas del Saber', dignidad:'Presidente', nombre:'Pedro', requisitos:''}
+      { dignidad:'Presidente', nombre:'Pedro', requisitos:''}
     );
   }
   addUsuario(payload: any){
