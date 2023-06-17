@@ -1,8 +1,9 @@
+
 <div class="formgrid grid">
     <div class="contenedor">
-        
+    <div class="listado">
         <p-panel>
-            <div class="title"><H3>Registro de candidatos y lista</H3></div>
+            <H3>Registro de candidatos y lista</H3>
             <form [formGroup]="form" (ngSubmit)="onSubmit()">
                 <div class="card flex flex-wrap gap-3 p-fluid">
                     <div class="flex-auto">
@@ -30,13 +31,49 @@
                             <input type="file" pInputText formControlName="requisitos"/>
                     </div>
                     <br>
+                    
                     <div class="flex-auto">
-                        <button class="btn btn-primary" pButton type="submit" label="Guardar"></button>
+                        <button class="btn btn-primary" pButton type="submit" label="Agregar"></button>
                     </div>
+                    <br>
                 </div>
             </form>
         </p-panel>
     </div>
+    <br>
+    <br>
+    <div class="listado2">
+        <p-panel>
+            <div class="title"><H3>Registro de candidatos y lista</H3></div>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="card flex flex-wrap gap-3 p-fluid">
+                    <div class="flex-auto">
+                        <label> Logo de la lista:</label>
+                            <input type="file" pInputText formControlName="nombreLista">
+                    </div>
+                    <br>
+                    <div class="flex-auto">
+                        <label>Color de la lista:</label>
+                        <br>
+                        <input type="color" formControlName="color">
+                    </div>
+                    <br>
+                    <br>
+                    <div class="flex-auto">
+                        <label>Propuestas:</label>
+                            <input type="file" pInputText formControlName="requisitos"/>
+                    </div>
+                    
+                </div>
+            </form>
+        </p-panel>
+    </div>
+    <br>
+                    <div class="flex-auto">
+                        <button class="btn btn-primary" pButton type="submit" label="Guardar"></button>
+                    </div>
+</div>
+<br>
 </div>
 <router-outlet></router-outlet>
 

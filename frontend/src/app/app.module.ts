@@ -25,6 +25,7 @@ import { CronogramaComponent } from './Registros/cronograma/cronograma.component
 import { ListaCronogramaComponent } from './Registros/lista-cronograma/lista-cronograma.component';
 import { CandidatoListaComponent } from './Candidato/candidato-lista/candidato-lista.component';
 import { CandidatoComponent } from './Candidato/candidato-lista/candidato/candidato.component';
+import { NavbarCandidatoComponent } from './Componentes/navbarCandidato/navbar-candidato/navbar-candidato.component';
 
 
 
@@ -39,7 +40,8 @@ import { CandidatoComponent } from './Candidato/candidato-lista/candidato/candid
     CronogramaComponent,
     ListaCronogramaComponent,
     CandidatoListaComponent,
-    CandidatoComponent
+    CandidatoComponent,
+    NavbarCandidatoComponent
 
 
   ],
