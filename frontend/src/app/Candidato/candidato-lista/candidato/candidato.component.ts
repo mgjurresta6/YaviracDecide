@@ -13,6 +13,9 @@ export class CandidatoComponent {
   nombre: string = '';
   dignidad: string = '';
   requisitos: string= '';
+  logo: string='';
+  color: string='';
+  propuesta: string='';
 
   form: FormGroup;
 
@@ -24,6 +27,7 @@ export class CandidatoComponent {
         nombre: [this.candidatoListaService.selectedPerson.nombre,[Validators.required]],
         dignidad: [this.candidatoListaService.selectedPerson.dignidad,[Validators.required]],
         requisitos: [this.candidatoListaService.selectedPerson.requisitos,[Validators.required]],
+  
      
       });
     }else{
@@ -41,7 +45,7 @@ export class CandidatoComponent {
       this.addUsuario();
       this.router.navigate(['candidato-lista']);
     } else {
-      alert('Formulario No Valido');
+      alert('Formulario no valido, revisalo antes de volver a intentarlo');
     }
   }
 
