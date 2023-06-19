@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CurriculumDto = void 0;
 const openapi = require("@nestjs/swagger");
@@ -15,12 +16,12 @@ const class_validator_1 = require("class-validator");
 const entities_1 = require("../../entities");
 class CurriculumDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { career: { required: true, type: () => require("../../entities/career.entity").CareerEntity }, state: { required: true, type: () => require("../../entities/catalogue.entity").CatalogueEntity }, code: { required: true, type: () => String }, description: { required: true, type: () => String }, endedAt: { required: true, type: () => Date }, name: { required: true, type: () => String }, periodicAcademicNumber: { required: true, type: () => Number }, resolutionNumber: { required: true, type: () => String }, startedAt: { required: true, type: () => Date }, weeksNumber: { required: true, type: () => Number } };
+        return { career: { required: true, type: () => Object }, state: { required: true, type: () => require("../../entities/catalogue.entity").CatalogueEntity }, code: { required: true, type: () => String }, description: { required: true, type: () => String }, endedAt: { required: true, type: () => Date }, name: { required: true, type: () => String }, periodicAcademicNumber: { required: true, type: () => Number }, resolutionNumber: { required: true, type: () => String }, startedAt: { required: true, type: () => Date }, weeksNumber: { required: true, type: () => Number } };
     }
 }
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", entities_1.CareerEntity)
+    __metadata("design:type", typeof (_a = typeof entities_1.CareerEntity !== "undefined" && entities_1.CareerEntity) === "function" ? _a : Object)
 ], CurriculumDto.prototype, "career", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),

@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SubjectDto = void 0;
 const openapi = require("@nestjs/swagger");
@@ -15,7 +16,7 @@ const class_validator_1 = require("class-validator");
 const entities_1 = require("../../entities");
 class SubjectDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { academicPeriod: { required: true, type: () => require("../../entities/catalogue.entity").CatalogueEntity }, curriculum: { required: true, type: () => require("../../entities/curriculum.entity").CurriculumEntity }, state: { required: true, type: () => require("../../entities/catalogue.entity").CatalogueEntity }, type: { required: true, type: () => require("../../entities/catalogue.entity").CatalogueEntity }, autonomousHour: { required: true, type: () => Number }, code: { required: true, type: () => String }, credit: { required: true, type: () => Number }, name: { required: true, type: () => String }, practicalHour: { required: true, type: () => Number }, scale: { required: true, type: () => Number }, teacherHour: { required: true, type: () => Number } };
+        return { academicPeriod: { required: true, type: () => require("../../entities/catalogue.entity").CatalogueEntity }, curriculum: { required: true, type: () => Object }, state: { required: true, type: () => require("../../entities/catalogue.entity").CatalogueEntity }, type: { required: true, type: () => require("../../entities/catalogue.entity").CatalogueEntity }, autonomousHour: { required: true, type: () => Number }, code: { required: true, type: () => String }, credit: { required: true, type: () => Number }, name: { required: true, type: () => String }, practicalHour: { required: true, type: () => Number }, scale: { required: true, type: () => Number }, teacherHour: { required: true, type: () => Number } };
     }
 }
 __decorate([
@@ -24,7 +25,7 @@ __decorate([
 ], SubjectDto.prototype, "academicPeriod", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)({ message: 'El campo curriculum es obligatorio' }),
-    __metadata("design:type", entities_1.CurriculumEntity)
+    __metadata("design:type", typeof (_a = typeof entities_1.CurriculumEntity !== "undefined" && entities_1.CurriculumEntity) === "function" ? _a : Object)
 ], SubjectDto.prototype, "curriculum", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)({ message: 'El campo state es obligatorio' }),

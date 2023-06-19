@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CareerDto = void 0;
 const openapi = require("@nestjs/swagger");
@@ -16,12 +17,12 @@ const class_validator_1 = require("class-validator");
 const validation_1 = require("../../../../shared/validation");
 class CareerDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { institution: { required: true, type: () => require("../../entities/institution.entity").InstitutionEntity }, modality: { required: true, type: () => require("../../entities/catalogue.entity").CatalogueEntity }, state: { required: true, type: () => require("../../entities/catalogue.entity").CatalogueEntity }, type: { required: true, type: () => require("../../entities/catalogue.entity").CatalogueEntity }, acronym: { required: true, type: () => String }, code: { required: true, type: () => String }, codeSniese: { required: true, type: () => String }, degree: { required: true, type: () => String }, logo: { required: true, type: () => String }, name: { required: true, type: () => String }, resolutionNumber: { required: true, type: () => String }, shortName: { required: true, type: () => String } };
+        return { institution: { required: true, type: () => Object }, modality: { required: true, type: () => require("../../entities/catalogue.entity").CatalogueEntity }, state: { required: true, type: () => require("../../entities/catalogue.entity").CatalogueEntity }, type: { required: true, type: () => require("../../entities/catalogue.entity").CatalogueEntity }, acronym: { required: true, type: () => String }, code: { required: true, type: () => String }, codeSniese: { required: true, type: () => String }, degree: { required: true, type: () => String }, logo: { required: true, type: () => String }, name: { required: true, type: () => String }, resolutionNumber: { required: true, type: () => String }, shortName: { required: true, type: () => String } };
     }
 }
 __decorate([
     (0, class_validator_1.IsNotEmpty)((0, validation_1.isNotEmptyValidationOptions)()),
-    __metadata("design:type", entities_1.InstitutionEntity)
+    __metadata("design:type", typeof (_a = typeof entities_1.InstitutionEntity !== "undefined" && entities_1.InstitutionEntity) === "function" ? _a : Object)
 ], CareerDto.prototype, "institution", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)((0, validation_1.isNotEmptyValidationOptions)()),

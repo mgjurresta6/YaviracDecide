@@ -41,13 +41,13 @@ export class ActividadesService {
     //   payload.institution.id,
     // );
 
-    newActividad.modality = await this.cataloguesService.findOne(
-      payload.modality.id,
-    );
+   // newActividad.modality = await this.cataloguesService.findOne(
+   //   payload.modality.id,
+   // );
 
-    newActividad.state = await this.cataloguesService.findOne(payload.state.id);
+   // newActividad.state = await this.cataloguesService.findOne(payload.state.id);
 
-    newActividad.type = await this.cataloguesService.findOne(payload.type.id);
+   // newActividad.type = await this.cataloguesService.findOne(payload.type.id);
 
     const actividadCreated = await this.actividadRepository.save(newActividad);
 
