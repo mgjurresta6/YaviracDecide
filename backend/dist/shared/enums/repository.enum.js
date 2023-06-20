@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RepositoryEnum = void 0;
 var RepositoryEnum;
 (function (RepositoryEnum) {
-    RepositoryEnum["CATALOGUE_REPOSITORY"] = "CATALOGUE_REPOSITORY";
     RepositoryEnum["ACTIVIDAD_REPOSITORY"] = "ACTIVIDAD_REPOSITORY";
     RepositoryEnum["CARRERA_REPOSITORY"] = "CARRERA_REPOSITORY";
     RepositoryEnum["CONFIGURACION_REPOSITORY"] = "CONFIGURACION_REPOSITORY ";

@@ -1,14 +1,14 @@
-import { ActividadesService } from '@core/services';
-import { ActividadEntity } from '@core/entities';
+import { RolesService } from '@core/services';
+import { RolEntity } from '@core/entities';
 import { ResponseHttpModel } from '@shared/models';
 export declare class RolesController {
-    private actividadesService;
-    constructor(actividadesService: ActividadesService);
+    private rolesService;
+    constructor(rolesService: RolesService);
     catalogue(): Promise<ResponseHttpModel>;
     create(payload: any): Promise<ResponseHttpModel>;
     findAll(params: any): Promise<ResponseHttpModel>;
-    findOne(id: string): Promise<ResponseHttpModel>;
-    update(id: string, payload: any): Promise<ResponseHttpModel>;
-    remove(id: string): Promise<ResponseHttpModel>;
-    removeAll(payload: ActividadEntity[]): Promise<ResponseHttpModel>;
+    findOne(id: number): Promise<ResponseHttpModel>;
+    update(id: number, payload: any): Promise<ResponseHttpModel>;
+    remove(id: number): Promise<ResponseHttpModel>;
+    removeAll(payload: RolEntity[]): Promise<ResponseHttpModel>;
 }

@@ -13,17 +13,11 @@ import {
   Query,
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import {
-  CreateSubjectDto,
-  FilterSubjectDto,
-  UpdateSubjectDto,
-} from '@core/dto';
 import { ListaEntity } from '@core/entities';
 import { ResponseHttpModel } from '@shared/models';
 import { ListasService } from '@core/services';
 
-@ApiTags('Subjects')
-@Controller('subjects')
+@Controller('listas')
 export class ListasController {
   constructor(private listasService: ListasService) {}
 
@@ -74,7 +68,7 @@ export class ListasController {
   @HttpCode(HttpStatus.CREATED)
   async update(
     @Param('id', ParseUUIDPipe) id: string,
-    @Body() payload: UpdateSubjectDto,
+    @Body() payload: any,
   ) {
     const serviceResponse = await this.listasService.update(id, payload);
 

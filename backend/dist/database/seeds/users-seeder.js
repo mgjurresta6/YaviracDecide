@@ -8,11 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var _a, _b;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersSeeder = void 0;
 const common_1 = require("@nestjs/common");
-const services_1 = require("../../modules/auth/services");
-const enums_1 = require("../../modules/auth/enums");
+const services_1 = require("@auth/services");
+const enums_1 = require("@auth/enums");
 let UsersSeeder = class UsersSeeder {
     constructor(rolesService, usersService) {
         this.rolesService = rolesService;
@@ -77,8 +78,7 @@ let UsersSeeder = class UsersSeeder {
 };
 UsersSeeder = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [services_1.RolesService,
-        services_1.UsersService])
+    __metadata("design:paramtypes", [typeof (_a = typeof services_1.RolesService !== "undefined" && services_1.RolesService) === "function" ? _a : Object, typeof (_b = typeof services_1.UsersService !== "undefined" && services_1.UsersService) === "function" ? _b : Object])
 ], UsersSeeder);
 exports.UsersSeeder = UsersSeeder;
 //# sourceMappingURL=users-seeder.js.map

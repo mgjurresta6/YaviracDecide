@@ -17,7 +17,6 @@ const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const services_1 = require("../services");
-const dto_1 = require("../dto");
 let JornadasController = class JornadasController {
     constructor(jornadasService) {
         this.jornadasService = jornadasService;
@@ -126,7 +125,7 @@ __decorate([
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, dto_1.UpdateStudentDto]),
+    __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", Promise)
 ], JornadasController.prototype, "update", null);
 __decorate([

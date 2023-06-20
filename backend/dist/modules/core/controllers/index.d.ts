@@ -1,5 +1,4 @@
 export * from './carreras.controller';
-export * from './catalogues.controller';
 export * from './configuraciones.controller';
 export * from './cronogramas.controller';
 export * from './dignidades.controller';

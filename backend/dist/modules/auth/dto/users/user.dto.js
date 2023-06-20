@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var _a, _b, _c, _d, _e, _f;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserDto = void 0;
 const openapi = require("@nestjs/swagger");
@@ -16,32 +17,32 @@ const validation_1 = require("../../../../shared/validation");
 const entities_1 = require("../../../core/entities");
 class UserDto {
     static _OPENAPI_METADATA_FACTORY() {
-        return { bloodType: { required: true, type: () => require("../../../core/entities/catalogue.entity").CatalogueEntity }, ethnicOrigin: { required: true, type: () => require("../../../core/entities/catalogue.entity").CatalogueEntity }, identificationType: { required: true, type: () => require("../../../core/entities/catalogue.entity").CatalogueEntity }, gender: { required: true, type: () => require("../../../core/entities/catalogue.entity").CatalogueEntity }, maritalStatus: { required: true, type: () => require("../../../core/entities/catalogue.entity").CatalogueEntity }, sex: { required: true, type: () => require("../../../core/entities/catalogue.entity").CatalogueEntity }, birthdate: { required: true, type: () => Date }, identification: { required: true, type: () => String }, email: { required: true, type: () => String }, emailVerifiedAt: { required: true, type: () => String }, lastname: { required: true, type: () => String }, password: { required: true, type: () => String }, passwordChanged: { required: true, type: () => Boolean }, personalEmail: { required: true, type: () => String }, phone: { required: true, type: () => String }, name: { required: true, type: () => String }, roles: { required: true, type: () => Object }, username: { required: true, type: () => String } };
+        return { bloodType: { required: true, type: () => Object }, ethnicOrigin: { required: true, type: () => Object }, identificationType: { required: true, type: () => Object }, gender: { required: true, type: () => Object }, maritalStatus: { required: true, type: () => Object }, sex: { required: true, type: () => Object }, birthdate: { required: true, type: () => Date }, identification: { required: true, type: () => String }, email: { required: true, type: () => String }, emailVerifiedAt: { required: true, type: () => String }, lastname: { required: true, type: () => String }, password: { required: true, type: () => String }, passwordChanged: { required: true, type: () => Boolean }, personalEmail: { required: true, type: () => String }, phone: { required: true, type: () => String }, name: { required: true, type: () => String }, roles: { required: true, type: () => Object }, username: { required: true, type: () => String } };
     }
 }
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", entities_1.CatalogueEntity)
+    __metadata("design:type", typeof (_a = typeof entities_1.CatalogueEntity !== "undefined" && entities_1.CatalogueEntity) === "function" ? _a : Object)
 ], UserDto.prototype, "bloodType", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", entities_1.CatalogueEntity)
+    __metadata("design:type", typeof (_b = typeof entities_1.CatalogueEntity !== "undefined" && entities_1.CatalogueEntity) === "function" ? _b : Object)
 ], UserDto.prototype, "ethnicOrigin", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", entities_1.CatalogueEntity)
+    __metadata("design:type", typeof (_c = typeof entities_1.CatalogueEntity !== "undefined" && entities_1.CatalogueEntity) === "function" ? _c : Object)
 ], UserDto.prototype, "identificationType", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", entities_1.CatalogueEntity)
+    __metadata("design:type", typeof (_d = typeof entities_1.CatalogueEntity !== "undefined" && entities_1.CatalogueEntity) === "function" ? _d : Object)
 ], UserDto.prototype, "gender", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", entities_1.CatalogueEntity)
+    __metadata("design:type", typeof (_e = typeof entities_1.CatalogueEntity !== "undefined" && entities_1.CatalogueEntity) === "function" ? _e : Object)
 ], UserDto.prototype, "maritalStatus", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", entities_1.CatalogueEntity)
+    __metadata("design:type", typeof (_f = typeof entities_1.CatalogueEntity !== "undefined" && entities_1.CatalogueEntity) === "function" ? _f : Object)
 ], UserDto.prototype, "sex", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),

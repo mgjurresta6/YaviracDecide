@@ -1,13 +1,6 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { Repository, FindOptionsWhere, ILike } from 'typeorm';
-import {
-  CreateCareerDto,
-  UpdateCareerDto,
-  FilterCareerDto,
-  PaginationDto,
-} from '@core/dto';
 import { ConfiguracionEntity } from '@core/entities';
-import { CataloguesService } from '@core/services';
 import { ServiceResponseHttpModel } from '@shared/models';
 import { RepositoryEnum } from '@shared/enums';
 
@@ -16,12 +9,10 @@ export class ConfiguracionesService {
   constructor(
     @Inject(RepositoryEnum.CONFIGURACION_REPOSITORY)
     private configuracionRepository: Repository<ConfiguracionEntity>,
-    private cataloguesService: CataloguesService,
   ) {}
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
     const response = await this.configuracionRepository.findAndCount({
-      relations: ['institution', 'modality', 'state', 'type'],
       take: 1000,
     });
 
@@ -41,21 +32,12 @@ export class ConfiguracionesService {
     //   payload.institution.id,
     // );
 
-    newConfiguracion.modality = await this.cataloguesService.findOne(
-      payload.modality.id,
-    );
-
-    newConfiguracion.state = await this.cataloguesService.findOne(payload.state.id);
-
-    newConfiguracion.type = await this.cataloguesService.findOne(payload.type.id);
-
     const configuracionCreated = await this.configuracionRepository.save(newConfiguracion);
 
     return { data: configuracionCreated };
   }
   async findAll(params?: any): Promise<ServiceResponseHttpModel> {
     const data = await this.configuracionRepository.findAndCount({
-      relations: ['institution', 'modality', 'state', 'type'],
     });
 
     return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
@@ -63,7 +45,6 @@ export class ConfiguracionesService {
 
   async findOne(id: string): Promise<any> {
     const configuracion = await this.configuracionRepository.findOne({
-      relations: ['institution', 'modality', 'state', 'type'],
       where: {
         id,
       },

@@ -13,20 +13,19 @@ import {
     Query,
   } from '@nestjs/common';
   import { ApiTags, ApiOperation } from '@nestjs/swagger';
-  import { CreateCareerDto, UpdateCareerDto, FilterCareerDto } from '@core/dto';
-  import { ActividadesService } from '@core/services';
-  import { ActividadEntity } from '@core/entities';
+  import { VotosService } from '@core/services';
+  import { VotoEntity } from '@core/entities';
   import { ResponseHttpModel } from '@shared/models';
   
-  @Controller('actividades')
+  @Controller('votos')
   export class VotosController {
-    constructor(private actividadesService: ActividadesService) {}
+    constructor(private votosService: VotosService) {}
   
     @ApiOperation({ summary: 'Catalogo Actividades' })
     @Get('catalogue')
     @HttpCode(HttpStatus.OK)
     async catalogue(): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.catalogue();
+      const serviceResponse = await this.votosService.catalogue();
   
       return {
         data: serviceResponse.data,
@@ -40,7 +39,7 @@ import {
     @Post()
     @HttpCode(HttpStatus.CREATED)
     async create(@Body() payload: any): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.create(payload);
+      const serviceResponse = await this.votosService.create(payload);
   
       return {
         data: serviceResponse.data,
@@ -53,7 +52,7 @@ import {
     @Get()
     @HttpCode(HttpStatus.OK)
     async findAll(@Query() params: any): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.findAll(params);
+      const serviceResponse = await this.votosService.findAll(params);
   
       return {
         data: serviceResponse.data,
@@ -69,7 +68,7 @@ import {
     async findOne(
       @Param('id', ParseUUIDPipe) id: string,
     ): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.findOne(id);
+      const serviceResponse = await this.votosService.findOne(id);
   
       return {
         data: serviceResponse.data,
@@ -85,7 +84,7 @@ import {
       @Param('id', ParseUUIDPipe) id: string,
       @Body() payload: any,
     ): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.update(id, payload);
+      const serviceResponse = await this.votosService.update(id, payload);
       return {
         data: serviceResponse.data,
         message: `Actividad fue actualizada`,
@@ -99,7 +98,7 @@ import {
     async remove(
       @Param('id', ParseUUIDPipe) id: string,
     ): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.remove(id);
+      const serviceResponse = await this.votosService.remove(id);
       return {
         data: serviceResponse.data,
         message: `Actividad fue eliminada`,
@@ -110,8 +109,8 @@ import {
     @ApiOperation({ summary: 'Borrar todas las  Actividades' })
     @Patch('remove-all')
     @HttpCode(HttpStatus.CREATED)
-    async removeAll(@Body() payload: ActividadEntity[]): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.removeAll(payload);
+    async removeAll(@Body() payload: VotoEntity[]): Promise<ResponseHttpModel> {
+      const serviceResponse = await this.votosService.removeAll(payload);
   
       return {
         data: serviceResponse.data,

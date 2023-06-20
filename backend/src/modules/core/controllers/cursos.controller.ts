@@ -13,11 +13,6 @@ import {
   Query,
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import {
-  CreateInformationTeacherDto,
-  FilterInformationTeacherDto,
-  UpdateInformationTeacherDto,
-} from '@core/dto';
 import { CursoEntity } from '@core/entities';
 import { ResponseHttpModel } from '@shared/models';
 import { CursosService } from '@core/services';
@@ -31,7 +26,7 @@ export class CursosController {
   @Post()
   @HttpCode(HttpStatus.CREATED)
   async create(
-    @Body() payload: CreateInformationTeacherDto,
+    @Body() payload: any,
   ): Promise<ResponseHttpModel> {
     const serviceResponse = await this.cursosService.create(
       payload,
@@ -48,7 +43,7 @@ export class CursosController {
   @Get()
   @HttpCode(HttpStatus.OK)
   async findAll(
-    @Query() params: FilterInformationTeacherDto,
+    @Query() params: any,
   ): Promise<ResponseHttpModel> {
     const serviceResponse = await this.cursosService.findAll(
       params,
@@ -81,7 +76,7 @@ export class CursosController {
   @HttpCode(HttpStatus.CREATED)
   async update(
     @Param('id', ParseUUIDPipe) id: number,
-    @Body() payload: UpdateInformationTeacherDto,
+    @Body() payload: any,
   ): Promise<ResponseHttpModel> {
     const serviceResponse = await this.cursosService.update(
       id,

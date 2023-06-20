@@ -18,7 +18,4 @@ export class CronogramaEntity {
     comment: 'Nombre del usuario que creo el cronograma',
   })
   responsable: string;
-  
-  @ManyToOne(() => CronogramaEntity, cronograma => cronograma.actividades)
-  cronograma: CronogramaEntity;
 }

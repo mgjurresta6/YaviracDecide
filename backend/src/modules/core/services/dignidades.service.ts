@@ -1,13 +1,6 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { Repository, FindOptionsWhere, ILike } from 'typeorm';
-import {
-  CreateCareerDto,
-  UpdateCareerDto,
-  FilterCareerDto,
-  PaginationDto,
-} from '@core/dto';
 import { DignidadEntity } from '@core/entities';
-import { CataloguesService } from '@core/services';
 import { ServiceResponseHttpModel } from '@shared/models';
 import { RepositoryEnum } from '@shared/enums';
 
@@ -16,12 +9,10 @@ export class DignidadesService {
   constructor(
     @Inject(RepositoryEnum.DIGNIDAD_REPOSITORY)
     private dignidadRepository: Repository<DignidadEntity>,
-    private cataloguesService: CataloguesService,
   ) {}
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
     const response = await this.dignidadRepository.findAndCount({
-      relations: ['institution', 'modality', 'state', 'type'],
       take: 1000,
     });
 
@@ -40,29 +31,18 @@ export class DignidadesService {
     // newCareer.institution = await this.institutionService.findOne(
     //   payload.institution.id,
     // );
-
-    newDignidad.modality = await this.cataloguesService.findOne(
-      payload.modality.id,
-    );
-
-    newDignidad.state = await this.cataloguesService.findOne(payload.state.id);
-
-    newDignidad.type = await this.cataloguesService.findOne(payload.type.id);
-
     const dignidadCreated = await this.dignidadRepository.save(newDignidad);
 
     return { data: dignidadCreated };
   }
   async findAll(params?: any): Promise<ServiceResponseHttpModel> {
     const data = await this.dignidadRepository.findAndCount({
-      relations: ['institution', 'modality', 'state', 'type'],
     });
 
     return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
   }
   async findOne(id: number): Promise<any> {
     const dignidad = await this.dignidadRepository.findOne({
-      relations: ['institution', 'modality', 'state', 'type'],
       where: {
         id,
       },

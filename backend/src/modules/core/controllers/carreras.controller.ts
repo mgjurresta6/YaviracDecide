@@ -13,7 +13,6 @@ import {
   Query,
 } from '@nestjs/common';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
-import { CreateCareerDto, UpdateCareerDto, FilterCareerDto } from '@core/dto';
 import { CarrerasService } from '@core/services';
 import { CarreraEntity } from '@core/entities';
 import { ResponseHttpModel } from '@shared/models';

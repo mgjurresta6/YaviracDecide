@@ -10,16 +10,14 @@ exports.CoreModule = void 0;
 const common_1 = require("@nestjs/common");
 const controllers_1 = require("./controllers");
 const services_1 = require("./services");
-const _database_1 = require("../../database");
 const providers_1 = require("./providers");
 let CoreModule = class CoreModule {
 };
 CoreModule = __decorate([
     (0, common_1.Global)(),
     (0, common_1.Module)({
-        imports: [_database_1.DatabaseModule],
+        imports: [],
         controllers: [
-            controllers_1.CataloguesController,
             controllers_1.ActividadesController,
             controllers_1.CarrerasController,
             controllers_1.ConfiguracionesController,
@@ -39,7 +37,6 @@ CoreModule = __decorate([
         ],
         providers: [
             ...providers_1.coreProviders,
-            services_1.CataloguesService,
             services_1.ActividadesService,
             services_1.CarrerasService,
             services_1.ConfiguracionesService,
@@ -59,7 +56,6 @@ CoreModule = __decorate([
         ],
         exports: [
             ...providers_1.coreProviders,
-            services_1.CataloguesService,
             services_1.CarrerasService,
             services_1.ConfiguracionesService,
             services_1.CronogramasService,

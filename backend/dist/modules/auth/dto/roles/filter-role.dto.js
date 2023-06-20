@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FilterRoleDto = void 0;
 const openapi = require("@nestjs/swagger");
 const class_validator_1 = require("class-validator");
-const dto_1 = require("../../../core/dto");
+const dto_1 = require("@core/dto");
 class FilterRoleDto extends dto_1.PaginationDto {
     static _OPENAPI_METADATA_FACTORY() {
         return { code: { required: true, type: () => String }, name: { required: true, type: () => String } };

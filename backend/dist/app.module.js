@@ -15,9 +15,8 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const enviroments_1 = require("./enviroments");
 const _config_1 = require("./config");
-const modules_1 = require("./modules/auth/auth.module");
-const modules_2 = require("./modules/core");
-const modules_3 = require("./modules/common");
+const modules_1 = require("./modules/core");
+const modules_2 = require("./modules/common");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -38,9 +37,8 @@ AppModule = __decorate([
                 }),
             }),
             axios_1.HttpModule,
-            modules_3.CommonModule,
-            modules_1.AuthModule,
-            modules_2.CoreModule,
+            modules_2.CommonModule,
+            modules_1.CoreModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

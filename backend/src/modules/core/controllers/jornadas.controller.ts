@@ -15,11 +15,6 @@ import {
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { ResponseHttpModel } from '@shared/models';
 import { JornadasService } from '@core/services';
-import {
-  CreateStudentDto,
-  FilterStudentDto,
-  UpdateStudentDto,
-} from '@core/dto';
 import { JornadaEntity } from '@core/entities';
 
 @Controller('jornadas')
@@ -89,7 +84,7 @@ export class JornadasController {
   @HttpCode(HttpStatus.CREATED)
   async update(
     @Param('id', ParseUUIDPipe) id: number,
-    @Body() payload: UpdateStudentDto,
+    @Body() payload: any,
   ): Promise<ResponseHttpModel> {
     const serviceResponse = await this.jornadasService.update(id, payload);
 

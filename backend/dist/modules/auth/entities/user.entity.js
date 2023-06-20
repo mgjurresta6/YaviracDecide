@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var _a;
+var _a, _b, _c, _d, _e, _f, _g;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserEntity = void 0;
 const openapi = require("@nestjs/swagger");
@@ -30,7 +30,7 @@ let UserEntity = class UserEntity {
         }
     }
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: true, type: () => Date }, roles: { required: true, type: () => [require("./role.entity").RoleEntity] }, student: { required: true, type: () => Object }, bloodType: { required: true, type: () => require("../../core/entities/catalogue.entity").CatalogueEntity }, ethnicOrigin: { required: true, type: () => require("../../core/entities/catalogue.entity").CatalogueEntity }, identificationType: { required: true, type: () => require("../../core/entities/catalogue.entity").CatalogueEntity }, gender: { required: true, type: () => require("../../core/entities/catalogue.entity").CatalogueEntity }, maritalStatus: { required: true, type: () => require("../../core/entities/catalogue.entity").CatalogueEntity }, sex: { required: true, type: () => require("../../core/entities/catalogue.entity").CatalogueEntity }, activatedAt: { required: true, type: () => Date }, birthdate: { required: true, type: () => Date }, email: { required: true, type: () => String }, emailVerifiedAt: { required: true, type: () => Date }, identification: { required: true, type: () => String }, lastname: { required: true, type: () => String }, password: { required: true, type: () => String }, passwordChanged: { required: true, type: () => Boolean }, personalEmail: { required: true, type: () => String }, phone: { required: true, type: () => String }, maxAttempts: { required: true, type: () => Number }, name: { required: true, type: () => String }, suspendedAt: { required: true, type: () => Date }, username: { required: true, type: () => String } };
+        return { id: { required: true, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date }, deletedAt: { required: true, type: () => Date }, roles: { required: true, type: () => [require("./role.entity").RoleEntity] }, student: { required: true, type: () => Object }, bloodType: { required: true, type: () => Object }, ethnicOrigin: { required: true, type: () => Object }, identificationType: { required: true, type: () => Object }, gender: { required: true, type: () => Object }, maritalStatus: { required: true, type: () => Object }, sex: { required: true, type: () => Object }, activatedAt: { required: true, type: () => Date }, birthdate: { required: true, type: () => Date }, email: { required: true, type: () => String }, emailVerifiedAt: { required: true, type: () => Date }, identification: { required: true, type: () => String }, lastname: { required: true, type: () => String }, password: { required: true, type: () => String }, passwordChanged: { required: true, type: () => Boolean }, personalEmail: { required: true, type: () => String }, phone: { required: true, type: () => String }, maxAttempts: { required: true, type: () => Number }, name: { required: true, type: () => String }, suspendedAt: { required: true, type: () => Date }, username: { required: true, type: () => String } };
     }
 };
 __decorate([
@@ -72,32 +72,32 @@ __decorate([
 __decorate([
     (0, typeorm_1.ManyToOne)(() => entities_1.CatalogueEntity, { nullable: true }),
     (0, typeorm_1.JoinColumn)({ name: 'blood_type_id' }),
-    __metadata("design:type", entities_1.CatalogueEntity)
+    __metadata("design:type", typeof (_b = typeof entities_1.CatalogueEntity !== "undefined" && entities_1.CatalogueEntity) === "function" ? _b : Object)
 ], UserEntity.prototype, "bloodType", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => entities_1.CatalogueEntity, { nullable: true }),
     (0, typeorm_1.JoinColumn)({ name: 'ethnic_origin_id' }),
-    __metadata("design:type", entities_1.CatalogueEntity)
+    __metadata("design:type", typeof (_c = typeof entities_1.CatalogueEntity !== "undefined" && entities_1.CatalogueEntity) === "function" ? _c : Object)
 ], UserEntity.prototype, "ethnicOrigin", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => entities_1.CatalogueEntity, { nullable: true }),
     (0, typeorm_1.JoinColumn)({ name: 'identification_type_id' }),
-    __metadata("design:type", entities_1.CatalogueEntity)
+    __metadata("design:type", typeof (_d = typeof entities_1.CatalogueEntity !== "undefined" && entities_1.CatalogueEntity) === "function" ? _d : Object)
 ], UserEntity.prototype, "identificationType", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => entities_1.CatalogueEntity, { nullable: true }),
     (0, typeorm_1.JoinColumn)({ name: 'gender_id' }),
-    __metadata("design:type", entities_1.CatalogueEntity)
+    __metadata("design:type", typeof (_e = typeof entities_1.CatalogueEntity !== "undefined" && entities_1.CatalogueEntity) === "function" ? _e : Object)
 ], UserEntity.prototype, "gender", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => entities_1.CatalogueEntity, { nullable: true }),
     (0, typeorm_1.JoinColumn)({ name: 'marital_status_id' }),
-    __metadata("design:type", entities_1.CatalogueEntity)
+    __metadata("design:type", typeof (_f = typeof entities_1.CatalogueEntity !== "undefined" && entities_1.CatalogueEntity) === "function" ? _f : Object)
 ], UserEntity.prototype, "maritalStatus", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => entities_1.CatalogueEntity, { nullable: true }),
     (0, typeorm_1.JoinColumn)({ name: 'sex_id' }),
-    __metadata("design:type", entities_1.CatalogueEntity)
+    __metadata("design:type", typeof (_g = typeof entities_1.CatalogueEntity !== "undefined" && entities_1.CatalogueEntity) === "function" ? _g : Object)
 ], UserEntity.prototype, "sex", void 0);
 __decorate([
     (0, typeorm_1.Column)('timestamptz', {

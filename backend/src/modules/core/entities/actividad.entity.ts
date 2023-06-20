@@ -13,5 +13,3 @@ export class ActividadEntity {
   })
   actividad: string;
 }
-@ManyToOne(() => CronogramaEntity, cronograma => cronograma.actividades)
-cronograma: CronogramaEntity;

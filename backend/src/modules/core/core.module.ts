@@ -1,6 +1,5 @@
 import { Global, Module } from '@nestjs/common';
 import {
-  CataloguesController,
   ActividadesController,
   CarrerasController,
   ConfiguracionesController,
@@ -20,7 +19,6 @@ import {
   
 } from '@core/controllers';
 import {
-  CataloguesService,
   ActividadesService,
   CarrerasService,
   ConfiguracionesService,
@@ -38,14 +36,12 @@ import {
   TipoUsuariosService,
   VotosService
 } from '@core/services';
-import { DatabaseModule } from '@database';
 import { coreProviders } from '@core/providers';
 
 @Global()
 @Module({
-  imports: [DatabaseModule],
+  imports: [],
   controllers: [
-    CataloguesController,
     ActividadesController,
     CarrerasController,
     ConfiguracionesController,
@@ -65,7 +61,6 @@ import { coreProviders } from '@core/providers';
   ],
   providers: [
     ...coreProviders,
-    CataloguesService,
     ActividadesService,
     CarrerasService,
     ConfiguracionesService,
@@ -86,7 +81,6 @@ import { coreProviders } from '@core/providers';
   ],
   exports: [
     ...coreProviders,
-    CataloguesService,
     CarrerasService,
     ConfiguracionesService,
     CronogramasService,

@@ -1,13 +1,6 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { Repository, FindOptionsWhere, ILike } from 'typeorm';
-import {
-  CreateCareerDto,
-  UpdateCareerDto,
-  FilterCareerDto,
-  PaginationDto,
-} from '@core/dto';
 import { CronogramaEntity } from '@core/entities';
-import { CataloguesService } from '@core/services';
 import { ServiceResponseHttpModel } from '@shared/models';
 import { RepositoryEnum } from '@shared/enums';
 
@@ -16,12 +9,10 @@ export class CronogramasService {
   constructor(
     @Inject(RepositoryEnum.CRONOGRAMA_REPOSITORY)
     private cronogramaRepository: Repository<CronogramaEntity>,
-    private cataloguesService: CataloguesService,
   ) {}
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
     const response = await this.cronogramaRepository.findAndCount({
-      relations: ['institution', 'modality', 'state', 'type'],
       take: 1000,
     });
 
@@ -41,28 +32,18 @@ export class CronogramasService {
     //   payload.institution.id,
     // );
 
-    newCronograma.modality = await this.cataloguesService.findOne(
-      payload.modality.id,
-    );
-
-    newCronograma.state = await this.cataloguesService.findOne(payload.state.id);
-
-    newCronograma.type = await this.cataloguesService.findOne(payload.type.id);
-
     const cronogramaCreated = await this.cronogramaRepository.save(newCronograma);
 
     return { data: cronogramaCreated };
   }
   async findAll(params?: any): Promise<ServiceResponseHttpModel> {
     const data = await this.cronogramaRepository.findAndCount({
-      relations: ['institution', 'modality', 'state', 'type'],
     });
 
     return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
   }
   async findOne(id: string): Promise<any> {
     const cronograma = await this.cronogramaRepository.findOne({
-      relations: ['institution', 'modality', 'state', 'type'],
       where: {
         id,
       },

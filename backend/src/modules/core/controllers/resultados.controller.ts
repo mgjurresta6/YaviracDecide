@@ -13,20 +13,19 @@ import {
     Query,
   } from '@nestjs/common';
   import { ApiTags, ApiOperation } from '@nestjs/swagger';
-  import { CreateCareerDto, UpdateCareerDto, FilterCareerDto } from '@core/dto';
-  import { ActividadesService } from '@core/services';
-  import { ActividadEntity } from '@core/entities';
+  import { ResultadosService } from '@core/services';
+  import { ResultadoEntity } from '@core/entities';
   import { ResponseHttpModel } from '@shared/models';
   
-  @Controller('actividades')
+  @Controller('resultados')
   export class ResultadosController {
-    constructor(private actividadesService: ActividadesService) {}
+    constructor(private resultadosService: ResultadosService) {}
   
     @ApiOperation({ summary: 'Catalogo Actividades' })
     @Get('catalogue')
     @HttpCode(HttpStatus.OK)
     async catalogue(): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.catalogue();
+      const serviceResponse = await this.resultadosService.catalogue();
   
       return {
         data: serviceResponse.data,
@@ -40,7 +39,7 @@ import {
     @Post()
     @HttpCode(HttpStatus.CREATED)
     async create(@Body() payload: any): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.create(payload);
+      const serviceResponse = await this.resultadosService.create(payload);
   
       return {
         data: serviceResponse.data,
@@ -53,7 +52,7 @@ import {
     @Get()
     @HttpCode(HttpStatus.OK)
     async findAll(@Query() params: any): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.findAll(params);
+      const serviceResponse = await this.resultadosService.findAll(params);
   
       return {
         data: serviceResponse.data,
@@ -69,7 +68,7 @@ import {
     async findOne(
       @Param('id', ParseUUIDPipe) id: string,
     ): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.findOne(id);
+      const serviceResponse = await this.resultadosService.findOne(id);
   
       return {
         data: serviceResponse.data,
@@ -85,7 +84,7 @@ import {
       @Param('id', ParseUUIDPipe) id: string,
       @Body() payload: any,
     ): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.update(id, payload);
+      const serviceResponse = await this.resultadosService.update(id, payload);
       return {
         data: serviceResponse.data,
         message: `Actividad fue actualizada`,
@@ -99,7 +98,7 @@ import {
     async remove(
       @Param('id', ParseUUIDPipe) id: string,
     ): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.remove(id);
+      const serviceResponse = await this.resultadosService.remove(id);
       return {
         data: serviceResponse.data,
         message: `Actividad fue eliminada`,
@@ -110,8 +109,8 @@ import {
     @ApiOperation({ summary: 'Borrar todas las  Actividades' })
     @Patch('remove-all')
     @HttpCode(HttpStatus.CREATED)
-    async removeAll(@Body() payload: ActividadEntity[]): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.removeAll(payload);
+    async removeAll(@Body() payload: ResultadoEntity[]): Promise<ResponseHttpModel> {
+      const serviceResponse = await this.resultadosService.removeAll(payload);
   
       return {
         data: serviceResponse.data,

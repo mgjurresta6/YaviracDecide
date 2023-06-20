@@ -15,16 +15,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RolesService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("typeorm");
-const services_1 = require("./");
 const enums_1 = require("../../../shared/enums");
 let RolesService = class RolesService {
-    constructor(rolRepository, cataloguesService) {
+    constructor(rolRepository) {
         this.rolRepository = rolRepository;
-        this.cataloguesService = cataloguesService;
     }
     async catalogue() {
         const response = await this.rolRepository.findAndCount({
-            relations: ['institution', 'modality', 'state', 'type'],
             take: 1000,
         });
         return {
@@ -37,21 +34,15 @@ let RolesService = class RolesService {
     }
     async create(payload) {
         const newRol = this.rolRepository.create(payload);
-        newRol.modality = await this.cataloguesService.findOne(payload.modality.id);
-        newRol.state = await this.cataloguesService.findOne(payload.state.id);
-        newRol.type = await this.cataloguesService.findOne(payload.type.id);
         const rolCreated = await this.rolRepository.save(newRol);
         return { data: rolCreated };
     }
     async findAll(params) {
-        const data = await this.rolRepository.findAndCount({
-            relations: ['institution', 'modality', 'state', 'type'],
-        });
+        const data = await this.rolRepository.findAndCount({});
         return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
     }
     async findOne(id) {
         const rol = await this.rolRepository.findOne({
-            relations: ['institution', 'modality', 'state', 'type'],
             where: {
                 id,
             },
@@ -86,8 +77,7 @@ let RolesService = class RolesService {
 RolesService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, common_1.Inject)(enums_1.RepositoryEnum.ROL_REPOSITORY)),
-    __metadata("design:paramtypes", [typeorm_1.Repository,
-        services_1.CataloguesService])
+    __metadata("design:paramtypes", [typeorm_1.Repository])
 ], RolesService);
 exports.RolesService = RolesService;
 //# sourceMappingURL=roles.service.js.map

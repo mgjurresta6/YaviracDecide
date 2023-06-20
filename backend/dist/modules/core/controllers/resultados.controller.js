@@ -18,11 +18,11 @@ const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const services_1 = require("../services");
 let ResultadosController = class ResultadosController {
-    constructor(actividadesService) {
-        this.actividadesService = actividadesService;
+    constructor(resultadosService) {
+        this.resultadosService = resultadosService;
     }
     async catalogue() {
-        const serviceResponse = await this.actividadesService.catalogue();
+        const serviceResponse = await this.resultadosService.catalogue();
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
@@ -31,7 +31,7 @@ let ResultadosController = class ResultadosController {
         };
     }
     async create(payload) {
-        const serviceResponse = await this.actividadesService.create(payload);
+        const serviceResponse = await this.resultadosService.create(payload);
         return {
             data: serviceResponse.data,
             message: 'Actividad fue creada',
@@ -39,7 +39,7 @@ let ResultadosController = class ResultadosController {
         };
     }
     async findAll(params) {
-        const serviceResponse = await this.actividadesService.findAll(params);
+        const serviceResponse = await this.resultadosService.findAll(params);
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
@@ -48,7 +48,7 @@ let ResultadosController = class ResultadosController {
         };
     }
     async findOne(id) {
-        const serviceResponse = await this.actividadesService.findOne(id);
+        const serviceResponse = await this.resultadosService.findOne(id);
         return {
             data: serviceResponse.data,
             message: `Encontar una Actividad`,
@@ -56,7 +56,7 @@ let ResultadosController = class ResultadosController {
         };
     }
     async update(id, payload) {
-        const serviceResponse = await this.actividadesService.update(id, payload);
+        const serviceResponse = await this.resultadosService.update(id, payload);
         return {
             data: serviceResponse.data,
             message: `Actividad fue actualizada`,
@@ -64,7 +64,7 @@ let ResultadosController = class ResultadosController {
         };
     }
     async remove(id) {
-        const serviceResponse = await this.actividadesService.remove(id);
+        const serviceResponse = await this.resultadosService.remove(id);
         return {
             data: serviceResponse.data,
             message: `Actividad fue eliminada`,
@@ -72,7 +72,7 @@ let ResultadosController = class ResultadosController {
         };
     }
     async removeAll(payload) {
-        const serviceResponse = await this.actividadesService.removeAll(payload);
+        const serviceResponse = await this.resultadosService.removeAll(payload);
         return {
             data: serviceResponse.data,
             message: `Actividades fueron eliminadas`,
@@ -144,8 +144,8 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ResultadosController.prototype, "removeAll", null);
 ResultadosController = __decorate([
-    (0, common_1.Controller)('actividades'),
-    __metadata("design:paramtypes", [services_1.ActividadesService])
+    (0, common_1.Controller)('resultados'),
+    __metadata("design:paramtypes", [services_1.ResultadosService])
 ], ResultadosController);
 exports.ResultadosController = ResultadosController;
 //# sourceMappingURL=resultados.controller.js.map

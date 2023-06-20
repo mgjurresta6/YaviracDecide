@@ -18,11 +18,11 @@ const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const services_1 = require("../services");
 let UsuariosController = class UsuariosController {
-    constructor(actividadesService) {
-        this.actividadesService = actividadesService;
+    constructor(usuariosService) {
+        this.usuariosService = usuariosService;
     }
     async catalogue() {
-        const serviceResponse = await this.actividadesService.catalogue();
+        const serviceResponse = await this.usuariosService.catalogue();
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
@@ -31,7 +31,7 @@ let UsuariosController = class UsuariosController {
         };
     }
     async create(payload) {
-        const serviceResponse = await this.actividadesService.create(payload);
+        const serviceResponse = await this.usuariosService.create(payload);
         return {
             data: serviceResponse.data,
             message: 'Actividad fue creada',
@@ -39,7 +39,7 @@ let UsuariosController = class UsuariosController {
         };
     }
     async findAll(params) {
-        const serviceResponse = await this.actividadesService.findAll(params);
+        const serviceResponse = await this.usuariosService.findAll(params);
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
@@ -47,24 +47,24 @@ let UsuariosController = class UsuariosController {
             title: 'Exitoso',
         };
     }
-    async findOne(id) {
-        const serviceResponse = await this.actividadesService.findOne(id);
+    async findOne(cedula) {
+        const serviceResponse = await this.usuariosService.findOne(cedula);
         return {
             data: serviceResponse.data,
             message: `Encontar una Actividad`,
             title: `Exitoso`,
         };
     }
-    async update(id, payload) {
-        const serviceResponse = await this.actividadesService.update(id, payload);
+    async update(cedula, payload) {
+        const serviceResponse = await this.usuariosService.update(cedula, payload);
         return {
             data: serviceResponse.data,
             message: `Actividad fue actualizada`,
             title: `Actividad Actualizada`,
         };
     }
-    async remove(id) {
-        const serviceResponse = await this.actividadesService.remove(id);
+    async remove(cedula) {
+        const serviceResponse = await this.usuariosService.remove(cedula);
         return {
             data: serviceResponse.data,
             message: `Actividad fue eliminada`,
@@ -72,7 +72,7 @@ let UsuariosController = class UsuariosController {
         };
     }
     async removeAll(payload) {
-        const serviceResponse = await this.actividadesService.removeAll(payload);
+        const serviceResponse = await this.usuariosService.removeAll(payload);
         return {
             data: serviceResponse.data,
             message: `Actividades fueron eliminadas`,
@@ -112,7 +112,7 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], UsuariosController.prototype, "findOne", null);
 __decorate([
@@ -122,7 +122,7 @@ __decorate([
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", Promise)
 ], UsuariosController.prototype, "update", null);
 __decorate([
@@ -131,7 +131,7 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], UsuariosController.prototype, "remove", null);
 __decorate([
@@ -144,8 +144,8 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsuariosController.prototype, "removeAll", null);
 UsuariosController = __decorate([
-    (0, common_1.Controller)('actividades'),
-    __metadata("design:paramtypes", [services_1.ActividadesService])
+    (0, common_1.Controller)('usuarios'),
+    __metadata("design:paramtypes", [services_1.UsuariosService])
 ], UsuariosController);
 exports.UsuariosController = UsuariosController;
 //# sourceMappingURL=usuarios.controller.js.map

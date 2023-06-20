@@ -1,13 +1,6 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { Repository, FindOptionsWhere, ILike } from 'typeorm';
-import {
-  CreateCareerDto,
-  UpdateCareerDto,
-  FilterCareerDto,
-  PaginationDto,
-} from '@core/dto';
 import { ActividadEntity } from '@core/entities';
-import { CataloguesService } from '@core/services';
 import { ServiceResponseHttpModel } from '@shared/models';
 import { RepositoryEnum } from '@shared/enums';
 
@@ -16,7 +9,6 @@ export class ActividadesService {
   constructor(
     @Inject(RepositoryEnum.ACTIVIDAD_REPOSITORY)
     private actividadRepository: Repository<ActividadEntity>,
-    private cataloguesService: CataloguesService,
   ) {}
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
@@ -37,18 +29,6 @@ export class ActividadesService {
   async create(payload: any): Promise<ServiceResponseHttpModel> {
     const newActividad = this.actividadRepository.create(payload);
 
-    // newCareer.institution = await this.institutionService.findOne(
-    //   payload.institution.id,
-    // );
-
-   // newActividad.modality = await this.cataloguesService.findOne(
-   //   payload.modality.id,
-   // );
-
-   // newActividad.state = await this.cataloguesService.findOne(payload.state.id);
-
-   // newActividad.type = await this.cataloguesService.findOne(payload.type.id);
-
     const actividadCreated = await this.actividadRepository.save(newActividad);
 
     return { data: actividadCreated };
@@ -56,7 +36,6 @@ export class ActividadesService {
 
   async findAll(params?: any): Promise<ServiceResponseHttpModel> {
     const data = await this.actividadRepository.findAndCount({
-      relations: ['institution', 'modality', 'state', 'type'],
     });
 
     return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
@@ -64,7 +43,6 @@ export class ActividadesService {
 
   async findOne(id: string): Promise<any> {
     const actividad = await this.actividadRepository.findOne({
-      relations: ['institution', 'modality', 'state', 'type'],
       where: {
         id,
       },

@@ -13,20 +13,19 @@ import {
     Query,
   } from '@nestjs/common';
   import { ApiTags, ApiOperation } from '@nestjs/swagger';
-  import { CreateCareerDto, UpdateCareerDto, FilterCareerDto } from '@core/dto';
-  import { ActividadesService } from '@core/services';
-  import { ActividadEntity } from '@core/entities';
+  import { TipoUsuariosService } from '@core/services';
+  import { TipoEntity } from '@core/entities';
   import { ResponseHttpModel } from '@shared/models';
   
-  @Controller('actividades')
+  @Controller('tipousuarios')
   export class tipoUsuariosController {
-    constructor(private actividadesService: ActividadesService) {}
+    constructor(private tipousuariosService: TipoUsuariosService) {}
   
     @ApiOperation({ summary: 'Catalogo Actividades' })
     @Get('catalogue')
     @HttpCode(HttpStatus.OK)
     async catalogue(): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.catalogue();
+      const serviceResponse = await this.tipousuariosService.catalogue();
   
       return {
         data: serviceResponse.data,
@@ -40,7 +39,7 @@ import {
     @Post()
     @HttpCode(HttpStatus.CREATED)
     async create(@Body() payload: any): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.create(payload);
+      const serviceResponse = await this.tipousuariosService.create(payload);
   
       return {
         data: serviceResponse.data,
@@ -53,7 +52,7 @@ import {
     @Get()
     @HttpCode(HttpStatus.OK)
     async findAll(@Query() params: any): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.findAll(params);
+      const serviceResponse = await this.tipousuariosService.findAll(params);
   
       return {
         data: serviceResponse.data,
@@ -67,9 +66,9 @@ import {
     @Get(':id')
     @HttpCode(HttpStatus.OK)
     async findOne(
-      @Param('id', ParseUUIDPipe) id: string,
+      @Param('id', ParseUUIDPipe) id: number,
     ): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.findOne(id);
+      const serviceResponse = await this.tipousuariosService.findOne(id);
   
       return {
         data: serviceResponse.data,
@@ -82,10 +81,10 @@ import {
     @Put(':id')
     @HttpCode(HttpStatus.CREATED)
     async update(
-      @Param('id', ParseUUIDPipe) id: string,
+      @Param('id', ParseUUIDPipe) id: number,
       @Body() payload: any,
     ): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.update(id, payload);
+      const serviceResponse = await this.tipousuariosService.update(id, payload);
       return {
         data: serviceResponse.data,
         message: `Actividad fue actualizada`,
@@ -97,9 +96,9 @@ import {
     @Delete(':id')
     @HttpCode(HttpStatus.CREATED)
     async remove(
-      @Param('id', ParseUUIDPipe) id: string,
+      @Param('id', ParseUUIDPipe) id: number,
     ): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.remove(id);
+      const serviceResponse = await this.tipousuariosService.remove(id);
       return {
         data: serviceResponse.data,
         message: `Actividad fue eliminada`,
@@ -110,8 +109,8 @@ import {
     @ApiOperation({ summary: 'Borrar todas las  Actividades' })
     @Patch('remove-all')
     @HttpCode(HttpStatus.CREATED)
-    async removeAll(@Body() payload: ActividadEntity[]): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.actividadesService.removeAll(payload);
+    async removeAll(@Body() payload: TipoEntity[]): Promise<ResponseHttpModel> {
+      const serviceResponse = await this.tipousuariosService.removeAll(payload);
   
       return {
         data: serviceResponse.data,

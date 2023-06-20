@@ -18,11 +18,11 @@ const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const services_1 = require("../services");
 let RolesController = class RolesController {
-    constructor(actividadesService) {
-        this.actividadesService = actividadesService;
+    constructor(rolesService) {
+        this.rolesService = rolesService;
     }
     async catalogue() {
-        const serviceResponse = await this.actividadesService.catalogue();
+        const serviceResponse = await this.rolesService.catalogue();
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
@@ -31,7 +31,7 @@ let RolesController = class RolesController {
         };
     }
     async create(payload) {
-        const serviceResponse = await this.actividadesService.create(payload);
+        const serviceResponse = await this.rolesService.create(payload);
         return {
             data: serviceResponse.data,
             message: 'Actividad fue creada',
@@ -39,7 +39,7 @@ let RolesController = class RolesController {
         };
     }
     async findAll(params) {
-        const serviceResponse = await this.actividadesService.findAll(params);
+        const serviceResponse = await this.rolesService.findAll(params);
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
@@ -48,7 +48,7 @@ let RolesController = class RolesController {
         };
     }
     async findOne(id) {
-        const serviceResponse = await this.actividadesService.findOne(id);
+        const serviceResponse = await this.rolesService.findOne(id);
         return {
             data: serviceResponse.data,
             message: `Encontar una Actividad`,
@@ -56,7 +56,7 @@ let RolesController = class RolesController {
         };
     }
     async update(id, payload) {
-        const serviceResponse = await this.actividadesService.update(id, payload);
+        const serviceResponse = await this.rolesService.update(id, payload);
         return {
             data: serviceResponse.data,
             message: `Actividad fue actualizada`,
@@ -64,7 +64,7 @@ let RolesController = class RolesController {
         };
     }
     async remove(id) {
-        const serviceResponse = await this.actividadesService.remove(id);
+        const serviceResponse = await this.rolesService.remove(id);
         return {
             data: serviceResponse.data,
             message: `Actividad fue eliminada`,
@@ -72,7 +72,7 @@ let RolesController = class RolesController {
         };
     }
     async removeAll(payload) {
-        const serviceResponse = await this.actividadesService.removeAll(payload);
+        const serviceResponse = await this.rolesService.removeAll(payload);
         return {
             data: serviceResponse.data,
             message: `Actividades fueron eliminadas`,
@@ -112,7 +112,7 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], RolesController.prototype, "findOne", null);
 __decorate([
@@ -122,7 +122,7 @@ __decorate([
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", Promise)
 ], RolesController.prototype, "update", null);
 __decorate([
@@ -131,7 +131,7 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], RolesController.prototype, "remove", null);
 __decorate([
@@ -144,8 +144,8 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], RolesController.prototype, "removeAll", null);
 RolesController = __decorate([
-    (0, common_1.Controller)('actividades'),
-    __metadata("design:paramtypes", [services_1.ActividadesService])
+    (0, common_1.Controller)('roles'),
+    __metadata("design:paramtypes", [services_1.RolesService])
 ], RolesController);
 exports.RolesController = RolesController;
 //# sourceMappingURL=roles.controller.js.map

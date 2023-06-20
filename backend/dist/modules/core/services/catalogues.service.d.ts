@@ -6,7 +6,7 @@ import { ReadUserDto } from '@auth/dto';
 export declare class CataloguesService {
     private repository;
     constructor(repository: Repository<CatalogueEntity>);
-    create(payload: CreateCatalogueDto): Promise<CatalogueEntity>;
+    create(payload: CreateCatalogueDto): Promise<CatalogueEntity[]>;
     catalogue(type: CatalogueTypeEnum): Promise<{
         pagination: {
             totalItems: number;
@@ -17,7 +17,7 @@ export declare class CataloguesService {
     findAll(params?: FilterCatalogueDto): Promise<{
         data: ReadUserDto[];
         pagination: {
-            limit: number;
+            limit: FilterCatalogueDto;
             totalItems: number;
         };
     } | {

@@ -11,13 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var _a, _b, _c, _d;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CataloguesController = void 0;
 const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const services_1 = require("../services");
-const dto_1 = require("../dto");
+const dto_1 = require("@core/dto");
 const enums_1 = require("../../../shared/enums");
 let CataloguesController = class CataloguesController {
     constructor(catalogueService) {
@@ -84,7 +85,7 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [dto_1.CreateCatalogueDto]),
+    __metadata("design:paramtypes", [typeof (_b = typeof dto_1.CreateCatalogueDto !== "undefined" && dto_1.CreateCatalogueDto) === "function" ? _b : Object]),
     __metadata("design:returntype", Promise)
 ], CataloguesController.prototype, "create", null);
 __decorate([
@@ -102,7 +103,7 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [dto_1.FilterCatalogueDto]),
+    __metadata("design:paramtypes", [typeof (_c = typeof dto_1.FilterCatalogueDto !== "undefined" && dto_1.FilterCatalogueDto) === "function" ? _c : Object]),
     __metadata("design:returntype", Promise)
 ], CataloguesController.prototype, "findAll", null);
 __decorate([
@@ -119,7 +120,7 @@ __decorate([
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, dto_1.UpdateCatalogueDto]),
+    __metadata("design:paramtypes", [String, typeof (_d = typeof dto_1.UpdateCatalogueDto !== "undefined" && dto_1.UpdateCatalogueDto) === "function" ? _d : Object]),
     __metadata("design:returntype", Promise)
 ], CataloguesController.prototype, "update", null);
 __decorate([
@@ -141,7 +142,7 @@ __decorate([
 CataloguesController = __decorate([
     (0, swagger_1.ApiTags)('catalogues'),
     (0, common_1.Controller)('catalogues'),
-    __metadata("design:paramtypes", [services_1.CataloguesService])
+    __metadata("design:paramtypes", [typeof (_a = typeof services_1.CataloguesService !== "undefined" && services_1.CataloguesService) === "function" ? _a : Object])
 ], CataloguesController);
 exports.CataloguesController = CataloguesController;
 //# sourceMappingURL=catalogues.controller.js.map

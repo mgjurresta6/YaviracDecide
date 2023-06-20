@@ -14,11 +14,6 @@ import {
 } from '@nestjs/common';
 
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
-import {
-  CreateInformationStudentDto,
-  FilterInformationStudentDto,
-  UpdateInformationStudentDto,
-} from '@core/dto';
 import { CronogramaEntity } from '@core/entities';
 import { CronogramasService } from '@core/services';
 import { ResponseHttpModel } from '@shared/models';
@@ -48,7 +43,7 @@ export class CronogramasController {
   @Get()
   @HttpCode(HttpStatus.OK)
   async findAll(
-    @Query() params: FilterInformationStudentDto,
+    @Query() params: any,
   ): Promise<ResponseHttpModel> {
     const serviceResponse = await this.cronogramasService.findAll(
       params,
@@ -80,7 +75,7 @@ export class CronogramasController {
   @HttpCode(HttpStatus.CREATED)
   async update(
     @Param('id', ParseUUIDPipe) id: string,
-    @Body() payload: UpdateInformationStudentDto,
+    @Body() payload: any,
   ): Promise<ResponseHttpModel> {
     const serviceResponse = await this.cronogramasService.update(
       id,

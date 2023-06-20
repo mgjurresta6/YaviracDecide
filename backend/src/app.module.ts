@@ -6,7 +6,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { enviroments } from './enviroments';
 import { config } from '@config';
-import { AuthModule } from '@auth/modules';
 import { CoreModule } from '@core/modules';
 import { CommonModule } from '@common/modules';
 
@@ -28,7 +27,6 @@ import { CommonModule } from '@common/modules';
     }),
     HttpModule,
     CommonModule,
-    AuthModule,
     CoreModule,
   ],
   controllers: [AppController],

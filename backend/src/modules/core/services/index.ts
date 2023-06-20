@@ -1,6 +1,4 @@
 import { from } from 'rxjs';
-
-export * from './catalogues.service';
 export * from './actividades.service';
 export * from './carreras.service';
 export * from './configuraciones.service';

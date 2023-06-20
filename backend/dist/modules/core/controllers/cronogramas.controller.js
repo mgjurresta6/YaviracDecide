@@ -16,7 +16,6 @@ exports.CronogramasController = void 0;
 const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
-const dto_1 = require("../dto");
 const services_1 = require("../services");
 let CronogramasController = class CronogramasController {
     constructor(cronogramasService) {
@@ -87,7 +86,7 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [dto_1.FilterInformationStudentDto]),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], CronogramasController.prototype, "findAll", null);
 __decorate([
@@ -106,7 +105,7 @@ __decorate([
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, dto_1.UpdateInformationStudentDto]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", Promise)
 ], CronogramasController.prototype, "update", null);
 __decorate([

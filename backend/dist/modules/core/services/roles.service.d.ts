@@ -1,11 +1,9 @@
 import { Repository } from 'typeorm';
 import { RolEntity } from '@core/entities';
-import { CataloguesService } from '@core/services';
 import { ServiceResponseHttpModel } from '@shared/models';
 export declare class RolesService {
     private rolRepository;
-    private cataloguesService;
-    constructor(rolRepository: Repository<RolEntity>, cataloguesService: CataloguesService);
+    constructor(rolRepository: Repository<RolEntity>);
     catalogue(): Promise<ServiceResponseHttpModel>;
     create(payload: any): Promise<ServiceResponseHttpModel>;
     findAll(params?: any): Promise<ServiceResponseHttpModel>;

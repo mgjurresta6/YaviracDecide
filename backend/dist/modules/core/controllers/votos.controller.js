@@ -18,11 +18,11 @@ const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const services_1 = require("../services");
 let VotosController = class VotosController {
-    constructor(actividadesService) {
-        this.actividadesService = actividadesService;
+    constructor(votosService) {
+        this.votosService = votosService;
     }
     async catalogue() {
-        const serviceResponse = await this.actividadesService.catalogue();
+        const serviceResponse = await this.votosService.catalogue();
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
@@ -31,7 +31,7 @@ let VotosController = class VotosController {
         };
     }
     async create(payload) {
-        const serviceResponse = await this.actividadesService.create(payload);
+        const serviceResponse = await this.votosService.create(payload);
         return {
             data: serviceResponse.data,
             message: 'Actividad fue creada',
@@ -39,7 +39,7 @@ let VotosController = class VotosController {
         };
     }
     async findAll(params) {
-        const serviceResponse = await this.actividadesService.findAll(params);
+        const serviceResponse = await this.votosService.findAll(params);
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
@@ -48,7 +48,7 @@ let VotosController = class VotosController {
         };
     }
     async findOne(id) {
-        const serviceResponse = await this.actividadesService.findOne(id);
+        const serviceResponse = await this.votosService.findOne(id);
         return {
             data: serviceResponse.data,
             message: `Encontar una Actividad`,
@@ -56,7 +56,7 @@ let VotosController = class VotosController {
         };
     }
     async update(id, payload) {
-        const serviceResponse = await this.actividadesService.update(id, payload);
+        const serviceResponse = await this.votosService.update(id, payload);
         return {
             data: serviceResponse.data,
             message: `Actividad fue actualizada`,
@@ -64,7 +64,7 @@ let VotosController = class VotosController {
         };
     }
     async remove(id) {
-        const serviceResponse = await this.actividadesService.remove(id);
+        const serviceResponse = await this.votosService.remove(id);
         return {
             data: serviceResponse.data,
             message: `Actividad fue eliminada`,
@@ -72,7 +72,7 @@ let VotosController = class VotosController {
         };
     }
     async removeAll(payload) {
-        const serviceResponse = await this.actividadesService.removeAll(payload);
+        const serviceResponse = await this.votosService.removeAll(payload);
         return {
             data: serviceResponse.data,
             message: `Actividades fueron eliminadas`,
@@ -144,8 +144,8 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], VotosController.prototype, "removeAll", null);
 VotosController = __decorate([
-    (0, common_1.Controller)('actividades'),
-    __metadata("design:paramtypes", [services_1.ActividadesService])
+    (0, common_1.Controller)('votos'),
+    __metadata("design:paramtypes", [services_1.VotosService])
 ], VotosController);
 exports.VotosController = VotosController;
 //# sourceMappingURL=votos.controller.js.map

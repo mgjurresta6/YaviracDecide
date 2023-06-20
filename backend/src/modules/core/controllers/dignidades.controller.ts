@@ -13,11 +13,6 @@ import {
   Query,
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import {
-  CreateInstitutionDto,
-  FilterInstitutionDto,
-  UpdateInstitutionDto,
-} from '@core/dto';
 import { DignidadEntity } from '@core/entities';
 import { DignidadesService } from '@core/services';
 import { ResponseHttpModel } from '@shared/models';
@@ -45,7 +40,7 @@ export class DignidadesController {
   @Get()
   @HttpCode(HttpStatus.OK)
   async findAll(
-    @Query() params: FilterInstitutionDto,
+    @Query() params: any,
   ): Promise<ResponseHttpModel> {
     const serviceResponse = await this.dignidadesService.findAll(params);
     return {
@@ -75,7 +70,7 @@ export class DignidadesController {
   @HttpCode(HttpStatus.CREATED)
   async update(
     @Param('id', ParseUUIDPipe) id: number,
-    @Body() payload: UpdateInstitutionDto,
+    @Body() payload: any,
   ): Promise<ResponseHttpModel> {
     const serviceResponse = await this.dignidadesService.update(id, payload);
     return {

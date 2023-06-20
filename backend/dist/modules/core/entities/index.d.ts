@@ -1,4 +1,3 @@
-export * from './catalogue.entity';
 export * from './actividad.entity';
 export * from './carrera.entity';
 export * from './configuracion.entity';

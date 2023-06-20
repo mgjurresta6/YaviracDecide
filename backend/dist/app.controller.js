@@ -14,22 +14,12 @@ const openapi = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const app_service_1 = require("./app.service");
-const _database_1 = require("./database");
 let AppController = class AppController {
-    constructor(appService, databaseSeeder) {
+    constructor(appService) {
         this.appService = appService;
-        this.databaseSeeder = databaseSeeder;
     }
     getHello() {
         return this.appService.getHello();
-    }
-    async init() {
-        await this.databaseSeeder.run();
-        return {
-            data: true,
-            message: '',
-            title: '',
-        };
     }
 };
 __decorate([
@@ -38,17 +28,10 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)
 ], AppController.prototype, "getHello", null);
-__decorate([
-    (0, common_1.Get)('init'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], AppController.prototype, "init", null);
 AppController = __decorate([
     (0, swagger_1.ApiTags)('App'),
     (0, common_1.Controller)(),
-    __metadata("design:paramtypes", [app_service_1.AppService,
-        _database_1.DatabaseSeeder])
+    __metadata("design:paramtypes", [app_service_1.AppService])
 ], AppController);
 exports.AppController = AppController;
 //# sourceMappingURL=app.controller.js.map

@@ -1,13 +1,6 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { Repository, FindOptionsWhere, ILike } from 'typeorm';
-import {
-  CreateCareerDto,
-  UpdateCareerDto,
-  FilterCareerDto,
-  PaginationDto,
-} from '@core/dto';
 import { TipoListaEntity } from '@core/entities';
-import { CataloguesService } from '@core/services';
 import { ServiceResponseHttpModel } from '@shared/models';
 import { RepositoryEnum } from '@shared/enums';
 
@@ -16,12 +9,10 @@ export class TipoListasService {
   constructor(
     @Inject(RepositoryEnum.TIPO_LISTA_REPOSITORY)
     private tipolistaRepository: Repository<TipoListaEntity>,
-    private cataloguesService: CataloguesService,
   ) {}
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
     const response = await this.tipolistaRepository.findAndCount({
-      relations: ['institution', 'modality', 'state', 'type'],
       take: 1000,
     });
 
@@ -36,33 +27,18 @@ export class TipoListasService {
 
   async create(payload: any): Promise<ServiceResponseHttpModel> {
     const newTipoLista = this.tipolistaRepository.create(payload);
-
-    // newCareer.institution = await this.institutionService.findOne(
-    //   payload.institution.id,
-    // );
-
-    newTipoLista.modality = await this.cataloguesService.findOne(
-      payload.modality.id,
-    );
-
-    newTipoLista.state = await this.cataloguesService.findOne(payload.state.id);
-
-    newTipoLista.type = await this.cataloguesService.findOne(payload.type.id);
-
     const tipolistaCreated = await this.tipolistaRepository.save(newTipoLista);
 
     return { data: tipolistaCreated };
   }
   async findAll(params?: any): Promise<ServiceResponseHttpModel> {
     const data = await this.tipolistaRepository.findAndCount({
-      relations: ['institution', 'modality', 'state', 'type'],
     });
 
     return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
   }
   async findOne(id: number): Promise<any> {
     const tipoLista = await this.tipolistaRepository.findOne({
-      relations: ['institution', 'modality', 'state', 'type'],
       where: {
         id,
       },
