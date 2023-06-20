@@ -1,3 +1,4 @@
+
 import {
   Body,
   Controller,
@@ -22,7 +23,7 @@ import { ResponseHttpModel } from '@shared/models';
 export class CronogramasController {
   constructor(private cronogramasService: CronogramasService) {}
 
-  @ApiOperation({ summary: 'Create information students' })
+  @ApiOperation({ summary: 'Create information Cronograma' })
   @Post('')
   @HttpCode(HttpStatus.CREATED)
   async create(
@@ -34,12 +35,12 @@ export class CronogramasController {
 
     return {
       data: serviceResponse.data,
-      message: 'created',
-      title: 'Created',
+      message: 'Cronograma fue creada',
+      title: 'Cronograma Creada',
     };
   }
 
-  @ApiOperation({ summary: 'List of information students' })
+  @ApiOperation({ summary: '' })
   @Get()
   @HttpCode(HttpStatus.OK)
   async findAll(
@@ -51,12 +52,12 @@ export class CronogramasController {
     return {
       data: serviceResponse.data,
       pagination: serviceResponse.pagination,
-      message: `index`,
-      title: 'Success',
+      message: 'Econtrar todas las Cronogramas',
+      title: 'Exitoso',
     };
   }
 
-  @ApiOperation({ summary: 'View one information students' })
+  @ApiOperation({ summary: 'View one information Cronograma' })
   @Get(':id')
   @HttpCode(HttpStatus.OK)
   async findOne(
@@ -65,12 +66,12 @@ export class CronogramasController {
     const serviceResponse = await this.cronogramasService.findOne(id);
     return {
       data: serviceResponse.data,
-      message: `show ${id}`,
-      title: `Success`,
+     message: `Encontar una Cronograma`,
+      title: `Exitoso`,
     };
   }
 
-  @ApiOperation({ summary: 'Update information students' })
+  @ApiOperation({ summary: 'Update information Cronograma' })
   @Put(':id')
   @HttpCode(HttpStatus.CREATED)
   async update(
@@ -84,12 +85,12 @@ export class CronogramasController {
 
     return {
       data: serviceResponse.data,
-      message: `Information Student  updated ${id}`,
-      title: `Updated`,
+      message: `Cronograma fue actualizada`,
+      title: `Cronograma Actualizada`,
     };
   }
 
-  @ApiOperation({ summary: 'Remove information students' })
+  @ApiOperation({ summary: 'Remove information Cronograma' })
   @Delete(':id')
   @HttpCode(HttpStatus.OK)
   async remove(
@@ -98,8 +99,8 @@ export class CronogramasController {
     const serviceResponse = await this.cronogramasService.remove(id);
     return {
       data: serviceResponse.data,
-      message: `Information Student deleted ${id}`,
-      title: `Deleted`,
+      message: `Cronograma fue eliminada`,
+      title: `Cronograma Eliminada`,
     };
   }
 
@@ -115,8 +116,8 @@ export class CronogramasController {
 
     return {
       data: serviceResponse.data,
-      message: `Information Students deleted`,
-      title: `Deleted`,
+      message: `Cronogramas fueron eliminadas`,
+      title: `Cronogramas Eliminadas`,
     };
   }
 }

@@ -21,7 +21,7 @@ import {
   export class RolesController {
     constructor(private rolesService: RolesService) {}
   
-    @ApiOperation({ summary: 'Catalogo Actividades' })
+    @ApiOperation({ summary: 'Catalogo Roles' })
     @Get('catalogue')
     @HttpCode(HttpStatus.OK)
     async catalogue(): Promise<ResponseHttpModel> {
@@ -30,12 +30,12 @@ import {
       return {
         data: serviceResponse.data,
         pagination: serviceResponse.pagination,
-        message: `Catalogo Actividades`,
-        title: `Catalogo`,
+        message: `Catalogo Roles`,
+      title: `Catalogo`,
       };
     }
   
-    @ApiOperation({ summary: 'Crear Actividad' })
+    @ApiOperation({ summary: 'Crear Rol' })
     @Post()
     @HttpCode(HttpStatus.CREATED)
     async create(@Body() payload: any): Promise<ResponseHttpModel> {
@@ -43,12 +43,12 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: 'Actividad fue creada',
-        title: 'Actividad Creada',
+        message: 'Rol fue creada',
+      title: 'Rol Creada',
       };
     }
   
-    @ApiOperation({ summary: 'Encontrar todas las Actividades' })
+    @ApiOperation({ summary: 'Encontrar todas las Roles' })
     @Get()
     @HttpCode(HttpStatus.OK)
     async findAll(@Query() params: any): Promise<ResponseHttpModel> {
@@ -57,12 +57,12 @@ import {
       return {
         data: serviceResponse.data,
         pagination: serviceResponse.pagination,
-        message: 'Econtrar todas las Actividades',
-        title: 'Exitoso',
+        message: 'Econtrar todas las Roles',
+      title: 'Exitoso',
       };
     }
   
-    @ApiOperation({ summary: 'Encontar una Actividad' })
+    @ApiOperation({ summary: 'Encontar una Rol' })
     @Get(':id')
     @HttpCode(HttpStatus.OK)
     async findOne(
@@ -72,12 +72,12 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: `Encontar una Actividad`,
-        title: `Exitoso`,
+        message: `Encontar una Rol`,
+      title: `Exitoso`,
       };
     }
   
-    @ApiOperation({ summary: 'Actualizar Actividad' })
+    @ApiOperation({ summary: 'Actualizar Rol' })
     @Put(':id')
     @HttpCode(HttpStatus.CREATED)
     async update(
@@ -87,12 +87,12 @@ import {
       const serviceResponse = await this.rolesService.update(id, payload);
       return {
         data: serviceResponse.data,
-        message: `Actividad fue actualizada`,
-        title: `Actividad Actualizada`,
+        message: `Rol fue actualizada`,
+      title: `Rol Actualizada`,
       };
     }
   
-    @ApiOperation({ summary: 'Borrar Actividad' })
+    @ApiOperation({ summary: 'Borrar Rol' })
     @Delete(':id')
     @HttpCode(HttpStatus.CREATED)
     async remove(
@@ -101,12 +101,12 @@ import {
       const serviceResponse = await this.rolesService.remove(id);
       return {
         data: serviceResponse.data,
-        message: `Actividad fue eliminada`,
-        title: `Actividad Eliminada`,
+        message: `Rol fue eliminada`,
+      title: `Rol Eliminada`,
       };
     }
   
-    @ApiOperation({ summary: 'Borrar todas las  Actividades' })
+    @ApiOperation({ summary: 'Borrar todas las  Roles' })
     @Patch('remove-all')
     @HttpCode(HttpStatus.CREATED)
     async removeAll(@Body() payload: RolEntity[]): Promise<ResponseHttpModel> {
@@ -114,8 +114,8 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: `Actividades fueron eliminadas`,
-        title: `Actividades Eliminadas`,
+        message: `Roles fueron eliminadas`,
+      title: `Roles Eliminadas`,
       };
     }
   }

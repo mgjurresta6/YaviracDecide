@@ -29,12 +29,12 @@ export class ListasController {
 
     return {
       data: serviceResponse.data,
-      message: 'Subject was created',
-      title: 'Subject Created',
+      message: 'Lista fue creada',
+      title: 'Lista Creada',
     };
   }
 
-  @ApiOperation({ summary: 'Find All Subjects' })
+  @ApiOperation({ summary: 'Find All Listas' })
   @Get()
   @HttpCode(HttpStatus.OK)
   async findAll(@Query() params: any): Promise<ResponseHttpModel> {
@@ -43,8 +43,8 @@ export class ListasController {
     return {
       data: serviceResponse.data,
       pagination: serviceResponse.pagination,
-      message: 'Find all subjects',
-      title: 'success',
+      message: 'Econtrar todas las Listas',
+      title: 'Exitoso',
     };
   }
 
@@ -58,8 +58,8 @@ export class ListasController {
 
     return {
       data: serviceResponse.data,
-      message: `Find subject`,
-      title: `Success`,
+      message: `Encontar una Lista`,
+      title: `Exitoso`,
     };
   }
 
@@ -74,8 +74,8 @@ export class ListasController {
 
     return {
       data: serviceResponse.data,
-      message: 'Subject was updated',
-      title: 'Subject Updated',
+      message: `Lista fue actualizada`,
+      title: `Lista Actualizada`,
     };
   }
 
@@ -89,12 +89,12 @@ export class ListasController {
 
     return {
       data: serviceResponse.data,
-      message: 'Subject was deleted',
-      title: 'Subject Deleted',
+      message: `Lista fue eliminada`,
+      title: `Lista Eliminada`,
     };
   }
 
-  @ApiOperation({ summary: 'Delete All Subjects' })
+  @ApiOperation({ summary: 'Delete All Listas' })
   @Patch('remove-all')
   @HttpCode(HttpStatus.CREATED)
   async removeAll(
@@ -104,8 +104,8 @@ export class ListasController {
 
     return {
       data: serviceResponse.data,
-      message: 'Subjects was deleted',
-      title: 'Subjects Deleted',
+      message: `Listas fueron eliminadas`,
+      title: `Listas Eliminadas`,
     };
   }
 }

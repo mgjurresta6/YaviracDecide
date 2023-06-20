@@ -28,12 +28,12 @@ export class JornadasController {
 
     return {
       data: serviceResponse,
-      message: 'student created',
-      title: 'Created',
+      message: 'Jornada fue creada',
+      title: 'Jornada Creada',
     };
   }
 
-  @ApiOperation({ summary: 'List all users' })
+  @ApiOperation({ summary: 'List all Jornadas' })
   @Get('catalogue')
   @HttpCode(HttpStatus.OK)
   async catalogue(): Promise<ResponseHttpModel> {
@@ -48,12 +48,12 @@ export class JornadasController {
     return {
       data: serviceResponse.data,
       pagination: serviceResponse.pagination,
-      message: `catalogue`,
-      title: `Catalogue`,
+      message: 'Econtrar todas las Jornadas',
+      title: 'Exitoso',
     };
   }
 
-  @ApiOperation({ summary: 'List of users' })
+  @ApiOperation({ summary: 'List of Jornadas' })
   // @Roles(RoleEnum.ADMIN)
   @Get()
   @HttpCode(HttpStatus.OK)
@@ -62,8 +62,8 @@ export class JornadasController {
     return {
       data: serviceResponse.data,
       pagination: serviceResponse.pagination,
-      message: `index`,
-      title: `index`,
+      message: `Encontar una Jornada`,
+      title: `Exitoso`,
     };
   }
 
@@ -75,8 +75,8 @@ export class JornadasController {
     const serviceResponse = await this.jornadasService.findOne(id);
     return {
       data: serviceResponse,
-      message: `show ${id}`,
-      title: `Success`,
+      message: `Jornada fue actualizada`,
+      title: `Jornada Actualizada`,
     };
   }
 
@@ -90,8 +90,8 @@ export class JornadasController {
 
     return {
       data: serviceResponse,
-      message: `User updated ${id}`,
-      title: `Updated`,
+      message: `Jornada fue eliminada`,
+      title: `Jornada Eliminada`,
     };
   }
 
@@ -104,8 +104,10 @@ export class JornadasController {
 
     return {
       data: serviceResponse,
-      message: `User deleted ${id}`,
-      title: `Deleted`,
+      //message: `User deleted ${id}`,
+      //title: `Deleted`,
+      message: `Jornadas fueron eliminadas`,
+      title: `Jornadas Eliminadas`,
     };
   }
 
@@ -116,8 +118,8 @@ export class JornadasController {
 
     return {
       data: serviceResponse,
-      message: `Users deleted`,
-      title: `Deleted`,
+      message: `Jornadas fueron eliminadas`,
+      title: `Jornadas Eliminadas`,
     };
   }
 }

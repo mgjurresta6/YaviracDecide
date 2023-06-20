@@ -21,7 +21,7 @@ import {
   export class VotosController {
     constructor(private votosService: VotosService) {}
   
-    @ApiOperation({ summary: 'Catalogo Actividades' })
+    @ApiOperation({ summary: 'Catalogo Votos' })
     @Get('catalogue')
     @HttpCode(HttpStatus.OK)
     async catalogue(): Promise<ResponseHttpModel> {
@@ -30,12 +30,12 @@ import {
       return {
         data: serviceResponse.data,
         pagination: serviceResponse.pagination,
-        message: `Catalogo Actividades`,
+        message: `Catalogo Votos`,
         title: `Catalogo`,
       };
     }
   
-    @ApiOperation({ summary: 'Crear Actividad' })
+    @ApiOperation({ summary: 'Crear Voto' })
     @Post()
     @HttpCode(HttpStatus.CREATED)
     async create(@Body() payload: any): Promise<ResponseHttpModel> {
@@ -43,12 +43,12 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: 'Actividad fue creada',
-        title: 'Actividad Creada',
+        message: 'Voto fue creada',
+        title: 'Voto Creada',
       };
     }
   
-    @ApiOperation({ summary: 'Encontrar todas las Actividades' })
+    @ApiOperation({ summary: 'Encontrar todas las Votos' })
     @Get()
     @HttpCode(HttpStatus.OK)
     async findAll(@Query() params: any): Promise<ResponseHttpModel> {
@@ -57,12 +57,12 @@ import {
       return {
         data: serviceResponse.data,
         pagination: serviceResponse.pagination,
-        message: 'Econtrar todas las Actividades',
+        message: 'Econtrar todas las Votos',
         title: 'Exitoso',
       };
     }
   
-    @ApiOperation({ summary: 'Encontar una Actividad' })
+    @ApiOperation({ summary: 'Encontar una Voto' })
     @Get(':id')
     @HttpCode(HttpStatus.OK)
     async findOne(
@@ -72,12 +72,12 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: `Encontar una Actividad`,
+        message: `Encontar una Voto`,
         title: `Exitoso`,
       };
     }
   
-    @ApiOperation({ summary: 'Actualizar Actividad' })
+    @ApiOperation({ summary: 'Actualizar Voto' })
     @Put(':id')
     @HttpCode(HttpStatus.CREATED)
     async update(
@@ -87,12 +87,12 @@ import {
       const serviceResponse = await this.votosService.update(id, payload);
       return {
         data: serviceResponse.data,
-        message: `Actividad fue actualizada`,
-        title: `Actividad Actualizada`,
+        message: `Voto fue actualizada`,
+        title: `Voto Actualizada`,
       };
     }
   
-    @ApiOperation({ summary: 'Borrar Actividad' })
+    @ApiOperation({ summary: 'Borrar Voto' })
     @Delete(':id')
     @HttpCode(HttpStatus.CREATED)
     async remove(
@@ -101,12 +101,12 @@ import {
       const serviceResponse = await this.votosService.remove(id);
       return {
         data: serviceResponse.data,
-        message: `Actividad fue eliminada`,
-        title: `Actividad Eliminada`,
+        message: `Voto fue eliminada`,
+        title: `Voto Eliminada`,
       };
     }
   
-    @ApiOperation({ summary: 'Borrar todas las  Actividades' })
+    @ApiOperation({ summary: 'Borrar todas las  Votos' })
     @Patch('remove-all')
     @HttpCode(HttpStatus.CREATED)
     async removeAll(@Body() payload: VotoEntity[]): Promise<ResponseHttpModel> {
@@ -114,8 +114,8 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: `Actividades fueron eliminadas`,
-        title: `Actividades Eliminadas`,
+        message: `Votos fueron eliminadas`,
+        title: `Votos Eliminadas`,
       };
     }
   }

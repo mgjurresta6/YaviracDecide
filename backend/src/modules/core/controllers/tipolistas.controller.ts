@@ -21,7 +21,7 @@ import {
   export class TipoListasController {
     constructor(private tipolistasService: TipoListasService) {}
   
-    @ApiOperation({ summary: 'Catalogo Actividades' })
+    @ApiOperation({ summary: 'Catalogo Tipos de lista' })
     @Get('catalogue')
     @HttpCode(HttpStatus.OK)
     async catalogue(): Promise<ResponseHttpModel> {
@@ -30,12 +30,12 @@ import {
       return {
         data: serviceResponse.data,
         pagination: serviceResponse.pagination,
-        message: `Catalogo Actividades`,
-        title: `Catalogo`,
+        message: `Catalogo Tipos de lista`,
+      title: `Catalogo`,
       };
     }
   
-    @ApiOperation({ summary: 'Crear Actividad' })
+    @ApiOperation({ summary: 'Crear Tipo de lista' })
     @Post()
     @HttpCode(HttpStatus.CREATED)
     async create(@Body() payload: any): Promise<ResponseHttpModel> {
@@ -43,12 +43,12 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: 'Actividad fue creada',
-        title: 'Actividad Creada',
+        message: 'Tipo de lista fue creada',
+        title: 'Tipo de lista Creada',
       };
     }
   
-    @ApiOperation({ summary: 'Encontrar todas las Actividades' })
+    @ApiOperation({ summary: 'Encontrar todas las Tipos de lista' })
     @Get()
     @HttpCode(HttpStatus.OK)
     async findAll(@Query() params: any): Promise<ResponseHttpModel> {
@@ -57,12 +57,12 @@ import {
       return {
         data: serviceResponse.data,
         pagination: serviceResponse.pagination,
-        message: 'Econtrar todas las Actividades',
-        title: 'Exitoso',
+        message: 'Econtrar todas las Tipos de lista',
+      title: 'Exitoso',
       };
     }
   
-    @ApiOperation({ summary: 'Encontar una Actividad' })
+    @ApiOperation({ summary: 'Encontar una Tipo de lista' })
     @Get(':id')
     @HttpCode(HttpStatus.OK)
     async findOne(
@@ -72,12 +72,12 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: `Encontar una Actividad`,
-        title: `Exitoso`,
+        message: `Encontar una Tipo de lista`,
+      title: `Exitoso`,
       };
     }
   
-    @ApiOperation({ summary: 'Actualizar Actividad' })
+    @ApiOperation({ summary: 'Actualizar Tipo de lista' })
     @Put(':id')
     @HttpCode(HttpStatus.CREATED)
     async update(
@@ -87,12 +87,12 @@ import {
       const serviceResponse = await this.tipolistasService.update(id, payload);
       return {
         data: serviceResponse.data,
-        message: `Actividad fue actualizada`,
-        title: `Actividad Actualizada`,
+        message: `Tipo de lista fue actualizada`,
+      title: `Tipo de lista Actualizada`,
       };
     }
   
-    @ApiOperation({ summary: 'Borrar Actividad' })
+    @ApiOperation({ summary: 'Borrar Tipo de lista' })
     @Delete(':id')
     @HttpCode(HttpStatus.CREATED)
     async remove(
@@ -101,12 +101,12 @@ import {
       const serviceResponse = await this.tipolistasService.remove(id);
       return {
         data: serviceResponse.data,
-        message: `Actividad fue eliminada`,
-        title: `Actividad Eliminada`,
+        message: `Tipo de lista fue eliminada`,
+        title: `Tipo de lista Eliminada`,
       };
     }
   
-    @ApiOperation({ summary: 'Borrar todas las  Actividades' })
+    @ApiOperation({ summary: 'Borrar todas las  Tipos de lista' })
     @Patch('remove-all')
     @HttpCode(HttpStatus.CREATED)
     async removeAll(@Body() payload: TipoListaEntity[]): Promise<ResponseHttpModel> {
@@ -114,8 +114,8 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: `Actividades fueron eliminadas`,
-        title: `Actividades Eliminadas`,
+        message: `Tipos de lista fueron eliminadas`,
+        title: `Tipos de lista Eliminadas`,
       };
     }
   }

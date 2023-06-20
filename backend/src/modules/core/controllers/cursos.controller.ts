@@ -34,12 +34,12 @@ export class CursosController {
 
     return {
       data: serviceResponse.data,
-      message: 'Information Teacher Created',
-      title: 'Information Teacher Created',
+      message: 'Curso fue creada',
+      title: 'Curso Creada',
     };
   }
 
-  @ApiOperation({ summary: 'Find All Information Teachers' })
+  @ApiOperation({ summary: 'Find All Information Cursos' })
   @Get()
   @HttpCode(HttpStatus.OK)
   async findAll(
@@ -51,8 +51,8 @@ export class CursosController {
     return {
       data: serviceResponse.data,
       pagination: serviceResponse.pagination,
-      message: 'Find All Information Teachers',
-      title: 'Success',
+      message: 'Econtrar todas las Cursos',
+      title: 'Exitoso',
     };
   }
 
@@ -66,8 +66,8 @@ export class CursosController {
 
     return {
       data: serviceResponse.data,
-      message: 'FInd Information Teacher',
-      title: `Success`,
+      message: `Encontar una Curso`,
+      title: `Exitoso`,
     };
   }
 
@@ -85,8 +85,8 @@ export class CursosController {
 
     return {
       data: serviceResponse.data,
-      message: 'The information teacher was updated',
-      title: `Information Teacher Updated`,
+      message: `Curso fue actualizada`,
+      title: `Curso Actualizada`,
     };
   }
 
@@ -100,12 +100,12 @@ export class CursosController {
 
     return {
       data: serviceResponse.data,
-      message: `The information teacher was deleted`,
-      title: `Information Teacher Deleted`,
+      message: `Curso fue eliminada`,
+      title: `Curso Eliminada`,
     };
   }
 
-  @ApiOperation({ summary: 'Delete All Information Teachers' })
+  @ApiOperation({ summary: 'Delete All Information Cursos' })
   @Patch('remove-all')
   @HttpCode(HttpStatus.CREATED)
   async removeAll(
@@ -117,8 +117,8 @@ export class CursosController {
 
     return {
       data: serviceResponse.data,
-      message: `The information teachers was deleted`,
-      title: `Information Teachers Deleted`,
+      message: `Cursos fueron eliminadas`,
+      title: `Cursos Eliminadas`,
     };
   }
 }

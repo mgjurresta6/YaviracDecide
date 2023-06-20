@@ -21,7 +21,7 @@ import {
   export class tipoUsuariosController {
     constructor(private tipousuariosService: TipoUsuariosService) {}
   
-    @ApiOperation({ summary: 'Catalogo Actividades' })
+    @ApiOperation({ summary: 'Catalogo Tipos de usuario' })
     @Get('catalogue')
     @HttpCode(HttpStatus.OK)
     async catalogue(): Promise<ResponseHttpModel> {
@@ -30,12 +30,12 @@ import {
       return {
         data: serviceResponse.data,
         pagination: serviceResponse.pagination,
-        message: `Catalogo Actividades`,
+        message: `Catalogo Tipos de usuario`,
         title: `Catalogo`,
       };
     }
   
-    @ApiOperation({ summary: 'Crear Actividad' })
+    @ApiOperation({ summary: 'Crear Tipo de usuario' })
     @Post()
     @HttpCode(HttpStatus.CREATED)
     async create(@Body() payload: any): Promise<ResponseHttpModel> {
@@ -43,12 +43,12 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: 'Actividad fue creada',
-        title: 'Actividad Creada',
+        message: 'Tipo de usuario fue creada',
+        title: 'Tipo de usuario Creada',
       };
     }
   
-    @ApiOperation({ summary: 'Encontrar todas las Actividades' })
+    @ApiOperation({ summary: 'Encontrar todas las Tipos de usuario' })
     @Get()
     @HttpCode(HttpStatus.OK)
     async findAll(@Query() params: any): Promise<ResponseHttpModel> {
@@ -57,12 +57,12 @@ import {
       return {
         data: serviceResponse.data,
         pagination: serviceResponse.pagination,
-        message: 'Econtrar todas las Actividades',
+        message: 'Econtrar todas las Tipos de usuario',
         title: 'Exitoso',
       };
     }
   
-    @ApiOperation({ summary: 'Encontar una Actividad' })
+    @ApiOperation({ summary: 'Encontar una Tipo de usuario' })
     @Get(':id')
     @HttpCode(HttpStatus.OK)
     async findOne(
@@ -72,12 +72,12 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: `Encontar una Actividad`,
+        message: `Encontar una Tipo de usuario`,
         title: `Exitoso`,
       };
     }
   
-    @ApiOperation({ summary: 'Actualizar Actividad' })
+    @ApiOperation({ summary: 'Actualizar Tipo de usuario' })
     @Put(':id')
     @HttpCode(HttpStatus.CREATED)
     async update(
@@ -87,12 +87,12 @@ import {
       const serviceResponse = await this.tipousuariosService.update(id, payload);
       return {
         data: serviceResponse.data,
-        message: `Actividad fue actualizada`,
-        title: `Actividad Actualizada`,
+        message: `Tipo de usuario fue actualizada`,
+        title: `Tipo de usuario Actualizada`,
       };
     }
   
-    @ApiOperation({ summary: 'Borrar Actividad' })
+    @ApiOperation({ summary: 'Borrar Tipo de usuario' })
     @Delete(':id')
     @HttpCode(HttpStatus.CREATED)
     async remove(
@@ -101,12 +101,12 @@ import {
       const serviceResponse = await this.tipousuariosService.remove(id);
       return {
         data: serviceResponse.data,
-        message: `Actividad fue eliminada`,
-        title: `Actividad Eliminada`,
+        message: `Tipo de usuario fue eliminada`,
+        title: `Tipo de usuario Eliminada`,
       };
     }
   
-    @ApiOperation({ summary: 'Borrar todas las  Actividades' })
+    @ApiOperation({ summary: 'Borrar todas las  Tipos de usuario' })
     @Patch('remove-all')
     @HttpCode(HttpStatus.CREATED)
     async removeAll(@Body() payload: TipoEntity[]): Promise<ResponseHttpModel> {
@@ -114,8 +114,8 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: `Actividades fueron eliminadas`,
-        title: `Actividades Eliminadas`,
+        message: `Tipos de usuario fueron eliminadas`,
+        title: `Tipos de usuario Eliminadas`,
       };
     }
   }

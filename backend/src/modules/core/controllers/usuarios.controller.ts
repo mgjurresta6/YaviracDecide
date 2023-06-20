@@ -21,7 +21,7 @@ import {
   export class UsuariosController {
     constructor(private usuariosService: UsuariosService) {}
   
-    @ApiOperation({ summary: 'Catalogo Actividades' })
+    @ApiOperation({ summary: 'Catalogo Usuarios' })
     @Get('catalogue')
     @HttpCode(HttpStatus.OK)
     async catalogue(): Promise<ResponseHttpModel> {
@@ -30,12 +30,12 @@ import {
       return {
         data: serviceResponse.data,
         pagination: serviceResponse.pagination,
-        message: `Catalogo Actividades`,
+        message: `Catalogo Usuarios`,
         title: `Catalogo`,
       };
     }
   
-    @ApiOperation({ summary: 'Crear Actividad' })
+    @ApiOperation({ summary: 'Crear Usuario' })
     @Post()
     @HttpCode(HttpStatus.CREATED)
     async create(@Body() payload: any): Promise<ResponseHttpModel> {
@@ -43,12 +43,12 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: 'Actividad fue creada',
-        title: 'Actividad Creada',
+        message: 'Usuario fue creada',
+        title: 'Usuario Creada',
       };
     }
   
-    @ApiOperation({ summary: 'Encontrar todas las Actividades' })
+    @ApiOperation({ summary: 'Encontrar todas las Usuarios' })
     @Get()
     @HttpCode(HttpStatus.OK)
     async findAll(@Query() params: any): Promise<ResponseHttpModel> {
@@ -57,12 +57,12 @@ import {
       return {
         data: serviceResponse.data,
         pagination: serviceResponse.pagination,
-        message: 'Econtrar todas las Actividades',
+        message: 'Econtrar todas las Usuarios',
         title: 'Exitoso',
       };
     }
   
-    @ApiOperation({ summary: 'Encontar una Actividad' })
+    @ApiOperation({ summary: 'Encontar una Usuario' })
     @Get(':id')
     @HttpCode(HttpStatus.OK)
     async findOne(
@@ -72,12 +72,12 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: `Encontar una Actividad`,
+        message: `Encontar una Usuario`,
         title: `Exitoso`,
       };
     }
   
-    @ApiOperation({ summary: 'Actualizar Actividad' })
+    @ApiOperation({ summary: 'Actualizar Usuario' })
     @Put(':id')
     @HttpCode(HttpStatus.CREATED)
     async update(
@@ -87,12 +87,12 @@ import {
       const serviceResponse = await this.usuariosService.update(cedula, payload);
       return {
         data: serviceResponse.data,
-        message: `Actividad fue actualizada`,
-        title: `Actividad Actualizada`,
+        message: `Usuario fue actualizada`,
+        title: `Usuario Actualizada`,
       };
     }
   
-    @ApiOperation({ summary: 'Borrar Actividad' })
+    @ApiOperation({ summary: 'Borrar Usuario' })
     @Delete(':id')
     @HttpCode(HttpStatus.CREATED)
     async remove(
@@ -101,12 +101,12 @@ import {
       const serviceResponse = await this.usuariosService.remove(cedula);
       return {
         data: serviceResponse.data,
-        message: `Actividad fue eliminada`,
-        title: `Actividad Eliminada`,
+        message: `Usuario fue eliminada`,
+        title: `Usuario Eliminada`,
       };
     }
   
-    @ApiOperation({ summary: 'Borrar todas las  Actividades' })
+    @ApiOperation({ summary: 'Borrar todas las  Usuarios' })
     @Patch('remove-all')
     @HttpCode(HttpStatus.CREATED)
     async removeAll(@Body() payload: UsuarioEntity[]): Promise<ResponseHttpModel> {
@@ -114,8 +114,8 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: `Actividades fueron eliminadas`,
-        title: `Actividades Eliminadas`,
+        message: `Usuarios fueron eliminadas`,
+        title: `Usuarios Eliminadas`,
       };
     }
   }

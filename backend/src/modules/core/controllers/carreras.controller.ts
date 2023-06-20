@@ -21,7 +21,7 @@ import { ResponseHttpModel } from '@shared/models';
 export class CarrerasController {
   constructor(private carrerasService: CarrerasService) {}
 
-  @ApiOperation({ summary: 'Catalogo Actividades' })
+  @ApiOperation({ summary: 'Catalogo Carreras' })
   @Get('catalogue')
   @HttpCode(HttpStatus.OK)
   async catalogue(): Promise<ResponseHttpModel> {
@@ -30,12 +30,12 @@ export class CarrerasController {
     return {
       data: serviceResponse.data,
       pagination: serviceResponse.pagination,
-      message: `Catalogo Actividades`,
+      message: `Catalogo Carreras`,
       title: `Catalogo`,
     };
   }
 
-  @ApiOperation({ summary: 'Crear Actividad' })
+  @ApiOperation({ summary: 'Crear Carrera' })
   @Post()
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() payload: any): Promise<ResponseHttpModel> {
@@ -43,12 +43,12 @@ export class CarrerasController {
 
     return {
       data: serviceResponse.data,
-      message: 'Actividad fue creada',
-      title: 'Actividad Creada',
+      message: 'Carrera fue creada',
+      title: 'Carrera Creada',
     };
   }
 
-  @ApiOperation({ summary: 'Encontrar todas las Actividades' })
+  @ApiOperation({ summary: 'Encontrar todas las Carreras' })
   @Get()
   @HttpCode(HttpStatus.OK)
   async findAll(@Query() params: any): Promise<ResponseHttpModel> {
@@ -57,12 +57,12 @@ export class CarrerasController {
     return {
       data: serviceResponse.data,
       pagination: serviceResponse.pagination,
-      message: 'Econtrar todas las Actividades',
+      message: 'Econtrar todas las Carreras',
       title: 'Exitoso',
     };
   }
 
-  @ApiOperation({ summary: 'Encontar una Actividad' })
+  @ApiOperation({ summary: 'Encontar una Carrera' })
   @Get(':id')
   @HttpCode(HttpStatus.OK)
   async findOne(
@@ -72,12 +72,12 @@ export class CarrerasController {
 
     return {
       data: serviceResponse.data,
-      message: `Encontar una Actividad`,
+      message: `Encontar una Carrera`,
       title: `Exitoso`,
     };
   }
 
-  @ApiOperation({ summary: 'Actualizar Actividad' })
+  @ApiOperation({ summary: 'Actualizar Carrera' })
   @Put(':id')
   @HttpCode(HttpStatus.CREATED)
   async update(
@@ -87,12 +87,12 @@ export class CarrerasController {
     const serviceResponse = await this.carrerasService.update(id, payload);
     return {
       data: serviceResponse.data,
-      message: `Actividad fue actualizada`,
-      title: `Actividad Actualizada`,
+      message: `Carrera fue actualizada`,
+      title: `Carrera Actualizada`,
     };
   }
 
-  @ApiOperation({ summary: 'Borrar Actividad' })
+  @ApiOperation({ summary: 'Borrar Carrera' })
   @Delete(':id')
   @HttpCode(HttpStatus.CREATED)
   async remove(
@@ -101,12 +101,12 @@ export class CarrerasController {
     const serviceResponse = await this.carrerasService.remove(id);
     return {
       data: serviceResponse.data,
-      message: `Actividad fue eliminada`,
-      title: `Actividad Eliminada`,
+      message: `Carrera fue eliminada`,
+      title: `Carrera Eliminada`,
     };
   }
 
-  @ApiOperation({ summary: 'Borrar todas las  Actividades' })
+  @ApiOperation({ summary: 'Borrar todas las  Carreras' })
   @Patch('remove-all')
   @HttpCode(HttpStatus.CREATED)
   async removeAll(@Body() payload: CarreraEntity[]): Promise<ResponseHttpModel> {
@@ -114,8 +114,8 @@ export class CarrerasController {
 
     return {
       data: serviceResponse.data,
-      message: `Actividades fueron eliminadas`,
-      title: `Actividades Eliminadas`,
+      message: `Carreras fueron eliminadas`,
+      title: `Carreras Eliminadas`,
     };
   }
 }

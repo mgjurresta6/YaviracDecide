@@ -31,12 +31,12 @@ export class DignidadesController {
     const serviceResponse = await this.dignidadesService.create(payload);
     return {
       data: serviceResponse.data,
-      message: `Institution was created`,
-      title: 'Institution Created',
+      message: 'Dignidad fue creada',
+      title: 'Dignidad Creada',
     };
   }
 
-  @ApiOperation({ summary: 'Find All Institutions' })
+  @ApiOperation({ summary: 'Find All Dignidades' })
   @Get()
   @HttpCode(HttpStatus.OK)
   async findAll(
@@ -46,8 +46,8 @@ export class DignidadesController {
     return {
       data: serviceResponse.data,
       pagination: serviceResponse.pagination,
-      message: `Find all institutions`,
-      title: 'Success',
+      message: 'Econtrar todas las Dignidades',
+      title: 'Exitoso',
     };
   }
 
@@ -60,8 +60,8 @@ export class DignidadesController {
     const serviceResponse = await this.dignidadesService.findOne(id);
     return {
       data: serviceResponse.data,
-      message: 'Find Institution',
-      title: `Success`,
+      message: `Encontar una Dignidad`,
+      title: `Exitoso`,
     };
   }
 
@@ -75,8 +75,8 @@ export class DignidadesController {
     const serviceResponse = await this.dignidadesService.update(id, payload);
     return {
       data: serviceResponse.data,
-      message: 'Institution was updated',
-      title: `Institution Updated`,
+      message: `Dignidad fue actualizada`,
+      title: `Dignidad Actualizada`,
     };
   }
 
@@ -89,12 +89,12 @@ export class DignidadesController {
     const serviceResponse = await this.dignidadesService.remove(id);
     return {
       data: serviceResponse.data,
-      message: 'Institution was deleted',
-      title: 'Institution Deleted',
+      message: `Dignidad fue eliminada`,
+      title: `Dignidad Eliminada`,
     };
   }
 
-  @ApiOperation({ summary: 'Delete All Institutions' })
+  @ApiOperation({ summary: 'Delete All Dignidades' })
   @Patch('remove-all')
   @HttpCode(HttpStatus.CREATED)
   async removeAll(
@@ -104,8 +104,8 @@ export class DignidadesController {
 
     return {
       data: serviceResponse.data,
-      message: 'Institutions was deleted',
-      title: 'Institutions Deleted',
+      message: `Dignidades fueron eliminadas`,
+      title: `Dignidades Eliminadas`,
     };
   }
 }

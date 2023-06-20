@@ -21,7 +21,7 @@ import { ResponseHttpModel } from '@shared/models';
 export class ConfiguracionesController {
   constructor(private configuracionesService: ConfiguracionesService) {}
 
-  @ApiOperation({ summary: 'Create Curriculum' })
+  @ApiOperation({ summary: 'Create Configuracion' })
   @Post()
   @HttpCode(HttpStatus.CREATED)
   async create(
@@ -31,8 +31,8 @@ export class ConfiguracionesController {
 
     return {
       data: serviceResponse.data,
-      message: 'The curriculum was created',
-      title: 'Curriculum Created',
+      message: 'Configuracion fue creada',
+      title: 'Configuracion Creada',
     };
   }
 
@@ -47,12 +47,12 @@ export class ConfiguracionesController {
     return {
       data: serviceResponse.data,
       pagination: serviceResponse.pagination,
-      message: 'Find all curricula',
-      title: 'Success',
+      message: 'Econtrar todas las Configuraciones',
+      title: 'Exitoso',
     };
   }
 
-  @ApiOperation({ summary: 'Find Curriculum' })
+  @ApiOperation({ summary: 'Find Configuracion' })
   @Get(':id')
   @HttpCode(HttpStatus.OK)
   async findOne(
@@ -62,12 +62,12 @@ export class ConfiguracionesController {
 
     return {
       data: serviceResponse.data,
-      message: 'Find curriculum',
-      title: `Success`,
+      message: `Encontar una Configuracion`,
+      title: `Exitoso`,
     };
   }
 
-  @ApiOperation({ summary: 'Update Curriculum' })
+  @ApiOperation({ summary: 'Update Configuracion' })
   @Put(':id')
   @HttpCode(HttpStatus.CREATED)
   async update(
@@ -78,12 +78,12 @@ export class ConfiguracionesController {
 
     return {
       data: serviceResponse.data,
-      message: 'The curriculum was updated',
-      title: 'Curriculum Updated',
+      message: `Configuracion fue actualizada`,
+      title: `Configuracion Actualizada`,
     };
   }
 
-  @ApiOperation({ summary: 'Delete Curriculum' })
+  @ApiOperation({ summary: 'Delete Configuracion' })
   @Delete(':id')
   @HttpCode(HttpStatus.CREATED)
   async remove(
@@ -93,8 +93,8 @@ export class ConfiguracionesController {
 
     return {
       data: serviceResponse.data,
-      message: 'The curriculum was deleted',
-      title: `Curriculum Deleted`,
+      message: `Configuracion fue eliminada`,
+      title: `Configuracion Eliminada`,
     };
   }
 
@@ -108,8 +108,8 @@ export class ConfiguracionesController {
 
     return {
       data: serviceResponse.data,
-      message: 'The curricula was deleted',
-      title: 'Curricula Deleted',
+      message: `Configuraciones fueron eliminadas`,
+      title: `Configuraciones Eliminadas`,
     };
   }
 }
