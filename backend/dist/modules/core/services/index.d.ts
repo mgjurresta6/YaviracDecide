@@ -14,3 +14,4 @@ export * from './tipolistas.service';
 export * from './usuarios.service';
 export * from './usuariotipos.service';
 export * from './votos.service';
+export * from './catalogues.service';

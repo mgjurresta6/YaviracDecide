@@ -30,8 +30,8 @@ import {
       return {
         data: serviceResponse.data,
         pagination: serviceResponse.pagination,
-        message: 'Paralelo fue creada',
-      title: 'Paralelo Creada',
+        message: 'Catalogo Paralelo',
+      title: 'Catalogo',
       };
     }
   
@@ -43,8 +43,9 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: 'Econtrar todas las Paralelos',
-      title: 'Exitoso',
+        message: 'Paralelo fue creada',
+      title: 'Paralelo Creada',
+        
       };
     }
   
@@ -57,8 +58,9 @@ import {
       return {
         data: serviceResponse.data,
         pagination: serviceResponse.pagination,
-        message: `Encontar una Paralelo`,
-      title: `Exitoso`,
+        message: 'Econtrar todas las Paralelos',
+      title: 'Exitoso',
+        
       };
     }
   
@@ -72,8 +74,9 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: `Paralelo fue actualizada`,
-      title: `Paralelo Actualizada`,
+        message: `Encontar una Paralelo`,
+      title: `Exitoso`,
+        
       };
     }
   
@@ -87,7 +90,7 @@ import {
       const serviceResponse = await this.paralelosService.update(id, payload);
       return {
         data: serviceResponse.data,
-       message: `Paralelo fue actualizada`,
+        message: `Paralelo fue actualizada`,
       title: `Paralelo Actualizada`,
       };
     }

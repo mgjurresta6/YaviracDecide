@@ -19,6 +19,7 @@ const tipolista_entity_1 = require("../entities/tipolista.entity");
 const voto_entity_1 = require("../entities/voto.entity");
 const repository_enum_1 = require("../../../shared/enums/repository.enum");
 const enums_1 = require("../../../shared/enums");
+const catalogue_entity_1 = require("../entities/catalogue.entity");
 exports.coreProviders = [
     {
         provide: repository_enum_1.RepositoryEnum.ACTIVIDAD_REPOSITORY,
@@ -98,6 +99,11 @@ exports.coreProviders = [
     {
         provide: repository_enum_1.RepositoryEnum.VOTO_REPOSITORY,
         useFactory: (dataSource) => dataSource.getRepository(voto_entity_1.VotoEntity),
+        inject: [enums_1.DataSourceEnum.PG_DATA_SOURCE],
+    },
+    {
+        provide: repository_enum_1.RepositoryEnum.CATALOGUE_REPOSITORY,
+        useFactory: (dataSource) => dataSource.getRepository(catalogue_entity_1.CatalogueEntity),
         inject: [enums_1.DataSourceEnum.PG_DATA_SOURCE],
     },
 ];

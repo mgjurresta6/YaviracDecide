@@ -33,14 +33,14 @@ export class JornadasController {
     };
   }
 
-  @ApiOperation({ summary: 'List all Jornadas' })
+  @ApiOperation({ summary: 'Catalogo Jornadas' })
   @Get('catalogue')
   @HttpCode(HttpStatus.OK)
   async catalogue(): Promise<ResponseHttpModel> {
     return {
       data: { s: 'sd' },
       pagination: 'asd',
-      message: `catalogue`,
+      message: `catalogo Jornadas`,
       title: `Catalogue`,
     };
     const serviceResponse = await this.jornadasService.catalogue();
@@ -53,7 +53,7 @@ export class JornadasController {
     };
   }
 
-  @ApiOperation({ summary: 'List of Jornadas' })
+  @ApiOperation({ summary: 'Encontrar Jornada' })
   // @Roles(RoleEnum.ADMIN)
   @Get()
   @HttpCode(HttpStatus.OK)

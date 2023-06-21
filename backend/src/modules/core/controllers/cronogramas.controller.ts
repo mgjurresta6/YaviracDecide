@@ -23,7 +23,7 @@ import { ResponseHttpModel } from '@shared/models';
 export class CronogramasController {
   constructor(private cronogramasService: CronogramasService) {}
 
-  @ApiOperation({ summary: 'Create information Cronograma' })
+  @ApiOperation({ summary: 'Crear Cronograma' })
   @Post('')
   @HttpCode(HttpStatus.CREATED)
   async create(
@@ -57,7 +57,7 @@ export class CronogramasController {
     };
   }
 
-  @ApiOperation({ summary: 'View one information Cronograma' })
+  @ApiOperation({ summary: 'Encontrar Cronograma' })
   @Get(':id')
   @HttpCode(HttpStatus.OK)
   async findOne(
@@ -66,12 +66,12 @@ export class CronogramasController {
     const serviceResponse = await this.cronogramasService.findOne(id);
     return {
       data: serviceResponse.data,
-     message: `Encontar una Cronograma`,
+     message: `Encontar un Cronograma`,
       title: `Exitoso`,
     };
   }
 
-  @ApiOperation({ summary: 'Update information Cronograma' })
+  @ApiOperation({ summary: 'Actualizar Cronograma' })
   @Put(':id')
   @HttpCode(HttpStatus.CREATED)
   async update(
@@ -90,7 +90,7 @@ export class CronogramasController {
     };
   }
 
-  @ApiOperation({ summary: 'Remove information Cronograma' })
+  @ApiOperation({ summary: 'Eliminar Cronograma' })
   @Delete(':id')
   @HttpCode(HttpStatus.OK)
   async remove(
@@ -104,7 +104,7 @@ export class CronogramasController {
     };
   }
 
-  @ApiOperation({ summary: 'Remove All Information Students' })
+  @ApiOperation({ summary: 'Eliminar todos los Cronogramas' })
   @Patch('remove-all')
   @HttpCode(HttpStatus.CREATED)
   async removeAll(

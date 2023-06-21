@@ -25,8 +25,8 @@ let DignidadesController = class DignidadesController {
         const serviceResponse = await this.dignidadesService.create(payload);
         return {
             data: serviceResponse.data,
-            message: `Institution was created`,
-            title: 'Institution Created',
+            message: 'Dignidad fue creada',
+            title: 'Dignidad Creada',
         };
     }
     async findAll(params) {
@@ -34,45 +34,45 @@ let DignidadesController = class DignidadesController {
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
-            message: `Find all institutions`,
-            title: 'Success',
+            message: 'Econtrar todas las Dignidades',
+            title: 'Exitoso',
         };
     }
     async findOne(id) {
         const serviceResponse = await this.dignidadesService.findOne(id);
         return {
             data: serviceResponse.data,
-            message: 'Find Institution',
-            title: `Success`,
+            message: `Encontar una Dignidad`,
+            title: `Exitoso`,
         };
     }
     async update(id, payload) {
         const serviceResponse = await this.dignidadesService.update(id, payload);
         return {
             data: serviceResponse.data,
-            message: 'Institution was updated',
-            title: `Institution Updated`,
+            message: `Dignidad fue actualizada`,
+            title: `Dignidad Actualizada`,
         };
     }
     async remove(id) {
         const serviceResponse = await this.dignidadesService.remove(id);
         return {
             data: serviceResponse.data,
-            message: 'Institution was deleted',
-            title: 'Institution Deleted',
+            message: `Dignidad fue eliminada`,
+            title: `Dignidad Eliminada`,
         };
     }
     async removeAll(payload) {
         const serviceResponse = await this.dignidadesService.removeAll(payload);
         return {
             data: serviceResponse.data,
-            message: 'Institutions was deleted',
-            title: 'Institutions Deleted',
+            message: `Dignidades fueron eliminadas`,
+            title: `Dignidades Eliminadas`,
         };
     }
 };
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Create Institution' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Crear Dignidad' }),
     (0, common_1.Post)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),
@@ -81,7 +81,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], DignidadesController.prototype, "create", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Find All Institutions' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Encontrar Dignidades' }),
     (0, common_1.Get)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Query)()),
@@ -90,7 +90,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], DignidadesController.prototype, "findAll", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Find Institution' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Encontrar Dignidad' }),
     (0, common_1.Get)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -99,7 +99,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], DignidadesController.prototype, "findOne", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Update Institution' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Actualizar Dignidad' }),
     (0, common_1.Put)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -109,7 +109,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], DignidadesController.prototype, "update", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Delete Institution' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Eliminar Dignidad' }),
     (0, common_1.Delete)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -118,7 +118,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], DignidadesController.prototype, "remove", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Delete All Institutions' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Eliminar todas las Dignidades' }),
     (0, common_1.Patch)('remove-all'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),

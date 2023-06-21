@@ -26,7 +26,7 @@ let tipoUsuariosController = class tipoUsuariosController {
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
-            message: `Catalogo Actividades`,
+            message: `Catalogo Tipos de usuario`,
             title: `Catalogo`,
         };
     }
@@ -34,8 +34,8 @@ let tipoUsuariosController = class tipoUsuariosController {
         const serviceResponse = await this.tipousuariosService.create(payload);
         return {
             data: serviceResponse.data,
-            message: 'Actividad fue creada',
-            title: 'Actividad Creada',
+            message: 'Tipo de usuario fue creada',
+            title: 'Tipo de usuario Creada',
         };
     }
     async findAll(params) {
@@ -43,7 +43,7 @@ let tipoUsuariosController = class tipoUsuariosController {
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
-            message: 'Econtrar todas las Actividades',
+            message: 'Econtrar todas las Tipos de usuario',
             title: 'Exitoso',
         };
     }
@@ -51,7 +51,7 @@ let tipoUsuariosController = class tipoUsuariosController {
         const serviceResponse = await this.tipousuariosService.findOne(id);
         return {
             data: serviceResponse.data,
-            message: `Encontar una Actividad`,
+            message: `Encontar una Tipo de usuario`,
             title: `Exitoso`,
         };
     }
@@ -59,29 +59,29 @@ let tipoUsuariosController = class tipoUsuariosController {
         const serviceResponse = await this.tipousuariosService.update(id, payload);
         return {
             data: serviceResponse.data,
-            message: `Actividad fue actualizada`,
-            title: `Actividad Actualizada`,
+            message: `Tipo de usuario fue actualizada`,
+            title: `Tipo de usuario Actualizada`,
         };
     }
     async remove(id) {
         const serviceResponse = await this.tipousuariosService.remove(id);
         return {
             data: serviceResponse.data,
-            message: `Actividad fue eliminada`,
-            title: `Actividad Eliminada`,
+            message: `Tipo de usuario fue eliminada`,
+            title: `Tipo de usuario Eliminada`,
         };
     }
     async removeAll(payload) {
         const serviceResponse = await this.tipousuariosService.removeAll(payload);
         return {
             data: serviceResponse.data,
-            message: `Actividades fueron eliminadas`,
-            title: `Actividades Eliminadas`,
+            message: `Tipos de usuario fueron eliminadas`,
+            title: `Tipos de usuario Eliminadas`,
         };
     }
 };
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Catalogo Actividades' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Catalogo Tipos de usuario' }),
     (0, common_1.Get)('catalogue'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __metadata("design:type", Function),
@@ -89,7 +89,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], tipoUsuariosController.prototype, "catalogue", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Crear Actividad' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Crear Tipo de usuario' }),
     (0, common_1.Post)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),
@@ -98,7 +98,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], tipoUsuariosController.prototype, "create", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Encontrar todas las Actividades' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Encontrar todas las Tipos de usuario' }),
     (0, common_1.Get)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Query)()),
@@ -107,7 +107,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], tipoUsuariosController.prototype, "findAll", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Encontar una Actividad' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Encontar una Tipo de usuario' }),
     (0, common_1.Get)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -116,7 +116,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], tipoUsuariosController.prototype, "findOne", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Actualizar Actividad' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Actualizar Tipo de usuario' }),
     (0, common_1.Put)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -126,7 +126,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], tipoUsuariosController.prototype, "update", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Borrar Actividad' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Borrar Tipo de usuario' }),
     (0, common_1.Delete)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -135,7 +135,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], tipoUsuariosController.prototype, "remove", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Borrar todas las  Actividades' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Borrar todas las  Tipos de usuario' }),
     (0, common_1.Patch)('remove-all'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),

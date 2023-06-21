@@ -25,23 +25,23 @@ let JornadasController = class JornadasController {
         const serviceResponse = await this.jornadasService.create(payload);
         return {
             data: serviceResponse,
-            message: 'student created',
-            title: 'Created',
+            message: 'Jornada fue creada',
+            title: 'Jornada Creada',
         };
     }
     async catalogue() {
         return {
             data: { s: 'sd' },
             pagination: 'asd',
-            message: `catalogue`,
+            message: `catalogo Jornadas`,
             title: `Catalogue`,
         };
         const serviceResponse = await this.jornadasService.catalogue();
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
-            message: `catalogue`,
-            title: `Catalogue`,
+            message: 'Econtrar todas las Jornadas',
+            title: 'Exitoso',
         };
     }
     async findAll(params) {
@@ -49,40 +49,40 @@ let JornadasController = class JornadasController {
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
-            message: `index`,
-            title: `index`,
+            message: `Encontar una Jornada`,
+            title: `Exitoso`,
         };
     }
     async findOne(id) {
         const serviceResponse = await this.jornadasService.findOne(id);
         return {
             data: serviceResponse,
-            message: `show ${id}`,
-            title: `Success`,
+            message: `Jornada fue actualizada`,
+            title: `Jornada Actualizada`,
         };
     }
     async update(id, payload) {
         const serviceResponse = await this.jornadasService.update(id, payload);
         return {
             data: serviceResponse,
-            message: `User updated ${id}`,
-            title: `Updated`,
+            message: `Jornada fue eliminada`,
+            title: `Jornada Eliminada`,
         };
     }
     async remove(id) {
         const serviceResponse = await this.jornadasService.remove(id);
         return {
             data: serviceResponse,
-            message: `User deleted ${id}`,
-            title: `Deleted`,
+            message: `Jornadas fueron eliminadas`,
+            title: `Jornadas Eliminadas`,
         };
     }
     async removeAll(payload) {
         const serviceResponse = await this.jornadasService.removeAll(payload);
         return {
             data: serviceResponse,
-            message: `Users deleted`,
-            title: `Deleted`,
+            message: `Jornadas fueron eliminadas`,
+            title: `Jornadas Eliminadas`,
         };
     }
 };
@@ -95,7 +95,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], JornadasController.prototype, "create", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'List all users' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Catalogo Jornadas' }),
     (0, common_1.Get)('catalogue'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __metadata("design:type", Function),
@@ -103,7 +103,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], JornadasController.prototype, "catalogue", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'List of users' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Encontrar Jornada' }),
     (0, common_1.Get)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Query)()),

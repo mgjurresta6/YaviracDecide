@@ -43,8 +43,8 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: 'Rol fue creada',
-      title: 'Rol Creada',
+        message: 'Rol fue creado',
+      title: 'Rol Creado',
       };
     }
   
@@ -57,7 +57,7 @@ import {
       return {
         data: serviceResponse.data,
         pagination: serviceResponse.pagination,
-        message: 'Econtrar todas las Roles',
+        message: 'Econtrar todos los Roles',
       title: 'Exitoso',
       };
     }
@@ -87,8 +87,8 @@ import {
       const serviceResponse = await this.rolesService.update(id, payload);
       return {
         data: serviceResponse.data,
-        message: `Rol fue actualizada`,
-      title: `Rol Actualizada`,
+        message: `Rol fue actualizado`,
+      title: `Rol Actualizado`,
       };
     }
   
@@ -101,8 +101,8 @@ import {
       const serviceResponse = await this.rolesService.remove(id);
       return {
         data: serviceResponse.data,
-        message: `Rol fue eliminada`,
-      title: `Rol Eliminada`,
+        message: `Rol fue eliminado`,
+      title: `Rol Eliminado`,
       };
     }
   
@@ -114,8 +114,8 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: `Roles fueron eliminadas`,
-      title: `Roles Eliminadas`,
+        message: `Roles fueron eliminados`,
+      title: `Roles Eliminados`,
       };
     }
   }

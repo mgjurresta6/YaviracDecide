@@ -25,8 +25,8 @@ let CronogramasController = class CronogramasController {
         const serviceResponse = await this.cronogramasService.create(payload);
         return {
             data: serviceResponse.data,
-            message: 'created',
-            title: 'Created',
+            message: 'Cronograma fue creada',
+            title: 'Cronograma Creada',
         };
     }
     async findAll(params) {
@@ -34,45 +34,45 @@ let CronogramasController = class CronogramasController {
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
-            message: `index`,
-            title: 'Success',
+            message: 'Econtrar todas las Cronogramas',
+            title: 'Exitoso',
         };
     }
     async findOne(id) {
         const serviceResponse = await this.cronogramasService.findOne(id);
         return {
             data: serviceResponse.data,
-            message: `show ${id}`,
-            title: `Success`,
+            message: `Encontar un Cronograma`,
+            title: `Exitoso`,
         };
     }
     async update(id, payload) {
         const serviceResponse = await this.cronogramasService.update(id, payload);
         return {
             data: serviceResponse.data,
-            message: `Information Student  updated ${id}`,
-            title: `Updated`,
+            message: `Cronograma fue actualizada`,
+            title: `Cronograma Actualizada`,
         };
     }
     async remove(id) {
         const serviceResponse = await this.cronogramasService.remove(id);
         return {
             data: serviceResponse.data,
-            message: `Information Student deleted ${id}`,
-            title: `Deleted`,
+            message: `Cronograma fue eliminada`,
+            title: `Cronograma Eliminada`,
         };
     }
     async removeAll(payload) {
         const serviceResponse = await this.cronogramasService.removeAll(payload);
         return {
             data: serviceResponse.data,
-            message: `Information Students deleted`,
-            title: `Deleted`,
+            message: `Cronogramas fueron eliminadas`,
+            title: `Cronogramas Eliminadas`,
         };
     }
 };
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Create information students' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Crear Cronograma' }),
     (0, common_1.Post)(''),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),
@@ -81,7 +81,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CronogramasController.prototype, "create", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'List of information students' }),
+    (0, swagger_1.ApiOperation)({ summary: '' }),
     (0, common_1.Get)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Query)()),
@@ -90,7 +90,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CronogramasController.prototype, "findAll", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'View one information students' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Encontrar Cronograma' }),
     (0, common_1.Get)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -99,7 +99,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CronogramasController.prototype, "findOne", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Update information students' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Actualizar Cronograma' }),
     (0, common_1.Put)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -109,7 +109,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CronogramasController.prototype, "update", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Remove information students' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Eliminar Cronograma' }),
     (0, common_1.Delete)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -118,7 +118,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CronogramasController.prototype, "remove", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Remove All Information Students' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Eliminar todos los Cronogramas' }),
     (0, common_1.Patch)('remove-all'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),

@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CataloguesService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("typeorm");
-const dto_1 = require("@core/dto");
+const dto_1 = require("../dto");
 const enums_1 = require("../../../shared/enums");
 const dto_2 = require("../../auth/dto");
 const class_transformer_1 = require("class-transformer");

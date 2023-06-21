@@ -21,7 +21,7 @@ import { ListasService } from '@core/services';
 export class ListasController {
   constructor(private listasService: ListasService) {}
 
-  @ApiOperation({ summary: 'Create Subject' })
+  @ApiOperation({ summary: 'Crear Lista' })
   @Post()
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() payload: any): Promise<ResponseHttpModel> {
@@ -34,7 +34,7 @@ export class ListasController {
     };
   }
 
-  @ApiOperation({ summary: 'Find All Listas' })
+  @ApiOperation({ summary: 'Encontrar Listas' })
   @Get()
   @HttpCode(HttpStatus.OK)
   async findAll(@Query() params: any): Promise<ResponseHttpModel> {
@@ -48,7 +48,7 @@ export class ListasController {
     };
   }
 
-  @ApiOperation({ summary: 'Find Subject' })
+  @ApiOperation({ summary: 'Encontrar Subject' })
   @Get(':id')
   @HttpCode(HttpStatus.OK)
   async findOne(
@@ -63,7 +63,7 @@ export class ListasController {
     };
   }
 
-  @ApiOperation({ summary: 'Update Subject' })
+  @ApiOperation({ summary: 'Actualizar Lista' })
   @Put(':id')
   @HttpCode(HttpStatus.CREATED)
   async update(
@@ -79,7 +79,7 @@ export class ListasController {
     };
   }
 
-  @ApiOperation({ summary: 'Delete Subject' })
+  @ApiOperation({ summary: 'Eliminar Lista' })
   @Delete(':id')
   @HttpCode(HttpStatus.CREATED)
   async remove(
@@ -94,7 +94,7 @@ export class ListasController {
     };
   }
 
-  @ApiOperation({ summary: 'Delete All Listas' })
+  @ApiOperation({ summary: 'Eliminar todas las Listas' })
   @Patch('remove-all')
   @HttpCode(HttpStatus.CREATED)
   async removeAll(

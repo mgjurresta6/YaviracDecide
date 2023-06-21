@@ -17,6 +17,7 @@ import { TipoListaEntity } from '../entities/tipolista.entity';
 import { VotoEntity } from '../entities/voto.entity';
 import { RepositoryEnum } from 'src/shared/enums/repository.enum';
 import { DataSourceEnum } from '@shared/enums';
+import { CatalogueEntity } from '../entities/catalogue.entity';
 export declare const coreProviders: ({
     provide: RepositoryEnum;
     useFactory: (dataSource: DataSource) => import("typeorm").Repository<ActividadEntity>;
@@ -80,5 +81,9 @@ export declare const coreProviders: ({
 } | {
     provide: RepositoryEnum;
     useFactory: (dataSource: DataSource) => import("typeorm").Repository<VotoEntity>;
+    inject: DataSourceEnum[];
+} | {
+    provide: RepositoryEnum;
+    useFactory: (dataSource: DataSource) => import("typeorm").Repository<CatalogueEntity>;
     inject: DataSourceEnum[];
 })[];

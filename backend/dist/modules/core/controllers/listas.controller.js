@@ -25,8 +25,8 @@ let ListasController = class ListasController {
         const serviceResponse = await this.listasService.create(payload);
         return {
             data: serviceResponse.data,
-            message: 'Subject was created',
-            title: 'Subject Created',
+            message: 'Lista fue creada',
+            title: 'Lista Creada',
         };
     }
     async findAll(params) {
@@ -34,45 +34,45 @@ let ListasController = class ListasController {
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
-            message: 'Find all subjects',
-            title: 'success',
+            message: 'Econtrar todas las Listas',
+            title: 'Exitoso',
         };
     }
     async findOne(id) {
         const serviceResponse = await this.listasService.findOne(id);
         return {
             data: serviceResponse.data,
-            message: `Find subject`,
-            title: `Success`,
+            message: `Encontar una Lista`,
+            title: `Exitoso`,
         };
     }
     async update(id, payload) {
         const serviceResponse = await this.listasService.update(id, payload);
         return {
             data: serviceResponse.data,
-            message: 'Subject was updated',
-            title: 'Subject Updated',
+            message: `Lista fue actualizada`,
+            title: `Lista Actualizada`,
         };
     }
     async remove(id) {
         const serviceResponse = await this.listasService.remove(id);
         return {
             data: serviceResponse.data,
-            message: 'Subject was deleted',
-            title: 'Subject Deleted',
+            message: `Lista fue eliminada`,
+            title: `Lista Eliminada`,
         };
     }
     async removeAll(payload) {
         const serviceResponse = await this.listasService.removeAll(payload);
         return {
             data: serviceResponse.data,
-            message: 'Subjects was deleted',
-            title: 'Subjects Deleted',
+            message: `Listas fueron eliminadas`,
+            title: `Listas Eliminadas`,
         };
     }
 };
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Create Subject' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Crear Lista' }),
     (0, common_1.Post)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),
@@ -81,7 +81,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ListasController.prototype, "create", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Find All Subjects' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Encontrar Listas' }),
     (0, common_1.Get)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Query)()),
@@ -90,7 +90,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ListasController.prototype, "findAll", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Find Subject' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Encontrar Subject' }),
     (0, common_1.Get)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -99,7 +99,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ListasController.prototype, "findOne", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Update Subject' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Actualizar Lista' }),
     (0, common_1.Put)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -109,7 +109,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ListasController.prototype, "update", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Delete Subject' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Eliminar Lista' }),
     (0, common_1.Delete)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -118,7 +118,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ListasController.prototype, "remove", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Delete All Subjects' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Eliminar todas las Listas' }),
     (0, common_1.Patch)('remove-all'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),

@@ -1,4 +1,4 @@
-import { CatalogueEntity, StudentEntity } from '@core/entities';
+import { CatalogueEntity } from '@core/entities';
 import { RoleEntity } from './role.entity';
 export declare class UserEntity {
     id: string;
@@ -6,7 +6,6 @@ export declare class UserEntity {
     updatedAt: Date;
     deletedAt: Date;
     roles: RoleEntity[];
-    student: StudentEntity;
     bloodType: CatalogueEntity;
     ethnicOrigin: CatalogueEntity;
     identificationType: CatalogueEntity;

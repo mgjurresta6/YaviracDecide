@@ -22,7 +22,7 @@ import { ResponseHttpModel } from '@shared/models';
 export class DignidadesController {
   constructor(private dignidadesService: DignidadesService) {}
 
-  @ApiOperation({ summary: 'Create Institution' })
+  @ApiOperation({ summary: 'Crear Dignidad' })
   @Post()
   @HttpCode(HttpStatus.CREATED)
   async create(
@@ -36,7 +36,7 @@ export class DignidadesController {
     };
   }
 
-  @ApiOperation({ summary: 'Find All Dignidades' })
+  @ApiOperation({ summary: 'Encontrar Dignidades' })
   @Get()
   @HttpCode(HttpStatus.OK)
   async findAll(
@@ -51,7 +51,7 @@ export class DignidadesController {
     };
   }
 
-  @ApiOperation({ summary: 'Find Institution' })
+  @ApiOperation({ summary: 'Encontrar Dignidad' })
   @Get(':id')
   @HttpCode(HttpStatus.OK)
   async findOne(
@@ -65,7 +65,7 @@ export class DignidadesController {
     };
   }
 
-  @ApiOperation({ summary: 'Update Institution' })
+  @ApiOperation({ summary: 'Actualizar Dignidad' })
   @Put(':id')
   @HttpCode(HttpStatus.CREATED)
   async update(
@@ -80,7 +80,7 @@ export class DignidadesController {
     };
   }
 
-  @ApiOperation({ summary: 'Delete Institution' })
+  @ApiOperation({ summary: 'Eliminar Dignidad' })
   @Delete(':id')
   @HttpCode(HttpStatus.CREATED)
   async remove(
@@ -94,7 +94,7 @@ export class DignidadesController {
     };
   }
 
-  @ApiOperation({ summary: 'Delete All Dignidades' })
+  @ApiOperation({ summary: 'Eliminar todas las Dignidades' })
   @Patch('remove-all')
   @HttpCode(HttpStatus.CREATED)
   async removeAll(

@@ -25,8 +25,8 @@ let ConfiguracionesController = class ConfiguracionesController {
         const serviceResponse = await this.configuracionesService.create(payload);
         return {
             data: serviceResponse.data,
-            message: 'The curriculum was created',
-            title: 'Curriculum Created',
+            message: 'Configuracion fue creada',
+            title: 'Configuracion Creada',
         };
     }
     async findAll(params) {
@@ -34,45 +34,45 @@ let ConfiguracionesController = class ConfiguracionesController {
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
-            message: 'Find all curricula',
-            title: 'Success',
+            message: 'Econtrar todas las Configuraciones',
+            title: 'Exitoso',
         };
     }
     async findOne(id) {
         const serviceResponse = await this.configuracionesService.findOne(id);
         return {
             data: serviceResponse.data,
-            message: 'Find curriculum',
-            title: `Success`,
+            message: `Encontar una Configuracion`,
+            title: `Exitoso`,
         };
     }
     async update(id, payload) {
         const serviceResponse = await this.configuracionesService.update(id, payload);
         return {
             data: serviceResponse.data,
-            message: 'The curriculum was updated',
-            title: 'Curriculum Updated',
+            message: `Configuracion fue actualizada`,
+            title: `Configuracion Actualizada`,
         };
     }
     async remove(id) {
         const serviceResponse = await this.configuracionesService.remove(id);
         return {
             data: serviceResponse.data,
-            message: 'The curriculum was deleted',
-            title: `Curriculum Deleted`,
+            message: `Configuracion fue eliminada`,
+            title: `Configuracion Eliminada`,
         };
     }
     async removeAll(payload) {
         const serviceResponse = await this.configuracionesService.removeAll(payload);
         return {
             data: serviceResponse.data,
-            message: 'The curricula was deleted',
-            title: 'Curricula Deleted',
+            message: `Configuraciones fueron eliminadas`,
+            title: `Configuraciones Eliminadas`,
         };
     }
 };
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Create Curriculum' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Crear Configuracion' }),
     (0, common_1.Post)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),
@@ -81,7 +81,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ConfiguracionesController.prototype, "create", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Find All Curricula' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Encontrar todas las configuraciones' }),
     (0, common_1.Get)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Query)()),
@@ -90,7 +90,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ConfiguracionesController.prototype, "findAll", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Find Curriculum' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Encontrar Configuracion' }),
     (0, common_1.Get)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -99,7 +99,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ConfiguracionesController.prototype, "findOne", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Update Curriculum' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Actualizar Configuracion' }),
     (0, common_1.Put)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -109,7 +109,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ConfiguracionesController.prototype, "update", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Delete Curriculum' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Eliminar Configuracion' }),
     (0, common_1.Delete)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -118,7 +118,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ConfiguracionesController.prototype, "remove", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Delete All Curricula' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Eliminar todas las Configuraciones' }),
     (0, common_1.Patch)('remove-all'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),

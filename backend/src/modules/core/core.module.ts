@@ -34,13 +34,16 @@ import {
   TipoListasService,
   UsuariosService,
   TipoUsuariosService,
-  VotosService
+  VotosService,
+  CataloguesService
 } from '@core/services';
 import { coreProviders } from '@core/providers';
+import { DatabaseModule } from '@database';
+
 
 @Global()
 @Module({
-  imports: [],
+  imports: [DatabaseModule],
   controllers: [
     ActividadesController,
     CarrerasController,
@@ -76,7 +79,8 @@ import { coreProviders } from '@core/providers';
     TipoListasService,
     UsuariosService,
     TipoUsuariosService,
-    VotosService
+    VotosService,
+    CataloguesService
 
   ],
   exports: [
@@ -95,7 +99,8 @@ import { coreProviders } from '@core/providers';
     TipoListasService,
     UsuariosService,
     TipoUsuariosService,
-    VotosService
+    VotosService,
+    CataloguesService
   ],
 })
 export class CoreModule {}

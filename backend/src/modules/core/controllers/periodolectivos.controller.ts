@@ -30,8 +30,8 @@ import {
       return {
         data: serviceResponse.data,
         pagination: serviceResponse.pagination,
-        message: 'Periodo lectivo fue creada',
-      title: 'Periodo lectivo Creada',
+        message: 'Catalogo Periodo',
+      title: 'Catalogo',
       };
     }
   
@@ -43,8 +43,9 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: 'Econtrar todas las Periodos lectivos',
-        title: 'Exitoso',
+        message: 'Periodo lectivo fue creada',
+      title: 'Periodo lectivo Creada',
+        
       };
     }
   
@@ -57,8 +58,9 @@ import {
       return {
         data: serviceResponse.data,
         pagination: serviceResponse.pagination,
-        message: `Encontar una Periodo lectivo`,
-      title: `Exitoso`,
+        message: 'Econtrar todas las Periodos lectivos',
+        title: 'Exitoso',
+        
       };
     }
   
@@ -72,8 +74,9 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: `Periodo lectivo fue actualizada`,
-      title: `Periodo lectivo Actualizada`,
+        message: `Encontar una Periodo lectivo`,
+      title: `Exitoso`,
+        
       };
     }
   
@@ -87,8 +90,9 @@ import {
       const serviceResponse = await this.periodolectivosService.update(id, payload);
       return {
         data: serviceResponse.data,
-        message: `Periodo lectivo fue eliminada`,
-      title: `Periodo lectivo Eliminada`,
+        message: `Periodo lectivo fue actualizada`,
+      title: `Periodo lectivo Actualizada`,
+        
       };
     }
   
@@ -101,8 +105,9 @@ import {
       const serviceResponse = await this.periodolectivosService.remove(id);
       return {
         data: serviceResponse.data,
-        message: `Periodos lectivos fueron eliminadas`,
-      title: `Periodos lectivos Eliminadas`,
+        message: `Periodo lectivo fue eliminada`,
+      title: `Periodo lectivo Eliminada`,
+        
       };
     }
   

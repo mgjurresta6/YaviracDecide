@@ -26,7 +26,7 @@ let RolesController = class RolesController {
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
-            message: `Catalogo Actividades`,
+            message: `Catalogo Roles`,
             title: `Catalogo`,
         };
     }
@@ -34,8 +34,8 @@ let RolesController = class RolesController {
         const serviceResponse = await this.rolesService.create(payload);
         return {
             data: serviceResponse.data,
-            message: 'Actividad fue creada',
-            title: 'Actividad Creada',
+            message: 'Rol fue creado',
+            title: 'Rol Creado',
         };
     }
     async findAll(params) {
@@ -43,7 +43,7 @@ let RolesController = class RolesController {
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
-            message: 'Econtrar todas las Actividades',
+            message: 'Econtrar todos los Roles',
             title: 'Exitoso',
         };
     }
@@ -51,7 +51,7 @@ let RolesController = class RolesController {
         const serviceResponse = await this.rolesService.findOne(id);
         return {
             data: serviceResponse.data,
-            message: `Encontar una Actividad`,
+            message: `Encontar una Rol`,
             title: `Exitoso`,
         };
     }
@@ -59,29 +59,29 @@ let RolesController = class RolesController {
         const serviceResponse = await this.rolesService.update(id, payload);
         return {
             data: serviceResponse.data,
-            message: `Actividad fue actualizada`,
-            title: `Actividad Actualizada`,
+            message: `Rol fue actualizado`,
+            title: `Rol Actualizado`,
         };
     }
     async remove(id) {
         const serviceResponse = await this.rolesService.remove(id);
         return {
             data: serviceResponse.data,
-            message: `Actividad fue eliminada`,
-            title: `Actividad Eliminada`,
+            message: `Rol fue eliminado`,
+            title: `Rol Eliminado`,
         };
     }
     async removeAll(payload) {
         const serviceResponse = await this.rolesService.removeAll(payload);
         return {
             data: serviceResponse.data,
-            message: `Actividades fueron eliminadas`,
-            title: `Actividades Eliminadas`,
+            message: `Roles fueron eliminados`,
+            title: `Roles Eliminados`,
         };
     }
 };
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Catalogo Actividades' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Catalogo Roles' }),
     (0, common_1.Get)('catalogue'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __metadata("design:type", Function),
@@ -89,7 +89,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], RolesController.prototype, "catalogue", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Crear Actividad' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Crear Rol' }),
     (0, common_1.Post)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),
@@ -98,7 +98,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], RolesController.prototype, "create", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Encontrar todas las Actividades' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Encontrar todas las Roles' }),
     (0, common_1.Get)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Query)()),
@@ -107,7 +107,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], RolesController.prototype, "findAll", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Encontar una Actividad' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Encontar una Rol' }),
     (0, common_1.Get)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -116,7 +116,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], RolesController.prototype, "findOne", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Actualizar Actividad' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Actualizar Rol' }),
     (0, common_1.Put)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -126,7 +126,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], RolesController.prototype, "update", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Borrar Actividad' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Borrar Rol' }),
     (0, common_1.Delete)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -135,7 +135,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], RolesController.prototype, "remove", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Borrar todas las  Actividades' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Borrar todas las  Roles' }),
     (0, common_1.Patch)('remove-all'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),

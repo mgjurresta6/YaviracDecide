@@ -26,7 +26,7 @@ let ResultadosController = class ResultadosController {
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
-            message: `Catalogo Actividades`,
+            message: `Catalogo Resultados`,
             title: `Catalogo`,
         };
     }
@@ -34,8 +34,8 @@ let ResultadosController = class ResultadosController {
         const serviceResponse = await this.resultadosService.create(payload);
         return {
             data: serviceResponse.data,
-            message: 'Actividad fue creada',
-            title: 'Actividad Creada',
+            message: 'Resultado fue creado',
+            title: 'Resultado Creado',
         };
     }
     async findAll(params) {
@@ -43,7 +43,7 @@ let ResultadosController = class ResultadosController {
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
-            message: 'Econtrar todas las Actividades',
+            message: 'Econtrar todos los Resultados',
             title: 'Exitoso',
         };
     }
@@ -51,7 +51,7 @@ let ResultadosController = class ResultadosController {
         const serviceResponse = await this.resultadosService.findOne(id);
         return {
             data: serviceResponse.data,
-            message: `Encontar una Actividad`,
+            message: `Encontar un Resultado`,
             title: `Exitoso`,
         };
     }
@@ -59,29 +59,29 @@ let ResultadosController = class ResultadosController {
         const serviceResponse = await this.resultadosService.update(id, payload);
         return {
             data: serviceResponse.data,
-            message: `Actividad fue actualizada`,
-            title: `Actividad Actualizada`,
+            message: `Resultado fue actualizado`,
+            title: `Resultado Actualizado`,
         };
     }
     async remove(id) {
         const serviceResponse = await this.resultadosService.remove(id);
         return {
             data: serviceResponse.data,
-            message: `Actividad fue eliminada`,
-            title: `Actividad Eliminada`,
+            message: `Resultado fue eliminado`,
+            title: `Resultado Eliminado`,
         };
     }
     async removeAll(payload) {
         const serviceResponse = await this.resultadosService.removeAll(payload);
         return {
             data: serviceResponse.data,
-            message: `Actividades fueron eliminadas`,
-            title: `Actividades Eliminadas`,
+            message: `Resultados fueron eliminados`,
+            title: `Resultados Eliminados`,
         };
     }
 };
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Catalogo Actividades' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Catalogo Resultados' }),
     (0, common_1.Get)('catalogue'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __metadata("design:type", Function),
@@ -89,7 +89,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ResultadosController.prototype, "catalogue", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Crear Actividad' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Crear Resultado' }),
     (0, common_1.Post)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),
@@ -98,7 +98,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ResultadosController.prototype, "create", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Encontrar todas las Actividades' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Encontrar todos los Resultados' }),
     (0, common_1.Get)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Query)()),
@@ -107,7 +107,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ResultadosController.prototype, "findAll", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Encontar una Actividad' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Encontar un Resultado' }),
     (0, common_1.Get)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -116,7 +116,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ResultadosController.prototype, "findOne", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Actualizar Actividad' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Actualizar Resultado' }),
     (0, common_1.Put)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -126,7 +126,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ResultadosController.prototype, "update", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Borrar Actividad' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Borrar Resultado' }),
     (0, common_1.Delete)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -135,7 +135,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ResultadosController.prototype, "remove", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Borrar todas las  Actividades' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Borrar todas las  Resultados' }),
     (0, common_1.Patch)('remove-all'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),

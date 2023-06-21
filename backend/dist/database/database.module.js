@@ -9,11 +9,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DatabaseModule = void 0;
 const common_1 = require("@nestjs/common");
 const database_providers_1 = require("./database.providers");
-const database_seeder_1 = require("./seeds/database-seeder");
-const catalogues_seeder_1 = require("./seeds/catalogues-seeder");
-const users_seeder_1 = require("./seeds/users-seeder");
-const roles_seeder_1 = require("./seeds/roles-seeder");
-const menus_seeder_1 = require("./seeds/menus-seeder");
 let DatabaseModule = class DatabaseModule {
 };
 DatabaseModule = __decorate([
@@ -21,13 +16,8 @@ DatabaseModule = __decorate([
     (0, common_1.Module)({
         providers: [
             ...database_providers_1.databaseProviders,
-            database_seeder_1.DatabaseSeeder,
-            catalogues_seeder_1.CataloguesSeeder,
-            users_seeder_1.UsersSeeder,
-            roles_seeder_1.RolesSeeder,
-            menus_seeder_1.MenusSeeder,
         ],
-        exports: [...database_providers_1.databaseProviders, database_seeder_1.DatabaseSeeder],
+        exports: [...database_providers_1.databaseProviders],
     })
 ], DatabaseModule);
 exports.DatabaseModule = DatabaseModule;

@@ -11,30 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DatabaseSeeder = void 0;
 const common_1 = require("@nestjs/common");
-const catalogues_seeder_1 = require("./catalogues-seeder");
-const users_seeder_1 = require("./users-seeder");
-const roles_seeder_1 = require("./roles-seeder");
-const menus_seeder_1 = require("./menus-seeder");
 let DatabaseSeeder = class DatabaseSeeder {
-    constructor(cataloguesSeeder, usersSeeder, rolesSeeder, menusSeeder) {
-        this.cataloguesSeeder = cataloguesSeeder;
-        this.usersSeeder = usersSeeder;
-        this.rolesSeeder = rolesSeeder;
-        this.menusSeeder = menusSeeder;
-    }
+    constructor() { }
     async run() {
-        await this.cataloguesSeeder.run();
-        await this.rolesSeeder.run();
-        await this.usersSeeder.run();
-        await this.menusSeeder.run();
     }
 };
 DatabaseSeeder = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [catalogues_seeder_1.CataloguesSeeder,
-        users_seeder_1.UsersSeeder,
-        roles_seeder_1.RolesSeeder,
-        menus_seeder_1.MenusSeeder])
+    __metadata("design:paramtypes", [])
 ], DatabaseSeeder);
 exports.DatabaseSeeder = DatabaseSeeder;
 //# sourceMappingURL=database-seeder.js.map

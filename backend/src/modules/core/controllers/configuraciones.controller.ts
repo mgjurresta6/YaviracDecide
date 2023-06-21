@@ -21,7 +21,7 @@ import { ResponseHttpModel } from '@shared/models';
 export class ConfiguracionesController {
   constructor(private configuracionesService: ConfiguracionesService) {}
 
-  @ApiOperation({ summary: 'Create Configuracion' })
+  @ApiOperation({ summary: 'Crear Configuracion' })
   @Post()
   @HttpCode(HttpStatus.CREATED)
   async create(
@@ -36,7 +36,7 @@ export class ConfiguracionesController {
     };
   }
 
-  @ApiOperation({ summary: 'Find All Curricula' })
+  @ApiOperation({ summary: 'Encontrar todas las configuraciones' })
   @Get()
   @HttpCode(HttpStatus.OK)
   async findAll(
@@ -52,7 +52,7 @@ export class ConfiguracionesController {
     };
   }
 
-  @ApiOperation({ summary: 'Find Configuracion' })
+  @ApiOperation({ summary: 'Encontrar Configuracion' })
   @Get(':id')
   @HttpCode(HttpStatus.OK)
   async findOne(
@@ -67,7 +67,7 @@ export class ConfiguracionesController {
     };
   }
 
-  @ApiOperation({ summary: 'Update Configuracion' })
+  @ApiOperation({ summary: 'Actualizar Configuracion' })
   @Put(':id')
   @HttpCode(HttpStatus.CREATED)
   async update(
@@ -83,7 +83,7 @@ export class ConfiguracionesController {
     };
   }
 
-  @ApiOperation({ summary: 'Delete Configuracion' })
+  @ApiOperation({ summary: 'Eliminar Configuracion' })
   @Delete(':id')
   @HttpCode(HttpStatus.CREATED)
   async remove(
@@ -98,7 +98,7 @@ export class ConfiguracionesController {
     };
   }
 
-  @ApiOperation({ summary: 'Delete All Curricula' })
+  @ApiOperation({ summary: 'Eliminar todas las Configuraciones' })
   @Patch('remove-all')
   @HttpCode(HttpStatus.CREATED)
   async removeAll(

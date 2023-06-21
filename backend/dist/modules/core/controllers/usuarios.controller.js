@@ -26,7 +26,7 @@ let UsuariosController = class UsuariosController {
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
-            message: `Catalogo Actividades`,
+            message: `Catalogo Usuarios`,
             title: `Catalogo`,
         };
     }
@@ -34,8 +34,8 @@ let UsuariosController = class UsuariosController {
         const serviceResponse = await this.usuariosService.create(payload);
         return {
             data: serviceResponse.data,
-            message: 'Actividad fue creada',
-            title: 'Actividad Creada',
+            message: 'Usuario fue creada',
+            title: 'Usuario Creada',
         };
     }
     async findAll(params) {
@@ -43,7 +43,7 @@ let UsuariosController = class UsuariosController {
         return {
             data: serviceResponse.data,
             pagination: serviceResponse.pagination,
-            message: 'Econtrar todas las Actividades',
+            message: 'Econtrar todas las Usuarios',
             title: 'Exitoso',
         };
     }
@@ -51,7 +51,7 @@ let UsuariosController = class UsuariosController {
         const serviceResponse = await this.usuariosService.findOne(cedula);
         return {
             data: serviceResponse.data,
-            message: `Encontar una Actividad`,
+            message: `Encontar una Usuario`,
             title: `Exitoso`,
         };
     }
@@ -59,29 +59,29 @@ let UsuariosController = class UsuariosController {
         const serviceResponse = await this.usuariosService.update(cedula, payload);
         return {
             data: serviceResponse.data,
-            message: `Actividad fue actualizada`,
-            title: `Actividad Actualizada`,
+            message: `Usuario fue actualizada`,
+            title: `Usuario Actualizada`,
         };
     }
     async remove(cedula) {
         const serviceResponse = await this.usuariosService.remove(cedula);
         return {
             data: serviceResponse.data,
-            message: `Actividad fue eliminada`,
-            title: `Actividad Eliminada`,
+            message: `Usuario fue eliminada`,
+            title: `Usuario Eliminada`,
         };
     }
     async removeAll(payload) {
         const serviceResponse = await this.usuariosService.removeAll(payload);
         return {
             data: serviceResponse.data,
-            message: `Actividades fueron eliminadas`,
-            title: `Actividades Eliminadas`,
+            message: `Usuarios fueron eliminadas`,
+            title: `Usuarios Eliminadas`,
         };
     }
 };
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Catalogo Actividades' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Catalogo Usuarios' }),
     (0, common_1.Get)('catalogue'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __metadata("design:type", Function),
@@ -89,7 +89,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsuariosController.prototype, "catalogue", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Crear Actividad' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Crear Usuario' }),
     (0, common_1.Post)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),
@@ -98,7 +98,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsuariosController.prototype, "create", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Encontrar todas las Actividades' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Encontrar todas las Usuarios' }),
     (0, common_1.Get)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Query)()),
@@ -107,7 +107,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsuariosController.prototype, "findAll", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Encontar una Actividad' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Encontar una Usuario' }),
     (0, common_1.Get)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -116,7 +116,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsuariosController.prototype, "findOne", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Actualizar Actividad' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Actualizar Usuario' }),
     (0, common_1.Put)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -126,7 +126,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsuariosController.prototype, "update", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Borrar Actividad' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Borrar Usuario' }),
     (0, common_1.Delete)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
@@ -135,7 +135,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsuariosController.prototype, "remove", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Borrar todas las  Actividades' }),
+    (0, swagger_1.ApiOperation)({ summary: 'Borrar todas las  Usuarios' }),
     (0, common_1.Patch)('remove-all'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Body)()),

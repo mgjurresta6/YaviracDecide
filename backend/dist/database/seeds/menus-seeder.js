@@ -8,12 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MenusSeeder = void 0;
 const common_1 = require("@nestjs/common");
-const services_1 = require("@auth/services");
-const enums_1 = require("@auth/enums");
+const services_1 = require("../../modules/auth/services");
+const enums_1 = require("../../modules/auth/enums");
 let MenusSeeder = class MenusSeeder {
     constructor(menusService) {
         this.menusService = menusService;
@@ -67,7 +66,7 @@ let MenusSeeder = class MenusSeeder {
 };
 MenusSeeder = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [typeof (_a = typeof services_1.MenusService !== "undefined" && services_1.MenusService) === "function" ? _a : Object])
+    __metadata("design:paramtypes", [services_1.MenusService])
 ], MenusSeeder);
 exports.MenusSeeder = MenusSeeder;
 //# sourceMappingURL=menus-seeder.js.map

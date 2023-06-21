@@ -22,7 +22,7 @@ import { CursosService } from '@core/services';
 export class CursosController {
   constructor(private cursosService: CursosService) {}
 
-  @ApiOperation({ summary: 'Create Information Teacher' })
+  @ApiOperation({ summary: 'Crear Curso' })
   @Post()
   @HttpCode(HttpStatus.CREATED)
   async create(
@@ -39,7 +39,7 @@ export class CursosController {
     };
   }
 
-  @ApiOperation({ summary: 'Find All Information Cursos' })
+  @ApiOperation({ summary: 'Encontrar Cursos' })
   @Get()
   @HttpCode(HttpStatus.OK)
   async findAll(
@@ -56,7 +56,7 @@ export class CursosController {
     };
   }
 
-  @ApiOperation({ summary: 'Find Information Teacher' })
+  @ApiOperation({ summary: 'Encontrar un Curso' })
   @Get(':id')
   @HttpCode(HttpStatus.OK)
   async findOne(
@@ -71,7 +71,7 @@ export class CursosController {
     };
   }
 
-  @ApiOperation({ summary: 'Update Information Teacher' })
+  @ApiOperation({ summary: 'Actualizar Curso' })
   @Put(':id')
   @HttpCode(HttpStatus.CREATED)
   async update(
@@ -90,7 +90,7 @@ export class CursosController {
     };
   }
 
-  @ApiOperation({ summary: 'Delete Information Teacher' })
+  @ApiOperation({ summary: 'Eliminar Curso' })
   @Delete(':id')
   @HttpCode(HttpStatus.CREATED)
   async remove(
@@ -105,7 +105,7 @@ export class CursosController {
     };
   }
 
-  @ApiOperation({ summary: 'Delete All Information Cursos' })
+  @ApiOperation({ summary: 'Eliminar todos los Cursos' })
   @Patch('remove-all')
   @HttpCode(HttpStatus.CREATED)
   async removeAll(

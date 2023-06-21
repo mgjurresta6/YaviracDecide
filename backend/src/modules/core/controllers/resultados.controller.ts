@@ -43,12 +43,12 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: 'Resultado fue creada',
-      title: 'Resultado Creada',
+        message: 'Resultado fue creado',
+      title: 'Resultado Creado',
       };
     }
   
-    @ApiOperation({ summary: 'Encontrar todas las Resultados' })
+    @ApiOperation({ summary: 'Encontrar todos los Resultados' })
     @Get()
     @HttpCode(HttpStatus.OK)
     async findAll(@Query() params: any): Promise<ResponseHttpModel> {
@@ -57,12 +57,12 @@ import {
       return {
         data: serviceResponse.data,
         pagination: serviceResponse.pagination,
-        message: 'Econtrar todas las Resultados',
+        message: 'Econtrar todos los Resultados',
       title: 'Exitoso',
       };
     }
   
-    @ApiOperation({ summary: 'Encontar una Resultado' })
+    @ApiOperation({ summary: 'Encontar un Resultado' })
     @Get(':id')
     @HttpCode(HttpStatus.OK)
     async findOne(
@@ -72,7 +72,7 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: `Encontar una Resultado`,
+        message: `Encontar un Resultado`,
       title: `Exitoso`,
       };
     }
@@ -87,8 +87,8 @@ import {
       const serviceResponse = await this.resultadosService.update(id, payload);
       return {
         data: serviceResponse.data,
-        message: `Resultado fue actualizada`,
-      title: `Resultado Actualizada`,
+        message: `Resultado fue actualizado`,
+      title: `Resultado Actualizado`,
       };
     }
   
@@ -101,8 +101,8 @@ import {
       const serviceResponse = await this.resultadosService.remove(id);
       return {
         data: serviceResponse.data,
-        message: `Resultado fue eliminada`,
-      title: `Resultado Eliminada`,
+        message: `Resultado fue eliminado`,
+      title: `Resultado Eliminado`,
       };
     }
   
@@ -114,8 +114,8 @@ import {
   
       return {
         data: serviceResponse.data,
-        message: `Resultados fueron eliminadas`,
-      title: `Resultados Eliminadas`,
+        message: `Resultados fueron eliminados`,
+      title: `Resultados Eliminados`,
       };
     }
   }

@@ -17,6 +17,7 @@ import { TipoListaEntity } from '../entities/tipolista.entity';
 import { VotoEntity } from '../entities/voto.entity';
 import { RepositoryEnum } from 'src/shared/enums/repository.enum';
 import { DataSourceEnum } from '@shared/enums';
+import { CatalogueEntity } from '../entities/catalogue.entity';
 
 export const coreProviders = [
   {
@@ -112,6 +113,12 @@ export const coreProviders = [
     provide: RepositoryEnum.VOTO_REPOSITORY,
     useFactory: (dataSource: DataSource) =>
       dataSource.getRepository(VotoEntity),
+    inject: [DataSourceEnum.PG_DATA_SOURCE],
+  },
+  {
+    provide: RepositoryEnum.CATALOGUE_REPOSITORY,
+    useFactory: (dataSource: DataSource) =>
+      dataSource.getRepository(CatalogueEntity),
     inject: [DataSourceEnum.PG_DATA_SOURCE],
   },
 ];
