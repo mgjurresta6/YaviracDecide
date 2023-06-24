@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { UsuarioEntity } from './usuario.entity';
 
 @Entity('configuraciones', { schema: 'core' })
 export class ConfiguracionEntity {
@@ -25,4 +26,9 @@ export class ConfiguracionEntity {
     comment: 'Tiempo de duracion para que utilice el codigo',
   })
   duracionReseteo: Date;
+
+  
+  @ManyToOne(() => UsuarioEntity)
+  @JoinColumn ({name: 'configuracion'})
+  configuraciones: UsuarioEntity;
 }

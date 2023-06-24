@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { TipoListaEntity } from './tipolista.entity';
 
 @Entity('listas', { schema: 'core' })
 export class ListaEntity {
@@ -46,4 +47,8 @@ export class ListaEntity {
     comment: 'propuesta de la lista',
   })
   propuesta: string;
+
+  @ManyToOne(() => TipoListaEntity)
+  @JoinColumn ({name: 'tipo_lista'})
+  tipoListas: TipoListaEntity;
 }

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany, JoinColumn } from 'typeorm';
+import { CursoEntity } from './curso.entity';
 
 @Entity('paralelos', { schema: 'core' })
 export class ParaleloEntity {
@@ -11,4 +12,8 @@ export class ParaleloEntity {
     comment: 'Paralelo al que pertenece: A, B, C',
   })
   paralelo: string;
+
+  @OneToMany(() => CursoEntity, (paralelo) => paralelo.id)
+  @JoinColumn ({name: 'paralelo'})
+  paralelos: CursoEntity[];
 }

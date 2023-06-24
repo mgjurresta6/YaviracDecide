@@ -12,9 +12,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CronogramaEntity = void 0;
 const openapi = require("@nestjs/swagger");
 const typeorm_1 = require("typeorm");
+const actividad_entity_1 = require("./actividad.entity");
+const periodolectivo_entity_1 = require("./periodolectivo.entity");
 let CronogramaEntity = class CronogramaEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, fechaCreacion: { required: true, type: () => Date }, responsable: { required: true, type: () => String } };
+        return { id: { required: true, type: () => String }, fechaCreacion: { required: true, type: () => Date }, responsable: { required: true, type: () => String }, actividad: { required: true, type: () => require("./actividad.entity").ActividadEntity }, periodo: { required: true, type: () => [require("./periodolectivo.entity").PeriodoEntity] } };
     }
 };
 __decorate([
@@ -37,6 +39,16 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], CronogramaEntity.prototype, "responsable", void 0);
+__decorate([
+    (0, typeorm_1.ManyToMany)(() => actividad_entity_1.ActividadEntity),
+    (0, typeorm_1.JoinTable)({ name: 'detalle_cronogramas' }),
+    __metadata("design:type", actividad_entity_1.ActividadEntity)
+], CronogramaEntity.prototype, "actividad", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => periodolectivo_entity_1.PeriodoEntity),
+    (0, typeorm_1.JoinColumn)({ name: 'cronogroma' }),
+    __metadata("design:type", Array)
+], CronogramaEntity.prototype, "periodo", void 0);
 CronogramaEntity = __decorate([
     (0, typeorm_1.Entity)('cronogramas', { schema: 'core' })
 ], CronogramaEntity);

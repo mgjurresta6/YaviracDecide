@@ -12,9 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConfiguracionEntity = void 0;
 const openapi = require("@nestjs/swagger");
 const typeorm_1 = require("typeorm");
+const usuario_entity_1 = require("./usuario.entity");
 let ConfiguracionEntity = class ConfiguracionEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, codigoReseteo: { required: true, type: () => String }, fechaReseteo: { required: true, type: () => Date }, duracionReseteo: { required: true, type: () => Date } };
+        return { id: { required: true, type: () => String }, codigoReseteo: { required: true, type: () => String }, fechaReseteo: { required: true, type: () => Date }, duracionReseteo: { required: true, type: () => Date }, configuraciones: { required: true, type: () => require("./usuario.entity").UsuarioEntity } };
     }
 };
 __decorate([
@@ -45,6 +46,11 @@ __decorate([
     }),
     __metadata("design:type", Date)
 ], ConfiguracionEntity.prototype, "duracionReseteo", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => usuario_entity_1.UsuarioEntity),
+    (0, typeorm_1.JoinColumn)({ name: 'configuracion' }),
+    __metadata("design:type", usuario_entity_1.UsuarioEntity)
+], ConfiguracionEntity.prototype, "configuraciones", void 0);
 ConfiguracionEntity = __decorate([
     (0, typeorm_1.Entity)('configuraciones', { schema: 'core' })
 ], ConfiguracionEntity);

@@ -1,4 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
+import { CursoEntity } from './curso.entity';
+import { RolEntity } from './rol.entity';
+import { TipoEntity } from './usuariotipo.entity';
+import { ResultadoEntity } from './resultado.entity';
+import { ConfiguracionEntity } from './configuracion.entity';
 
 @Entity('usuarios', { schema: 'core' })
 export class UsuarioEntity {
@@ -53,4 +58,21 @@ export class UsuarioEntity {
     comment: 'EStado del ususario: Activo, Inactivo',
   })
   estadoUsuario: string;
+
+  @ManyToOne(() => RolEntity)
+  @JoinColumn ({name: 'rol_id'})
+  rol: RolEntity;
+
+  @ManyToOne(() => TipoEntity)
+  @JoinColumn ({name: 'tipo_usuario'})
+  tipo: TipoEntity;
+  
+  @OneToMany(() => ResultadoEntity, (resultado) => resultado.id)
+  @JoinColumn ({name: 'usuario'})
+  resultados: ResultadoEntity[];
+
+  
+  @OneToMany(() => ConfiguracionEntity, (configuracion) => configuracion.id)
+  @JoinColumn ({name: 'configuracion'})
+  configuraciones: ConfiguracionEntity[];
 }

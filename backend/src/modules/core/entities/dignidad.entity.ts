@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm';
+import { ListaEntity } from './lista.entity'
+
 
 @Entity('dignidades', { schema: 'core' })
 export class DignidadEntity {
@@ -11,4 +13,9 @@ export class DignidadEntity {
     comment: 'Nombre de la dignidad: Presidente',
   })
   nombreDignidad: string;
+
+  @ManyToMany(()=> ListaEntity)
+  @JoinTable({name: 'lista_dignidades'})
+  listas: ListaEntity;
+
 }

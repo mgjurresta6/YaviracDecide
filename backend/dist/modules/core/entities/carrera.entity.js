@@ -12,9 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CarreraEntity = void 0;
 const openapi = require("@nestjs/swagger");
 const typeorm_1 = require("typeorm");
+const curso_entity_1 = require("./curso.entity");
 let CarreraEntity = class CarreraEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, carrera: { required: true, type: () => String } };
+        return { id: { required: true, type: () => String }, carrera: { required: true, type: () => String }, carreras: { required: true, type: () => [require("./curso.entity").CursoEntity] } };
     }
 };
 __decorate([
@@ -29,6 +30,11 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], CarreraEntity.prototype, "carrera", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => curso_entity_1.CursoEntity, (carrera) => carrera.id),
+    (0, typeorm_1.JoinColumn)({ name: 'carrera' }),
+    __metadata("design:type", Array)
+], CarreraEntity.prototype, "carreras", void 0);
 CarreraEntity = __decorate([
     (0, typeorm_1.Entity)('carreras', { schema: 'core' })
 ], CarreraEntity);

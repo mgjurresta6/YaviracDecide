@@ -12,15 +12,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ResultadoEntity = void 0;
 const openapi = require("@nestjs/swagger");
 const typeorm_1 = require("typeorm");
+const usuario_entity_1 = require("./usuario.entity");
+const voto_entity_1 = require("./voto.entity");
 let ResultadoEntity = class ResultadoEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String } };
+        return { id: { required: true, type: () => String }, resultado: { required: true, type: () => require("./usuario.entity").UsuarioEntity }, votos: { required: true, type: () => [require("./voto.entity").VotoEntity] } };
     }
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
     __metadata("design:type", String)
 ], ResultadoEntity.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => usuario_entity_1.UsuarioEntity),
+    (0, typeorm_1.JoinColumn)({ name: 'usuario' }),
+    __metadata("design:type", usuario_entity_1.UsuarioEntity)
+], ResultadoEntity.prototype, "resultado", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => voto_entity_1.VotoEntity, (voto) => voto.id),
+    (0, typeorm_1.JoinColumn)({ name: 'voto' }),
+    __metadata("design:type", Array)
+], ResultadoEntity.prototype, "votos", void 0);
 ResultadoEntity = __decorate([
     (0, typeorm_1.Entity)('resultados', { schema: 'core' })
 ], ResultadoEntity);

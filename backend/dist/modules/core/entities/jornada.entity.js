@@ -12,9 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.JornadaEntity = void 0;
 const openapi = require("@nestjs/swagger");
 const typeorm_1 = require("typeorm");
+const curso_entity_1 = require("./curso.entity");
 let JornadaEntity = class JornadaEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, jornada: { required: true, type: () => String } };
+        return { id: { required: true, type: () => Number }, jornada: { required: true, type: () => String }, jornadas: { required: true, type: () => [require("./curso.entity").CursoEntity] } };
     }
 };
 __decorate([
@@ -29,6 +30,11 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], JornadaEntity.prototype, "jornada", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => curso_entity_1.CursoEntity, (curso) => curso.jornada),
+    (0, typeorm_1.JoinColumn)({ name: 'jornada' }),
+    __metadata("design:type", Array)
+], JornadaEntity.prototype, "jornadas", void 0);
 JornadaEntity = __decorate([
     (0, typeorm_1.Entity)('jornadas', { schema: 'core' })
 ], JornadaEntity);

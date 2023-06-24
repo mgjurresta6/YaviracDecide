@@ -1,4 +1,8 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany, JoinColumn, ManyToOne } from 'typeorm';
+import { CarreraEntity } from './carrera.entity';
+import { UsuarioEntity } from './usuario.entity';
+import { JornadaEntity } from './jornada.entity';
+import { ParaleloEntity } from './paralelo.entity';
 
 @Entity('cursos', { schema: 'core' })
 export class CursoEntity {
@@ -11,4 +15,16 @@ export class CursoEntity {
     comment: 'Acronimo: DS',
   })
   acronimoCarrera: string;
+
+  @ManyToOne(() => CarreraEntity)
+  @JoinColumn ({name: 'curso_id'})
+  carrera: CarreraEntity;
+
+  @ManyToOne(() => JornadaEntity, (jornada) => jornada.id )
+  @JoinColumn ({name: 'jornada_id'})
+  jornada: JornadaEntity;
+
+  @ManyToOne(() => ParaleloEntity)
+  @JoinColumn ({name: 'paralelo_id'})
+  paralelo: CarreraEntity;
 }

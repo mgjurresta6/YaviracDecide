@@ -1,3 +1,4 @@
+import { TipoListaEntity } from './tipolista.entity';
 export declare class ListaEntity {
     id: string;
     nombreLista: string;
@@ -6,4 +7,5 @@ export declare class ListaEntity {
     color: string;
     numeroLista: string;
     propuesta: string;
+    tipoListas: TipoListaEntity;
 }

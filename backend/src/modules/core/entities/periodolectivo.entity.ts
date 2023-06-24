@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany, JoinColumn } from 'typeorm';
+import {  CronogramaEntity } from "./cronograma.entity";
 
 @Entity('periodo_lectivos', { schema: 'core' })
 export class PeriodoEntity {
@@ -25,4 +26,8 @@ export class PeriodoEntity {
     comment: 'Fecha que finalizo el periodo lectivo',
   })
   fechaFinPeriodo: Date;
+
+  @OneToMany(() => CronogramaEntity , (periodo) => periodo.id )
+  @JoinColumn ({name: 'cronogramas'})
+  cronogramas: CronogramaEntity;
 }

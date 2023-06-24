@@ -12,9 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RolEntity = void 0;
 const openapi = require("@nestjs/swagger");
 const typeorm_1 = require("typeorm");
+const usuario_entity_1 = require("./usuario.entity");
 let RolEntity = class RolEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, rol: { required: true, type: () => String } };
+        return { id: { required: true, type: () => Number }, rol: { required: true, type: () => String }, roles: { required: true, type: () => [require("./usuario.entity").UsuarioEntity] } };
     }
 };
 __decorate([
@@ -29,6 +30,11 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], RolEntity.prototype, "rol", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => usuario_entity_1.UsuarioEntity, (rol) => rol.cedula),
+    (0, typeorm_1.JoinColumn)({ name: 'rol' }),
+    __metadata("design:type", Array)
+], RolEntity.prototype, "roles", void 0);
 RolEntity = __decorate([
     (0, typeorm_1.Entity)('roles', { schema: 'core' })
 ], RolEntity);

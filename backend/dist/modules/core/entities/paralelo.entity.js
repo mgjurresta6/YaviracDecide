@@ -12,9 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ParaleloEntity = void 0;
 const openapi = require("@nestjs/swagger");
 const typeorm_1 = require("typeorm");
+const curso_entity_1 = require("./curso.entity");
 let ParaleloEntity = class ParaleloEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, paralelo: { required: true, type: () => String } };
+        return { id: { required: true, type: () => Number }, paralelo: { required: true, type: () => String }, paralelos: { required: true, type: () => [require("./curso.entity").CursoEntity] } };
     }
 };
 __decorate([
@@ -29,6 +30,11 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], ParaleloEntity.prototype, "paralelo", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => curso_entity_1.CursoEntity, (paralelo) => paralelo.id),
+    (0, typeorm_1.JoinColumn)({ name: 'paralelo' }),
+    __metadata("design:type", Array)
+], ParaleloEntity.prototype, "paralelos", void 0);
 ParaleloEntity = __decorate([
     (0, typeorm_1.Entity)('paralelos', { schema: 'core' })
 ], ParaleloEntity);

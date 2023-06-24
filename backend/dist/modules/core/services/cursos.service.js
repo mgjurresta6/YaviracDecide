@@ -16,12 +16,15 @@ exports.CursosService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("typeorm");
 const enums_1 = require("../../../shared/enums");
+const services_1 = require("./");
 let CursosService = class CursosService {
-    constructor(cursoRepository) {
+    constructor(cursoRepository, carrerasService) {
         this.cursoRepository = cursoRepository;
+        this.carrerasService = carrerasService;
     }
     async catalogue() {
         const response = await this.cursoRepository.findAndCount({
+            relations: ['carreras', 'jornada', 'paralelo'],
             take: 1000,
         });
         return {
@@ -77,7 +80,8 @@ let CursosService = class CursosService {
 CursosService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, common_1.Inject)(enums_1.RepositoryEnum.CURSO_REPOSITORY)),
-    __metadata("design:paramtypes", [typeorm_1.Repository])
+    __metadata("design:paramtypes", [typeorm_1.Repository,
+        services_1.CarrerasService])
 ], CursosService);
 exports.CursosService = CursosService;
 //# sourceMappingURL=cursos.service.js.map

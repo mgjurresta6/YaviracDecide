@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany, JoinColumn } from 'typeorm';
+import { CursoEntity } from './curso.entity';
 
 @Entity('carreras', { schema: 'core' })
 export class CarreraEntity {
@@ -11,4 +12,8 @@ export class CarreraEntity {
     comment: 'Nombre de la carrera: marketing',
   })
   carrera: string;
+
+  @OneToMany(() => CursoEntity, (carrera) => carrera.id)
+  @JoinColumn ({name: 'carrera'})
+  carreras: CursoEntity[];
 }

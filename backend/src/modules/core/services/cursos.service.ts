@@ -3,17 +3,24 @@ import { Repository, FindOptionsWhere, ILike } from 'typeorm';
 import { CursoEntity } from '@core/entities';
 import { ServiceResponseHttpModel } from '@shared/models';
 import { RepositoryEnum } from '@shared/enums';
+import{ JornadasService, CarrerasService, ParalelosService } from '@core/services';
 
 @Injectable()
 export class CursosService {
   constructor(
     @Inject(RepositoryEnum.CURSO_REPOSITORY)
     private cursoRepository: Repository<CursoEntity>,
+   /* private jornadasService: JornadasService,
+    
+    private paralelosService: ParalelosService*/
+    private carrerasService: CarrerasService
   ) {}
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
     const response = await this.cursoRepository.findAndCount({
+      relations: ['carreras','jornada','paralelo'],
       take: 1000,
+
     });
 
     return {
@@ -25,15 +32,19 @@ export class CursosService {
     };
   }
 
-  async create(payload: any): Promise<ServiceResponseHttpModel> {
+  async create(payload: CursoEntity): Promise<ServiceResponseHttpModel> {
     const newCurso = this.cursoRepository.create(payload);
+/*
+    newCurso.carrera = await this.carrerasService.findOne(payload.carrera.id)
+    newCurso.jornada = await this.jornadasService.findOne(payload.jornada.id);
+*/
 
     const cursoCreated = await this.cursoRepository.save(newCurso);
-
     return { data: cursoCreated };
   }
   async findAll(params?: any): Promise<ServiceResponseHttpModel> {
     const data = await this.cursoRepository.findAndCount({
+    
     });
 
     return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };

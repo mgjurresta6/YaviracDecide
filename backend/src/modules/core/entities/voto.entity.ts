@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { ResultadoEntity } from './resultado.entity';
 
 @Entity('votos', { schema: 'core' })
 export class VotoEntity {
@@ -18,4 +19,9 @@ export class VotoEntity {
     comment: 'Fecha y hora que se realizo el voto',
   })
   horaVoto: Date;
+
+  
+  @ManyToOne(() => ResultadoEntity)
+  @JoinColumn ({name: 'votos'})
+  votos: ResultadoEntity;
 }

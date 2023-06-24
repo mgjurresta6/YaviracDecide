@@ -12,9 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DignidadEntity = void 0;
 const openapi = require("@nestjs/swagger");
 const typeorm_1 = require("typeorm");
+const lista_entity_1 = require("./lista.entity");
 let DignidadEntity = class DignidadEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, nombreDignidad: { required: true, type: () => String } };
+        return { id: { required: true, type: () => Number }, nombreDignidad: { required: true, type: () => String }, listas: { required: true, type: () => require("./lista.entity").ListaEntity } };
     }
 };
 __decorate([
@@ -29,6 +30,11 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], DignidadEntity.prototype, "nombreDignidad", void 0);
+__decorate([
+    (0, typeorm_1.ManyToMany)(() => lista_entity_1.ListaEntity),
+    (0, typeorm_1.JoinTable)({ name: 'lista_dignidades' }),
+    __metadata("design:type", lista_entity_1.ListaEntity)
+], DignidadEntity.prototype, "listas", void 0);
 DignidadEntity = __decorate([
     (0, typeorm_1.Entity)('dignidades', { schema: 'core' })
 ], DignidadEntity);

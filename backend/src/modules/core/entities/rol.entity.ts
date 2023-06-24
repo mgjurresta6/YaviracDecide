@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany, JoinColumn } from 'typeorm';
+import { UsuarioEntity } from './usuario.entity';
 
 @Entity('roles', { schema: 'core' })
 export class RolEntity {
@@ -10,4 +11,8 @@ export class RolEntity {
     comment: 'Nombre del rol de usuario: candidato, administrador, votante',
   })
   rol: string;
+  
+  @OneToMany(() => UsuarioEntity, (rol) => rol.cedula)
+  @JoinColumn ({name: 'rol'})
+  roles: UsuarioEntity[];
 }

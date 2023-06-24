@@ -12,9 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ListaEntity = void 0;
 const openapi = require("@nestjs/swagger");
 const typeorm_1 = require("typeorm");
+const tipolista_entity_1 = require("./tipolista.entity");
 let ListaEntity = class ListaEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, nombreLista: { required: true, type: () => String }, logo: { required: true, type: () => String }, slogan: { required: true, type: () => String }, color: { required: true, type: () => String }, numeroLista: { required: true, type: () => String }, propuesta: { required: true, type: () => String } };
+        return { id: { required: true, type: () => String }, nombreLista: { required: true, type: () => String }, logo: { required: true, type: () => String }, slogan: { required: true, type: () => String }, color: { required: true, type: () => String }, numeroLista: { required: true, type: () => String }, propuesta: { required: true, type: () => String }, tipoListas: { required: true, type: () => require("./tipolista.entity").TipoListaEntity } };
     }
 };
 __decorate([
@@ -69,6 +70,11 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], ListaEntity.prototype, "propuesta", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => tipolista_entity_1.TipoListaEntity),
+    (0, typeorm_1.JoinColumn)({ name: 'tipo_lista' }),
+    __metadata("design:type", tipolista_entity_1.TipoListaEntity)
+], ListaEntity.prototype, "tipoListas", void 0);
 ListaEntity = __decorate([
     (0, typeorm_1.Entity)('listas', { schema: 'core' })
 ], ListaEntity);
