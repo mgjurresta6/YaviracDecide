@@ -7,8 +7,8 @@ export declare class CarrerasController {
     catalogue(): Promise<ResponseHttpModel>;
     create(payload: any): Promise<ResponseHttpModel>;
     findAll(params: any): Promise<ResponseHttpModel>;
-    findOne(id: string): Promise<ResponseHttpModel>;
-    update(id: string, payload: any): Promise<ResponseHttpModel>;
-    remove(id: string): Promise<ResponseHttpModel>;
+    findOne(id: number): Promise<ResponseHttpModel>;
+    update(id: number, payload: any): Promise<ResponseHttpModel>;
+    remove(id: number): Promise<ResponseHttpModel>;
     removeAll(payload: CarreraEntity[]): Promise<ResponseHttpModel>;
 }

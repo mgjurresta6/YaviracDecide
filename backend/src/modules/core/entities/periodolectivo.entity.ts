@@ -29,5 +29,5 @@ export class PeriodoEntity {
 
   @OneToMany(() => CronogramaEntity , (periodo) => periodo.id )
   @JoinColumn ({name: 'cronogramas'})
-  cronogramas: CronogramaEntity;
+  periodos: CronogramaEntity;
 }

@@ -15,7 +15,7 @@ const typeorm_1 = require("typeorm");
 const cronograma_entity_1 = require("./cronograma.entity");
 let PeriodoEntity = class PeriodoEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, periodoLectivo: { required: true, type: () => String }, fechaInicioPeriodo: { required: true, type: () => Date }, fechaFinPeriodo: { required: true, type: () => Date }, cronogramas: { required: true, type: () => require("./cronograma.entity").CronogramaEntity } };
+        return { id: { required: true, type: () => Number }, periodoLectivo: { required: true, type: () => String }, fechaInicioPeriodo: { required: true, type: () => Date }, fechaFinPeriodo: { required: true, type: () => Date }, periodos: { required: true, type: () => require("./cronograma.entity").CronogramaEntity } };
     }
 };
 __decorate([
@@ -50,7 +50,7 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => cronograma_entity_1.CronogramaEntity, (periodo) => periodo.id),
     (0, typeorm_1.JoinColumn)({ name: 'cronogramas' }),
     __metadata("design:type", cronograma_entity_1.CronogramaEntity)
-], PeriodoEntity.prototype, "cronogramas", void 0);
+], PeriodoEntity.prototype, "periodos", void 0);
 PeriodoEntity = __decorate([
     (0, typeorm_1.Entity)('periodo_lectivos', { schema: 'core' })
 ], PeriodoEntity);

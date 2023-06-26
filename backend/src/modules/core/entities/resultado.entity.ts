@@ -11,7 +11,7 @@ export class ResultadoEntity {
   @JoinColumn ({name: 'usuario'})
   resultado: UsuarioEntity;
 
-  @OneToMany(() => VotoEntity, (voto) => voto.id)
-  @JoinColumn ({name: 'voto'})
-  votos: VotoEntity[];
+  @ManyToOne(() => VotoEntity)
+  @JoinColumn ({name: 'votos'})
+  voto: VotoEntity;
 }

@@ -15,7 +15,7 @@ const typeorm_1 = require("typeorm");
 const lista_entity_1 = require("./lista.entity");
 let TipoListaEntity = class TipoListaEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, tipoLista: { required: true, type: () => String }, tipoListas: { required: true, type: () => [require("./lista.entity").ListaEntity] } };
+        return { id: { required: true, type: () => Number }, listaTipo: { required: true, type: () => String }, tipoListas: { required: true, type: () => [require("./lista.entity").ListaEntity] } };
     }
 };
 __decorate([
@@ -29,7 +29,7 @@ __decorate([
         comment: 'Tipo de lista: Docente, estudiante',
     }),
     __metadata("design:type", String)
-], TipoListaEntity.prototype, "tipoLista", void 0);
+], TipoListaEntity.prototype, "listaTipo", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(() => lista_entity_1.ListaEntity, (tipoLista) => tipoLista.id),
     (0, typeorm_1.JoinColumn)({ name: 'tipo_lista' }),

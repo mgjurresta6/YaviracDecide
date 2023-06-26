@@ -66,6 +66,10 @@ export class UsuarioEntity {
   @ManyToOne(() => TipoEntity)
   @JoinColumn ({name: 'tipo_usuario'})
   tipo: TipoEntity;
+
+  @ManyToOne(() => CursoEntity)
+  @JoinColumn ({name: 'curso_id'})
+  curso: CursoEntity;
   
   @OneToMany(() => ResultadoEntity, (resultado) => resultado.id)
   @JoinColumn ({name: 'usuario'})

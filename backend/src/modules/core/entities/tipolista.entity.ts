@@ -11,7 +11,7 @@ export class TipoListaEntity {
     type: 'varchar',
     comment: 'Tipo de lista: Docente, estudiante',
   })
-  tipoLista: string;
+  listaTipo: string;
 
   
   @OneToMany(() => ListaEntity, (tipoLista) => tipoLista.id)

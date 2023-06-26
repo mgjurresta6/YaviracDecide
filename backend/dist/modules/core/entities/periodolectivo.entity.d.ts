@@ -4,5 +4,5 @@ export declare class PeriodoEntity {
     periodoLectivo: string;
     fechaInicioPeriodo: Date;
     fechaFinPeriodo: Date;
-    cronogramas: CronogramaEntity;
+    periodos: CronogramaEntity;
 }

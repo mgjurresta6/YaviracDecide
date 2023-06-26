@@ -3,16 +3,21 @@ import { Repository, FindOptionsWhere, ILike } from 'typeorm';
 import { UsuarioEntity } from '@core/entities';
 import { ServiceResponseHttpModel } from '@shared/models';
 import { RepositoryEnum } from '@shared/enums';
+import { CursosService, RolesService, TipoUsuariosService } from '@core/services';
 
 @Injectable()
 export class UsuariosService {
   constructor(
     @Inject(RepositoryEnum.USUARIO_REPOSITORY)
     private usuarioRepository: Repository<UsuarioEntity>,
+    private cursosService: CursosService,
+    private rolesService: RolesService,
+    private tiposService: TipoUsuariosService
   ) {}
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
     const response = await this.usuarioRepository.findAndCount({
+      relations:['curso', 'rol', 'tipo'],
       take: 1000,
     });
 
@@ -25,20 +30,27 @@ export class UsuariosService {
     };
   }
 
-  async create(payload: any): Promise<ServiceResponseHttpModel> {
+  async create(payload: UsuarioEntity): Promise<ServiceResponseHttpModel> {
     const newUsuario = this.usuarioRepository.create(payload);
+
+    newUsuario.curso = await this.cursosService.findOne(payload.curso.id);
+    newUsuario.rol = await this.rolesService.findOne(payload.rol.id);
+    newUsuario.tipo = await this.tiposService.findOne(payload.tipo.id);
+
     const usuarioCreated = await this.usuarioRepository.save(newUsuario);
 
     return { data: usuarioCreated };
   }
   async findAll(params?: any): Promise<ServiceResponseHttpModel> {
     const data = await this.usuarioRepository.findAndCount({
+      relations:['curso', 'rol', 'tipo'],
     });
 
     return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
   }
   async findOne(cedula: number): Promise<any> {
     const usuario = await this.usuarioRepository.findOne({
+      relations:['curso', 'rol', 'tipo'],
       where: {
         cedula,
       },

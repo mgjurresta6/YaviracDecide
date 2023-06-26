@@ -16,12 +16,17 @@ exports.UsuariosService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("typeorm");
 const enums_1 = require("../../../shared/enums");
+const services_1 = require("./");
 let UsuariosService = class UsuariosService {
-    constructor(usuarioRepository) {
+    constructor(usuarioRepository, cursosService, rolesService, tiposService) {
         this.usuarioRepository = usuarioRepository;
+        this.cursosService = cursosService;
+        this.rolesService = rolesService;
+        this.tiposService = tiposService;
     }
     async catalogue() {
         const response = await this.usuarioRepository.findAndCount({
+            relations: ['curso', 'rol', 'tipo'],
             take: 1000,
         });
         return {
@@ -34,15 +39,21 @@ let UsuariosService = class UsuariosService {
     }
     async create(payload) {
         const newUsuario = this.usuarioRepository.create(payload);
+        newUsuario.curso = await this.cursosService.findOne(payload.curso.id);
+        newUsuario.rol = await this.rolesService.findOne(payload.rol.id);
+        newUsuario.tipo = await this.tiposService.findOne(payload.tipo.id);
         const usuarioCreated = await this.usuarioRepository.save(newUsuario);
         return { data: usuarioCreated };
     }
     async findAll(params) {
-        const data = await this.usuarioRepository.findAndCount({});
+        const data = await this.usuarioRepository.findAndCount({
+            relations: ['curso', 'rol', 'tipo'],
+        });
         return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
     }
     async findOne(cedula) {
         const usuario = await this.usuarioRepository.findOne({
+            relations: ['curso', 'rol', 'tipo'],
             where: {
                 cedula,
             },
@@ -77,7 +88,10 @@ let UsuariosService = class UsuariosService {
 UsuariosService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, common_1.Inject)(enums_1.RepositoryEnum.USUARIO_REPOSITORY)),
-    __metadata("design:paramtypes", [typeorm_1.Repository])
+    __metadata("design:paramtypes", [typeorm_1.Repository,
+        services_1.CursosService,
+        services_1.RolesService,
+        services_1.TipoUsuariosService])
 ], UsuariosService);
 exports.UsuariosService = UsuariosService;
 //# sourceMappingURL=usuarios.service.js.map

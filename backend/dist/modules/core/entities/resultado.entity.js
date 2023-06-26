@@ -16,7 +16,7 @@ const usuario_entity_1 = require("./usuario.entity");
 const voto_entity_1 = require("./voto.entity");
 let ResultadoEntity = class ResultadoEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, resultado: { required: true, type: () => require("./usuario.entity").UsuarioEntity }, votos: { required: true, type: () => [require("./voto.entity").VotoEntity] } };
+        return { id: { required: true, type: () => String }, resultado: { required: true, type: () => require("./usuario.entity").UsuarioEntity }, voto: { required: true, type: () => require("./voto.entity").VotoEntity } };
     }
 };
 __decorate([
@@ -29,10 +29,10 @@ __decorate([
     __metadata("design:type", usuario_entity_1.UsuarioEntity)
 ], ResultadoEntity.prototype, "resultado", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => voto_entity_1.VotoEntity, (voto) => voto.id),
-    (0, typeorm_1.JoinColumn)({ name: 'voto' }),
-    __metadata("design:type", Array)
-], ResultadoEntity.prototype, "votos", void 0);
+    (0, typeorm_1.ManyToOne)(() => voto_entity_1.VotoEntity),
+    (0, typeorm_1.JoinColumn)({ name: 'votos' }),
+    __metadata("design:type", voto_entity_1.VotoEntity)
+], ResultadoEntity.prototype, "voto", void 0);
 ResultadoEntity = __decorate([
     (0, typeorm_1.Entity)('resultados', { schema: 'core' })
 ], ResultadoEntity);

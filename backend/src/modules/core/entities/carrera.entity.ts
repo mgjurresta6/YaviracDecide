@@ -3,8 +3,8 @@ import { CursoEntity } from './curso.entity';
 
 @Entity('carreras', { schema: 'core' })
 export class CarreraEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column({
     name: 'nombre',

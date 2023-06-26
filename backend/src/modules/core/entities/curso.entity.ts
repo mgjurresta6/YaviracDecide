@@ -20,11 +20,15 @@ export class CursoEntity {
   @JoinColumn ({name: 'curso_id'})
   carrera: CarreraEntity;
 
-  @ManyToOne(() => JornadaEntity, (jornada) => jornada.id )
+  @ManyToOne(() => JornadaEntity)
   @JoinColumn ({name: 'jornada_id'})
   jornada: JornadaEntity;
 
   @ManyToOne(() => ParaleloEntity)
   @JoinColumn ({name: 'paralelo_id'})
   paralelo: CarreraEntity;
+
+  @OneToMany(() => UsuarioEntity, (curso) => curso.cedula)
+  @JoinColumn ({name: 'curso'})
+  cursos: UsuarioEntity[];
 }

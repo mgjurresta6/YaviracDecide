@@ -12,15 +12,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ListaEntity = void 0;
 const openapi = require("@nestjs/swagger");
 const typeorm_1 = require("typeorm");
+const dignidad_entity_1 = require("./dignidad.entity");
 const tipolista_entity_1 = require("./tipolista.entity");
+const voto_entity_1 = require("./voto.entity");
 let ListaEntity = class ListaEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, nombreLista: { required: true, type: () => String }, logo: { required: true, type: () => String }, slogan: { required: true, type: () => String }, color: { required: true, type: () => String }, numeroLista: { required: true, type: () => String }, propuesta: { required: true, type: () => String }, tipoListas: { required: true, type: () => require("./tipolista.entity").TipoListaEntity } };
+        return { id: { required: true, type: () => Number }, nombreLista: { required: true, type: () => String }, logo: { required: true, type: () => String }, slogan: { required: true, type: () => String }, color: { required: true, type: () => String }, numeroLista: { required: true, type: () => String }, propuesta: { required: true, type: () => String }, tipoLista: { required: true, type: () => require("./tipolista.entity").TipoListaEntity }, listas: { required: true, type: () => [require("./voto.entity").VotoEntity] }, dignidad: { required: true, type: () => require("./dignidad.entity").DignidadEntity } };
     }
 };
 __decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
-    __metadata("design:type", String)
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
 ], ListaEntity.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)({
@@ -74,7 +76,17 @@ __decorate([
     (0, typeorm_1.ManyToOne)(() => tipolista_entity_1.TipoListaEntity),
     (0, typeorm_1.JoinColumn)({ name: 'tipo_lista' }),
     __metadata("design:type", tipolista_entity_1.TipoListaEntity)
-], ListaEntity.prototype, "tipoListas", void 0);
+], ListaEntity.prototype, "tipoLista", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => voto_entity_1.VotoEntity, (lista) => lista.id),
+    (0, typeorm_1.JoinColumn)({ name: 'lista' }),
+    __metadata("design:type", Array)
+], ListaEntity.prototype, "listas", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => dignidad_entity_1.DignidadEntity),
+    (0, typeorm_1.JoinColumn)({ name: 'dignidad' }),
+    __metadata("design:type", dignidad_entity_1.DignidadEntity)
+], ListaEntity.prototype, "dignidad", void 0);
 ListaEntity = __decorate([
     (0, typeorm_1.Entity)('listas', { schema: 'core' })
 ], ListaEntity);

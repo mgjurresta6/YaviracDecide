@@ -1,3 +1,4 @@
+import { CursoEntity } from './curso.entity';
 import { RolEntity } from './rol.entity';
 import { TipoEntity } from './usuariotipo.entity';
 import { ResultadoEntity } from './resultado.entity';
@@ -13,6 +14,7 @@ export declare class UsuarioEntity {
     estadoUsuario: string;
     rol: RolEntity;
     tipo: TipoEntity;
+    curso: CursoEntity;
     resultados: ResultadoEntity[];
     configuraciones: ConfiguracionEntity[];
 }

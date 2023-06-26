@@ -52,7 +52,7 @@ export class ListasController {
   @Get(':id')
   @HttpCode(HttpStatus.OK)
   async findOne(
-    @Param('id', ParseUUIDPipe) id: string,
+    @Param('id', ParseUUIDPipe) id: number,
   ): Promise<ResponseHttpModel> {
     const serviceResponse = await this.listasService.findOne(id);
 
@@ -67,7 +67,7 @@ export class ListasController {
   @Put(':id')
   @HttpCode(HttpStatus.CREATED)
   async update(
-    @Param('id', ParseUUIDPipe) id: string,
+    @Param('id', ParseUUIDPipe) id: number,
     @Body() payload: any,
   ) {
     const serviceResponse = await this.listasService.update(id, payload);
@@ -83,7 +83,7 @@ export class ListasController {
   @Delete(':id')
   @HttpCode(HttpStatus.CREATED)
   async remove(
-    @Param('id', ParseUUIDPipe) id: string,
+    @Param('id', ParseUUIDPipe) id: number,
   ): Promise<ResponseHttpModel> {
     const serviceResponse = await this.listasService.remove(id);
 

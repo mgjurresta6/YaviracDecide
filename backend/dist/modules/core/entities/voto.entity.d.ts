@@ -1,7 +1,9 @@
+import { ListaEntity } from './lista.entity';
 import { ResultadoEntity } from './resultado.entity';
 export declare class VotoEntity {
     id: string;
-    voto: boolean;
+    votoUsuario: boolean;
     horaVoto: Date;
-    votos: ResultadoEntity;
+    votos: ResultadoEntity[];
+    lista: ListaEntity;
 }

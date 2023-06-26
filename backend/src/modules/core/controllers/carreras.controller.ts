@@ -66,7 +66,7 @@ export class CarrerasController {
   @Get(':id')
   @HttpCode(HttpStatus.OK)
   async findOne(
-    @Param('id', ParseUUIDPipe) id: string,
+    @Param('id', ParseUUIDPipe) id: number,
   ): Promise<ResponseHttpModel> {
     const serviceResponse = await this.carrerasService.findOne(id);
 
@@ -81,7 +81,7 @@ export class CarrerasController {
   @Put(':id')
   @HttpCode(HttpStatus.CREATED)
   async update(
-    @Param('id', ParseUUIDPipe) id: string,
+    @Param('id', ParseUUIDPipe) id: number,
     @Body() payload: any,
   ): Promise<ResponseHttpModel> {
     const serviceResponse = await this.carrerasService.update(id, payload);
@@ -96,7 +96,7 @@ export class CarrerasController {
   @Delete(':id')
   @HttpCode(HttpStatus.CREATED)
   async remove(
-    @Param('id', ParseUUIDPipe) id: string,
+    @Param('id', ParseUUIDPipe) id: number,
   ): Promise<ResponseHttpModel> {
     const serviceResponse = await this.carrerasService.remove(id);
     return {

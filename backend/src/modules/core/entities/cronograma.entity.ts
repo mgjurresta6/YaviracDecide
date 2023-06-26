@@ -26,6 +26,6 @@ export class CronogramaEntity {
 
   @ManyToOne(()=> PeriodoEntity)
   @JoinColumn({name: 'cronogroma'})
-  periodo: PeriodoEntity[];
+  periodo: PeriodoEntity;
   
 }

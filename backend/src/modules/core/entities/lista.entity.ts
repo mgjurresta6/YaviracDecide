@@ -1,10 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
+import { DignidadEntity } from './dignidad.entity';
 import { TipoListaEntity } from './tipolista.entity';
+import { VotoEntity } from './voto.entity';
 
 @Entity('listas', { schema: 'core' })
 export class ListaEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column({
     name: 'nombre',
@@ -48,7 +50,17 @@ export class ListaEntity {
   })
   propuesta: string;
 
+
   @ManyToOne(() => TipoListaEntity)
   @JoinColumn ({name: 'tipo_lista'})
-  tipoListas: TipoListaEntity;
+  tipoLista: TipoListaEntity;
+
+  @OneToMany(() => VotoEntity, (lista) => lista.id)
+  @JoinColumn ({name: 'lista'})
+  listas: VotoEntity[];
+
+  @ManyToOne(() => DignidadEntity)
+  @JoinColumn ({name: 'dignidad'})
+  dignidad: DignidadEntity;
+
 }

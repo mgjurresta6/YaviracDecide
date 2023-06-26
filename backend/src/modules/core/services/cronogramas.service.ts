@@ -3,16 +3,20 @@ import { Repository, FindOptionsWhere, ILike } from 'typeorm';
 import { CronogramaEntity } from '@core/entities';
 import { ServiceResponseHttpModel } from '@shared/models';
 import { RepositoryEnum } from '@shared/enums';
+import { PeriodoLectivosService, ActividadesService } from '@core/services';
 
 @Injectable()
 export class CronogramasService {
   constructor(
     @Inject(RepositoryEnum.CRONOGRAMA_REPOSITORY)
     private cronogramaRepository: Repository<CronogramaEntity>,
+    private periodosService: PeriodoLectivosService,
+    private actividadesService: ActividadesService
   ) {}
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
     const response = await this.cronogramaRepository.findAndCount({
+      relations: ['periodo', 'actividad'],
       take: 1000,
     });
 
@@ -25,12 +29,11 @@ export class CronogramasService {
     };
   }
 
-  async create(payload: any): Promise<ServiceResponseHttpModel> {
+  async create(payload: CronogramaEntity): Promise<ServiceResponseHttpModel> {
     const newCronograma = this.cronogramaRepository.create(payload);
 
-    // newCareer.institution = await this.institutionService.findOne(
-    //   payload.institution.id,
-    // );
+    newCronograma.periodo = await this.periodosService.findOne(payload.periodo.id)
+    newCronograma.actividad = await this.actividadesService.findOne(payload.actividad.id)
 
     const cronogramaCreated = await this.cronogramaRepository.save(newCronograma);
 
@@ -38,12 +41,14 @@ export class CronogramasService {
   }
   async findAll(params?: any): Promise<ServiceResponseHttpModel> {
     const data = await this.cronogramaRepository.findAndCount({
+      relations: ['periodo', 'actividad'],
     });
 
     return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
   }
   async findOne(id: string): Promise<any> {
     const cronograma = await this.cronogramaRepository.findOne({
+      relations: ['periodo', 'actividad'],
       where: {
         id,
       },

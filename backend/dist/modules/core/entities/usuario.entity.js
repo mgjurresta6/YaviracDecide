@@ -12,13 +12,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsuarioEntity = void 0;
 const openapi = require("@nestjs/swagger");
 const typeorm_1 = require("typeorm");
+const curso_entity_1 = require("./curso.entity");
 const rol_entity_1 = require("./rol.entity");
 const usuariotipo_entity_1 = require("./usuariotipo.entity");
 const resultado_entity_1 = require("./resultado.entity");
 const configuracion_entity_1 = require("./configuracion.entity");
 let UsuarioEntity = class UsuarioEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { cedula: { required: true, type: () => Number }, nombreUsuario: { required: true, type: () => String }, apellidoUsuario: { required: true, type: () => String }, emailUsuario: { required: true, type: () => String }, claveUsuario: { required: true, type: () => String }, estadoVoto: { required: true, type: () => Boolean }, ultimoVoto: { required: true, type: () => String }, estadoUsuario: { required: true, type: () => String }, rol: { required: true, type: () => require("./rol.entity").RolEntity }, tipo: { required: true, type: () => require("./usuariotipo.entity").TipoEntity }, resultados: { required: true, type: () => [require("./resultado.entity").ResultadoEntity] }, configuraciones: { required: true, type: () => [require("./configuracion.entity").ConfiguracionEntity] } };
+        return { cedula: { required: true, type: () => Number }, nombreUsuario: { required: true, type: () => String }, apellidoUsuario: { required: true, type: () => String }, emailUsuario: { required: true, type: () => String }, claveUsuario: { required: true, type: () => String }, estadoVoto: { required: true, type: () => Boolean }, ultimoVoto: { required: true, type: () => String }, estadoUsuario: { required: true, type: () => String }, rol: { required: true, type: () => require("./rol.entity").RolEntity }, tipo: { required: true, type: () => require("./usuariotipo.entity").TipoEntity }, curso: { required: true, type: () => require("./curso.entity").CursoEntity }, resultados: { required: true, type: () => [require("./resultado.entity").ResultadoEntity] }, configuraciones: { required: true, type: () => [require("./configuracion.entity").ConfiguracionEntity] } };
     }
 };
 __decorate([
@@ -91,6 +92,11 @@ __decorate([
     (0, typeorm_1.JoinColumn)({ name: 'tipo_usuario' }),
     __metadata("design:type", usuariotipo_entity_1.TipoEntity)
 ], UsuarioEntity.prototype, "tipo", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => curso_entity_1.CursoEntity),
+    (0, typeorm_1.JoinColumn)({ name: 'curso_id' }),
+    __metadata("design:type", curso_entity_1.CursoEntity)
+], UsuarioEntity.prototype, "curso", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(() => resultado_entity_1.ResultadoEntity, (resultado) => resultado.id),
     (0, typeorm_1.JoinColumn)({ name: 'usuario' }),

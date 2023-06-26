@@ -1,18 +1,23 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { Repository, FindOptionsWhere, ILike } from 'typeorm';
-import { ListaEntity } from '@core/entities';
+import { ListaEntity, TipoListaEntity } from '@core/entities';
 import { ServiceResponseHttpModel } from '@shared/models';
 import { RepositoryEnum } from '@shared/enums';
+import { TipoListasService, DignidadesService } from '@core/services';
+
 
 @Injectable()
 export class ListasService {
   constructor(
     @Inject(RepositoryEnum.LISTA_REPOSITORY)
     private listaRepository: Repository<ListaEntity>,
+    private tipolistasService: TipoListasService,
+    private dignidadesService: DignidadesService
   ) {}
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
     const response = await this.listaRepository.findAndCount({
+      relations: ['tipoLista', 'dignidad'],
       take: 1000,
     });
 
@@ -25,8 +30,12 @@ export class ListasService {
     };
   }
 
-  async create(payload: any): Promise<ServiceResponseHttpModel> {
+  async create(payload: ListaEntity): Promise<ServiceResponseHttpModel> {
     const newLista = this.listaRepository.create(payload);
+
+    newLista.tipoLista = await this.tipolistasService.findOne(payload.tipoLista.id)
+    newLista.dignidad = await this.dignidadesService.findOne(payload.dignidad.id)
+
     const listaCreated = await this.listaRepository.save(newLista);
 
     return { data: listaCreated };
@@ -37,7 +46,7 @@ export class ListasService {
 
     return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
   }
-  async findOne(id: string): Promise<any> {
+  async findOne(id: number): Promise<any> {
     const lista = await this.listaRepository.findOne({
       where: {
         id,
@@ -51,7 +60,7 @@ export class ListasService {
   }
 
   async update(
-    id: string,
+    id: number,
     payload: any,
   ): Promise<ServiceResponseHttpModel> {
     const lista = await this.listaRepository.findOneBy({ id });
@@ -63,7 +72,7 @@ export class ListasService {
     return { data: listaUpdated };
   }
 
-  async remove(id: string): Promise<ServiceResponseHttpModel> {
+  async remove(id: number): Promise<ServiceResponseHttpModel> {
     const lista = await this.listaRepository.findOneBy({ id });
 
     if (!lista) {

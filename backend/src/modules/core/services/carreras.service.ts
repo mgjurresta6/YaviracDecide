@@ -44,7 +44,7 @@ export class CarrerasService {
     return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
   }
 
-  async findOne(id: string): Promise<any> {
+  async findOne(id: number): Promise<any> {
     const carrera = await this.carreraRepository.findOne({
       where: {
         id,
@@ -58,7 +58,7 @@ export class CarrerasService {
   }
 
   async update(
-    id: string,
+    id: number,
     payload: any,
   ): Promise<ServiceResponseHttpModel> {
     const carrera = await this.carreraRepository.findOneBy({ id });
@@ -70,7 +70,7 @@ export class CarrerasService {
     return { data: carreraUpdated };
   }
 
-  async remove(id: string): Promise<ServiceResponseHttpModel> {
+  async remove(id: number): Promise<ServiceResponseHttpModel> {
     const carrera = await this.carreraRepository.findOneBy({ id });
 
     if (!carrera) {

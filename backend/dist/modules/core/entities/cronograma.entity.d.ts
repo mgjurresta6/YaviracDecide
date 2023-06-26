@@ -5,5 +5,5 @@ export declare class CronogramaEntity {
     fechaCreacion: Date;
     responsable: string;
     actividad: ActividadEntity;
-    periodo: PeriodoEntity[];
+    periodo: PeriodoEntity;
 }

@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany, JoinColumn, ManyToOne } from 'typeorm';
 import { ListaEntity } from './lista.entity'
 
 
@@ -14,8 +14,8 @@ export class DignidadEntity {
   })
   nombreDignidad: string;
 
-  @ManyToMany(()=> ListaEntity)
-  @JoinTable({name: 'lista_dignidades'})
-  listas: ListaEntity;
+  @OneToMany(() => ListaEntity, (dignidad) => dignidad.id)
+  @JoinColumn ({name: 'dignidad'})
+  dignidades: ListaEntity[];
 
 }

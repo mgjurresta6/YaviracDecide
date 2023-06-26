@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany, JoinColumn, ManyToOne } from 'typeorm';
+import { ListaEntity } from './lista.entity';
 import { ResultadoEntity } from './resultado.entity';
 
 @Entity('votos', { schema: 'core' })
@@ -11,7 +12,7 @@ export class VotoEntity {
     type: 'boolean',
     comment: 'Voto para la lista elegida',
   })
-  voto: boolean;
+  votoUsuario: boolean;
 
   @Column({
     name: 'hora_voto',
@@ -20,8 +21,11 @@ export class VotoEntity {
   })
   horaVoto: Date;
 
-  
-  @ManyToOne(() => ResultadoEntity)
-  @JoinColumn ({name: 'votos'})
-  votos: ResultadoEntity;
+  @OneToMany(() => ResultadoEntity, (voto) => voto.id)
+  @JoinColumn ({name: 'voto'})
+  votos: ResultadoEntity[];
+
+  @ManyToOne(() => ListaEntity)
+  @JoinColumn ({name: 'lista'})
+  lista: ListaEntity;
 }

@@ -3,5 +3,5 @@ import { VotoEntity } from './voto.entity';
 export declare class ResultadoEntity {
     id: string;
     resultado: UsuarioEntity;
-    votos: VotoEntity[];
+    voto: VotoEntity;
 }

@@ -16,12 +16,15 @@ exports.VotosService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("typeorm");
 const enums_1 = require("../../../shared/enums");
+const services_1 = require("./");
 let VotosService = class VotosService {
-    constructor(votoRepository) {
+    constructor(votoRepository, listasService) {
         this.votoRepository = votoRepository;
+        this.listasService = listasService;
     }
     async catalogue() {
         const response = await this.votoRepository.findAndCount({
+            relations: ['lista'],
             take: 1000,
         });
         return {
@@ -34,6 +37,7 @@ let VotosService = class VotosService {
     }
     async create(payload) {
         const newVoto = this.votoRepository.create(payload);
+        newVoto.lista = await this.listasService.findOne(payload.lista.id);
         const votoCreated = await this.votoRepository.save(newVoto);
         return { data: votoCreated };
     }
@@ -77,7 +81,8 @@ let VotosService = class VotosService {
 VotosService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, common_1.Inject)(enums_1.RepositoryEnum.VOTO_REPOSITORY)),
-    __metadata("design:paramtypes", [typeorm_1.Repository])
+    __metadata("design:paramtypes", [typeorm_1.Repository,
+        services_1.ListasService])
 ], VotosService);
 exports.VotosService = VotosService;
 //# sourceMappingURL=votos.service.js.map

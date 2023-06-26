@@ -10,15 +10,14 @@ export class CursosService {
   constructor(
     @Inject(RepositoryEnum.CURSO_REPOSITORY)
     private cursoRepository: Repository<CursoEntity>,
-   /* private jornadasService: JornadasService,
-    
-    private paralelosService: ParalelosService*/
+    private jornadasService: JornadasService,
+    private paralelosService: ParalelosService,
     private carrerasService: CarrerasService
   ) {}
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
     const response = await this.cursoRepository.findAndCount({
-      relations: ['carreras','jornada','paralelo'],
+      relations: ['carrera','jornada','paralelo'],
       take: 1000,
 
     });
@@ -34,23 +33,24 @@ export class CursosService {
 
   async create(payload: CursoEntity): Promise<ServiceResponseHttpModel> {
     const newCurso = this.cursoRepository.create(payload);
-/*
-    newCurso.carrera = await this.carrerasService.findOne(payload.carrera.id)
+
+    newCurso.carrera = await this.carrerasService.findOne(payload.carrera.id);
     newCurso.jornada = await this.jornadasService.findOne(payload.jornada.id);
-*/
+    newCurso.paralelo = await this.paralelosService.findOne (payload.paralelo.id)
 
     const cursoCreated = await this.cursoRepository.save(newCurso);
     return { data: cursoCreated };
   }
   async findAll(params?: any): Promise<ServiceResponseHttpModel> {
     const data = await this.cursoRepository.findAndCount({
-    
+      relations: ['carrera','jornada','paralelo'],
     });
 
     return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
   }
   async findOne(id: number): Promise<any> {
     const curso = await this.cursoRepository.findOne({
+      relations: ['carrera','jornada','paralelo'],
       where: {
         id,
       },

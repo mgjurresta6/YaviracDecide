@@ -15,12 +15,12 @@ const typeorm_1 = require("typeorm");
 const curso_entity_1 = require("./curso.entity");
 let CarreraEntity = class CarreraEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, carrera: { required: true, type: () => String }, carreras: { required: true, type: () => [require("./curso.entity").CursoEntity] } };
+        return { id: { required: true, type: () => Number }, carrera: { required: true, type: () => String }, carreras: { required: true, type: () => [require("./curso.entity").CursoEntity] } };
     }
 };
 __decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
-    __metadata("design:type", String)
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
 ], CarreraEntity.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)({

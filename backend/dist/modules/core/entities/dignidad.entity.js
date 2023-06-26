@@ -15,7 +15,7 @@ const typeorm_1 = require("typeorm");
 const lista_entity_1 = require("./lista.entity");
 let DignidadEntity = class DignidadEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => Number }, nombreDignidad: { required: true, type: () => String }, listas: { required: true, type: () => require("./lista.entity").ListaEntity } };
+        return { id: { required: true, type: () => Number }, nombreDignidad: { required: true, type: () => String }, dignidades: { required: true, type: () => [require("./lista.entity").ListaEntity] } };
     }
 };
 __decorate([
@@ -31,10 +31,10 @@ __decorate([
     __metadata("design:type", String)
 ], DignidadEntity.prototype, "nombreDignidad", void 0);
 __decorate([
-    (0, typeorm_1.ManyToMany)(() => lista_entity_1.ListaEntity),
-    (0, typeorm_1.JoinTable)({ name: 'lista_dignidades' }),
-    __metadata("design:type", lista_entity_1.ListaEntity)
-], DignidadEntity.prototype, "listas", void 0);
+    (0, typeorm_1.OneToMany)(() => lista_entity_1.ListaEntity, (dignidad) => dignidad.id),
+    (0, typeorm_1.JoinColumn)({ name: 'dignidad' }),
+    __metadata("design:type", Array)
+], DignidadEntity.prototype, "dignidades", void 0);
 DignidadEntity = __decorate([
     (0, typeorm_1.Entity)('dignidades', { schema: 'core' })
 ], DignidadEntity);

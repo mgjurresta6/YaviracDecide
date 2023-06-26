@@ -1,6 +1,6 @@
 import { CursoEntity } from './curso.entity';
 export declare class CarreraEntity {
-    id: string;
+    id: number;
     carrera: string;
     carreras: CursoEntity[];
 }
