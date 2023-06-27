@@ -25,7 +25,7 @@ export class DashboardComponent {
   selectedPerson: any;
 
   constructor(private candidatoListaService: CandidatoListaService, private router: Router){
-    this.usuario = this.candidatoListaService.usuario;
+    this.usuario = this.candidatoListaService.candidato;
   }
 
   crearUsuario(){
@@ -38,9 +38,9 @@ export class DashboardComponent {
     this.router.navigate(['candidato-lista']);
   }
 
-  deleteUsuario(nombre: string) {
-    this.candidatoListaService.deleteUsuario(nombre);
-    console.log(this.candidatoListaService.usuario);
+  deleteCandidato(nombre: string) {
+    this.candidatoListaService.deleteCandidato(nombre);
+    console.log(this.candidatoListaService.candidato);
   }
 
   onSubmit() {

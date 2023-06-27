@@ -14,6 +14,7 @@ candidato: any[] = [];
   private loadCandidato(){
     this.candidato = [];
     this.candidato.push(
+      {nombre:'Pedro', requisitos:''},
       {nombre:'Pedro', requisitos:''}
     );
   }
