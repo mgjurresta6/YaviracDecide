@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'lista-cronograma',
     component: ListaCronogramaComponent
+  },
+  {
+    path: 'listas',
+    component: ListasComponent
   }
 
 ];
