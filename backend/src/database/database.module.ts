@@ -10,12 +10,12 @@ import { MenusSeeder } from './seeds/menus-seeder';
 @Module({
   providers: [
     ...databaseProviders,
-    DatabaseSeeder,
+    /*DatabaseSeeder,
     CataloguesSeeder,
     UsersSeeder,
     RolesSeeder,
-    MenusSeeder,
+    MenusSeeder,*/
   ],
-  exports: [...databaseProviders, DatabaseSeeder],
+  exports: [...databaseProviders],
 })
 export class DatabaseModule {}

@@ -7,16 +7,16 @@ import { MenusSeeder } from './menus-seeder';
 @Injectable()
 export class DatabaseSeeder {
   constructor(
-    private cataloguesSeeder: CataloguesSeeder,
+   /* private cataloguesSeeder: CataloguesSeeder,
     private usersSeeder: UsersSeeder,
     private rolesSeeder: RolesSeeder,
-    private menusSeeder: MenusSeeder,
+    private menusSeeder: MenusSeeder,*/
   ) {}
 
   async run() {
-    await this.cataloguesSeeder.run();
+    /*await this.cataloguesSeeder.run();
     await this.rolesSeeder.run();
     await this.usersSeeder.run();
-    await this.menusSeeder.run();
+    await this.menusSeeder.run();*/
   }
 }
