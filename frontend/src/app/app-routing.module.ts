@@ -7,6 +7,7 @@ import { ListaCronogramaComponent } from './Registros/lista-cronograma/lista-cro
 import { CandidatoComponent } from './Candidato/candidato-lista/candidato/candidato.component';
 import { CandidatoListaComponent } from './Candidato/candidato-lista/candidato-lista.component';
 import { NavbarCandidatoComponent } from './Componentes/navbarCandidato/navbar-candidato/navbar-candidato.component';
+import { ListasComponent } from './listas/listas.component';
 
 
 
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path: 'navbar-candidato',
     component: NavbarCandidatoComponent
+   },
+{
+    path: 'listas',
+    component: ListasComponent
   }
 
 ];
