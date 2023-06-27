@@ -1,6 +1,6 @@
 .container_list .p-element.p-selectable-row.ng-star-inserted {
     display: flex;
-    width: 33%;
+    width: 100%;
     flex-direction: column;
     margin: 20px;
     border: 1px solid black;
@@ -11,3 +11,21 @@
   .container_list td{
     border: none !important;
   }
+  /*
+  .contenedor.container_list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+  }
+  .p-element {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .p-datatable > .p-datatable-wrapper {
+    overflow: unset;
+  }
+  #pr_id_1{
+    width: 50%;
+  }*/

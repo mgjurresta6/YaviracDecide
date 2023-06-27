@@ -26,11 +26,11 @@ export class NavbarComponent implements OnInit {
             },
             {
                 label: 'CANDIDATOS Y LISTA',
-        
+                routerLink: '/listas'
             },
             {
                 label: 'USUSARIOS',
-            }
+            },
         ];
     }
 }

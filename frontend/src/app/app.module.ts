@@ -28,6 +28,7 @@ import { CandidatoComponent } from './Candidato/candidato-lista/candidato/candid
 import { NavbarCandidatoComponent } from './Componentes/navbarCandidato/navbar-candidato/navbar-candidato.component';
 
 import { ListasComponent } from './listas/listas.component';
+import { NavbarListaComponent } from './Componentes/navbar-lista/navbar-lista.component';
 
 
 
@@ -45,7 +46,8 @@ import { ListasComponent } from './listas/listas.component';
     CandidatoListaComponent,
     CandidatoComponent,
     NavbarCandidatoComponent,
-    ListasComponent
+    ListasComponent,
+    NavbarListaComponent
 
 
 
