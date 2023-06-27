@@ -4,31 +4,31 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CandidatoListaService {
-usuario: any[] = [];
+candidato: any[] = [];
   selectedPerson: any = null;
 
   constructor() { 
-    this.loadUsuario();
+    this.loadCandidato();
   }
 
-  private loadUsuario(){
-    this.usuario = [];
-    this.usuario.push(
-      { dignidad:'Presidente', nombre:'Pedro', requisitos:'', logo:'', color:'', propuesta:''}
+  private loadCandidato(){
+    this.candidato = [];
+    this.candidato.push(
+      {nombre:'Pedro', requisitos:''}
     );
   }
-  addUsuario(payload: any){
-    this.usuario.push(payload);
+  addCandidato(payload: any){
+    this.candidato.push(payload);
   }
-  updateUsuario(nombre: string, payload: any) {
-    const index = this.usuario.findIndex(usuario => usuario.nombre === nombre);
-    this.usuario[index] = payload;
+  updateCandidato(nombre: string, payload: any) {
+    const index = this.candidato.findIndex(candidato => candidato.nombre === nombre);
+    this.candidato[index] = payload;
   }
 
-  deleteUsuario(nombre: string) {
-    const index = this.usuario.findIndex(usuario => usuario.nombre === nombre);
+  deleteCandidato(nombre: string) {
+    const index = this.candidato.findIndex(candidato => candidato.nombre === nombre);
     if (index > -1) {
-      this.usuario.splice(index, 1);
+      this.candidato.splice(index, 1);
     }
   }
 }
