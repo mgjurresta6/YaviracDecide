@@ -8,6 +8,9 @@ import { CandidatoComponent } from './Candidato/candidato-lista/candidato/candid
 import { CandidatoListaComponent } from './Candidato/candidato-lista/candidato-lista.component';
 import { NavbarCandidatoComponent } from './Componentes/navbarCandidato/navbar-candidato/navbar-candidato.component';
 import { ListasComponent } from './listas/listas.component';
+import { UsuarioComponent } from './Registros/usuario/usuario.component';
+import { ListaUsuarioComponent } from './Registros/lista-usuario/lista-usuario.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -42,9 +45,21 @@ const routes: Routes = [
     path: 'navbar-candidato',
     component: NavbarCandidatoComponent
    },
-{
+  { 
     path: 'listas',
     component: ListasComponent
+  },
+  {
+    path: 'usuario',
+    component: UsuarioComponent
+  },
+  {
+    path: 'lista-usuario',
+    component: ListaUsuarioComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
   }
 
 ];

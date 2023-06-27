@@ -1,14 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CandidatoListaService } from 'src/app/Servicios/candidato-lista.service';
 import {Router} from "@angular/router";
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-candidato-lista',
-  templateUrl: './candidato-lista.component.html',
-  styleUrls: ['./candidato-lista.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class CandidatoListaComponent {
-  
+export class DashboardComponent {
+  formGroup!: FormGroup;
+
+  categories: any[] = [
+      { name: 'Si', key: 'S' },
+      { name: 'No', key: 'N' },
+  ];
+
+  ngOnInit() {
+      this.formGroup = new FormGroup({
+          selectedCategory: new FormControl()
+      });
+  }
   usuario: any[] = [];
   selectedPerson: any;
 
@@ -29,5 +41,14 @@ export class CandidatoListaComponent {
   deleteUsuario(nombre: string) {
     this.candidatoListaService.deleteUsuario(nombre);
     console.log(this.candidatoListaService.usuario);
+  }
+
+  onSubmit() {
+    if (this.categories) {
+      alert('Estas seguro de aceptar esta lista?');
+      this.router.navigate(['candidato-lista']);
+    } else {
+      alert('Estas seguro de no aceptar esta lista?');
+    }
   }
 }

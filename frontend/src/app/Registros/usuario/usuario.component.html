@@ -1,0 +1,40 @@
+<div class="formgrid grid">
+    <div class="contenedor">
+        <p-panel>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="card flex flex-wrap gap-3 p-fluid">
+                    <div class="flex-auto">
+                        <label>Numero de cedula</label>
+                            <p-inputNumber mode="decimal" formControlName="cedula"></p-inputNumber>
+                    </div>
+                    <div class="flex-auto">
+                        <label> Nombres:</label>
+                        <input type="text" pInputText formControlName="nombre"/>
+                    </div>
+                    <div class="flex-auto">
+                        <label> Apellidos:</label>
+                        <input type="text" pInputText formControlName="apellido"/>
+                    </div>
+                    <div class="flex-auto">
+                        <label> Correo electronico:</label>
+                        <input type="text" pInputText formControlName="correo"/>
+                    </div>
+                    <div class="flex-auto">
+                        <label>Rol:</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="rol">
+                            <option selected>Selecciona</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Candidato">Candidato</option>
+                            <option value="Votante">Votante</option>
+                          </select>
+                    </div>
+                    <div class="flex-auto">
+                        <button class="btn btn-primary" pButton type="submit" label="Guardar"></button>
+                    </div>
+                </div>
+            </form>
+        </p-panel>
+    </div>
+</div>
+<router-outlet></router-outlet>
+

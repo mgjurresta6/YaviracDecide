@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
         this.items = [
             {
                 label: 'DASHBOARD',
+                routerLink: '/dashboard'
             },
             {
                 label: 'CRONOGRAMA',
@@ -29,7 +30,8 @@ export class NavbarComponent implements OnInit {
         
             },
             {
-                label: 'USUSARIOS',
+                label: 'USUARIOS',
+                routerLink: '/usuario'
             }
         ];
     }
