@@ -7,7 +7,6 @@ import { PanelModule } from 'primeng/panel';
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './Componentes/navbar/navbar.component';
 import { MenuComponent } from './Componentes/menu/menu.component';

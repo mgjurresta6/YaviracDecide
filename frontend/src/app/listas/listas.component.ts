@@ -11,7 +11,7 @@ export class ListasComponent {
   selectedPerson: any;
 
   constructor(private candidatoListaService: CandidatoListaService, private router: Router){
-    this.usuario = this.candidatoListaService.usuario;
+    this.usuario = this.candidatoListaService.candidato;
   }
   mostrarUsuario(nombre: string, payload: any) {
     const index = this.usuario.findIndex(usuario => usuario.nombre === nombre);
