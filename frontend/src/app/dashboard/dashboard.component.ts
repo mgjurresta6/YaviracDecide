@@ -22,19 +22,19 @@ export class DashboardComponent {
       });
   }
   usuario: any[] = [];
-  selectedPerson: any;
+  selectedCandidato: any;
 
   constructor(private candidatoListaService: CandidatoListaService, private router: Router){
     this.usuario = this.candidatoListaService.candidato;
   }
 
   crearUsuario(){
-    this.candidatoListaService.selectedPerson = null;
+    this.candidatoListaService.selectedCandidato = null;
     this.router.navigate(['candidato-lista']);
   }
 
   editUsuario(usuario: any) {
-    this.candidatoListaService.selectedPerson = usuario;
+    this.candidatoListaService.selectedCandidato = usuario;
     this.router.navigate(['candidato-lista']);
   }
 
