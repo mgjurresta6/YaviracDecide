@@ -24,7 +24,7 @@ let CursosService = class CursosService {
     }
     async catalogue() {
         const response = await this.cursoRepository.findAndCount({
-            relations: ['carrera', 'jornada', 'paralelo'],
+            relations: ['carrera'],
             take: 1000,
         });
         return {
@@ -43,13 +43,13 @@ let CursosService = class CursosService {
     }
     async findAll(params) {
         const data = await this.cursoRepository.findAndCount({
-            relations: ['carrera', 'jornada', 'paralelo'],
+            relations: ['carrera'],
         });
         return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
     }
     async findOne(id) {
         const curso = await this.cursoRepository.findOne({
-            relations: ['carrera', 'jornada', 'paralelo'],
+            relations: ['carrera'],
             where: {
                 id,
             },

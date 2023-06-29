@@ -14,12 +14,12 @@ const openapi = require("@nestjs/swagger");
 const typeorm_1 = require("typeorm");
 let ActividadEntity = class ActividadEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, actividad: { required: true, type: () => String } };
+        return { id: { required: true, type: () => Number }, actividad: { required: true, type: () => String } };
     }
 };
 __decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
-    __metadata("design:type", String)
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
 ], ActividadEntity.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)({

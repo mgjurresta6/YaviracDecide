@@ -1,12 +1,12 @@
 import { Repository } from 'typeorm';
 import { CronogramaEntity } from '@core/entities';
 import { ServiceResponseHttpModel } from '@shared/models';
-import { PeriodoLectivosService, ActividadesService } from '@core/services';
+import { ActividadesService, PeriodosService } from '@core/services';
 export declare class CronogramasService {
     private cronogramaRepository;
-    private periodoLectivosService;
     private actividadesService;
-    constructor(cronogramaRepository: Repository<CronogramaEntity>, periodoLectivosService: PeriodoLectivosService, actividadesService: ActividadesService);
+    private periodosService;
+    constructor(cronogramaRepository: Repository<CronogramaEntity>, actividadesService: ActividadesService, periodosService: PeriodosService);
     catalogue(): Promise<ServiceResponseHttpModel>;
     create(payload: CronogramaEntity): Promise<ServiceResponseHttpModel>;
     findAll(params?: any): Promise<ServiceResponseHttpModel>;

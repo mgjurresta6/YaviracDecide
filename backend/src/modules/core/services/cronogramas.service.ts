@@ -3,20 +3,20 @@ import { Repository, FindOptionsWhere, ILike } from 'typeorm';
 import { CronogramaEntity } from '@core/entities';
 import { ServiceResponseHttpModel } from '@shared/models';
 import { RepositoryEnum } from '@shared/enums';
-import { PeriodoLectivosService, ActividadesService } from '@core/services';
+import { ActividadesService, PeriodosService } from '@core/services';
 
 @Injectable()
 export class CronogramasService {
   constructor(
     @Inject(RepositoryEnum.CRONOGRAMA_REPOSITORY)
     private cronogramaRepository: Repository<CronogramaEntity>,
-    private periodoLectivosService: PeriodoLectivosService,
-    private actividadesService: ActividadesService
+    private actividadesService: ActividadesService,
+    private periodosService: PeriodosService
   ) {}
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
     const response = await this.cronogramaRepository.findAndCount({
-      relations: ['periodo', 'actividad'],
+      relations: ['actividad'],
       take: 1000,
     });
 
@@ -32,7 +32,6 @@ export class CronogramasService {
   async create(payload: CronogramaEntity): Promise<ServiceResponseHttpModel> {
     const newCronograma = this.cronogramaRepository.create(payload);
 
-    //newCronograma.periodo = await this.periodoLectivosService.findOne(payload.periodo.id)
     newCronograma.actividad = await this.actividadesService.findOne(payload.actividad.id)
 
     const cronogramaCreated = await this.cronogramaRepository.save(newCronograma);
@@ -41,14 +40,14 @@ export class CronogramasService {
   }
   async findAll(params?: any): Promise<ServiceResponseHttpModel> {
     const data = await this.cronogramaRepository.findAndCount({
-      relations: ['periodo', 'actividad'],
+      relations: ['actividad'],
     });
 
     return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
   }
   async findOne(id: string): Promise<any> {
     const cronograma = await this.cronogramaRepository.findOne({
-      relations: ['periodo', 'actividad'],
+      relations: [ 'actividad'],
       where: {
         id,
       },

@@ -18,14 +18,14 @@ const typeorm_1 = require("typeorm");
 const enums_1 = require("../../../shared/enums");
 const services_1 = require("./");
 let CronogramasService = class CronogramasService {
-    constructor(cronogramaRepository, periodoLectivosService, actividadesService) {
+    constructor(cronogramaRepository, actividadesService, periodosService) {
         this.cronogramaRepository = cronogramaRepository;
-        this.periodoLectivosService = periodoLectivosService;
         this.actividadesService = actividadesService;
+        this.periodosService = periodosService;
     }
     async catalogue() {
         const response = await this.cronogramaRepository.findAndCount({
-            relations: ['periodo', 'actividad'],
+            relations: ['actividad'],
             take: 1000,
         });
         return {
@@ -44,13 +44,13 @@ let CronogramasService = class CronogramasService {
     }
     async findAll(params) {
         const data = await this.cronogramaRepository.findAndCount({
-            relations: ['periodo', 'actividad'],
+            relations: ['actividad'],
         });
         return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
     }
     async findOne(id) {
         const cronograma = await this.cronogramaRepository.findOne({
-            relations: ['periodo', 'actividad'],
+            relations: ['actividad'],
             where: {
                 id,
             },
@@ -86,8 +86,8 @@ CronogramasService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, common_1.Inject)(enums_1.RepositoryEnum.CRONOGRAMA_REPOSITORY)),
     __metadata("design:paramtypes", [typeorm_1.Repository,
-        services_1.PeriodoLectivosService,
-        services_1.ActividadesService])
+        services_1.ActividadesService,
+        services_1.PeriodosService])
 ], CronogramasService);
 exports.CronogramasService = CronogramasService;
 //# sourceMappingURL=cronogramas.service.js.map

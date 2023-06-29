@@ -22,7 +22,6 @@ let JornadasService = class JornadasService {
     }
     async catalogue() {
         const response = await this.jornadasRepository.findAndCount({
-            relations: ['cursos'],
             take: 1000,
         });
         return {

@@ -22,7 +22,6 @@ let ResultadosService = class ResultadosService {
     }
     async catalogue() {
         const response = await this.resultadoRepository.findAndCount({
-            relations: ['voto'],
             take: 1000,
         });
         return {

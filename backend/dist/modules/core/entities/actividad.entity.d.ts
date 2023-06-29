@@ -1,4 +1,4 @@
 export declare class ActividadEntity {
-    id: string;
+    id: number;
     actividad: string;
 }
