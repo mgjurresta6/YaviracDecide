@@ -38,6 +38,7 @@ let CronogramasService = class CronogramasService {
     }
     async create(payload) {
         const newCronograma = this.cronogramaRepository.create(payload);
+        newCronograma.periodo = await this.periodoLectivosService.findOne(payload.periodo.id);
         newCronograma.actividad = await this.actividadesService.findOne(payload.actividad.id);
         const cronogramaCreated = await this.cronogramaRepository.save(newCronograma);
         return { data: cronogramaCreated };

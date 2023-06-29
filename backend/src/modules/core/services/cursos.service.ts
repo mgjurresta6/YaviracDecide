@@ -10,8 +10,8 @@ export class CursosService {
   constructor(
     @Inject(RepositoryEnum.CURSO_REPOSITORY)
     private cursoRepository: Repository<CursoEntity>,
-   /* private jornadasService: JornadasService,
-    private paralelosService: ParalelosService,*/
+   private jornadasService: JornadasService,
+    private paralelosService: ParalelosService,
     private carrerasService: CarrerasService
   ) {}
 
@@ -35,8 +35,8 @@ export class CursosService {
     const newCurso = this.cursoRepository.create(payload);
 
     newCurso.carrera = await this.carrerasService.findOne(payload.carrera.id);
-   /* newCurso.jornada = await this.jornadasService.findOne(payload.jornada.id);
-    newCurso.paralelo = await this.paralelosService.findOne (payload.paralelo.id)*/
+   newCurso.jornada = await this.jornadasService.findOne(payload.jornada.id);
+    newCurso.paralelo = await this.paralelosService.findOne (payload.paralelo.id)
 
     const cursoCreated = await this.cursoRepository.save(newCurso);
     return { data: cursoCreated };

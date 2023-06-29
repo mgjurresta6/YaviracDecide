@@ -10,7 +10,7 @@ export class ResultadosService {
   constructor(
     @Inject(RepositoryEnum.RESULTADO_REPOSITORY)
     private resultadoRepository: Repository<ResultadoEntity>,
-   // private votosService: VotosService
+   private votosService: VotosService
   ) {}
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
@@ -31,7 +31,7 @@ export class ResultadosService {
   async create(payload: ResultadoEntity): Promise<ServiceResponseHttpModel> {
     const newResultado = this.resultadoRepository.create(payload);
 
-    //newResultado.voto = await this.votosService.findOne(payload.voto.id)
+    newResultado.voto = await this.votosService.findOne(payload.voto.id)
 
     const resultadoCreated = await this.resultadoRepository.save(newResultado);
 

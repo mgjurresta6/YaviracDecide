@@ -12,7 +12,7 @@ export class UsuariosService {
     private usuarioRepository: Repository<UsuarioEntity>,
     private cursosService: CursosService,
     private rolesService: RolesService,
-   // private tiposService: TipoUsuariosService
+   private tiposService: TipoUsuariosService
   ) {}
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
@@ -35,7 +35,7 @@ export class UsuariosService {
 
     newUsuario.curso = await this.cursosService.findOne(payload.curso.id);
     newUsuario.rol = await this.rolesService.findOne(payload.rol.id);
-    //newUsuario.tipo = await this.tiposService.findOne(payload.tipo.id);
+    newUsuario.tipo = await this.tiposService.findOne(payload.tipo.id);
 
     const usuarioCreated = await this.usuarioRepository.save(newUsuario);
 

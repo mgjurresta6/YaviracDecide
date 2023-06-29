@@ -1,11 +1,12 @@
 import { Repository } from 'typeorm';
 import { ListaEntity } from '@core/entities';
 import { ServiceResponseHttpModel } from '@shared/models';
-import { DignidadesService } from '@core/services';
+import { TipoListasService, DignidadesService } from '@core/services';
 export declare class ListasService {
     private listaRepository;
+    private tipolistasService;
     private dignidadesService;
-    constructor(listaRepository: Repository<ListaEntity>, dignidadesService: DignidadesService);
+    constructor(listaRepository: Repository<ListaEntity>, tipolistasService: TipoListasService, dignidadesService: DignidadesService);
     catalogue(): Promise<ServiceResponseHttpModel>;
     create(payload: ListaEntity): Promise<ServiceResponseHttpModel>;
     findAll(params?: any): Promise<ServiceResponseHttpModel>;
