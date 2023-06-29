@@ -4,6 +4,12 @@ import { EstudianteComponent } from './Registros/estudiante/estudiante.component
 import { ListaEstudianteComponent } from './Registros/lista-estudiante/lista-estudiante.component';
 import { CronogramaComponent } from './Registros/cronograma/cronograma.component';
 import { ListaCronogramaComponent } from './Registros/lista-cronograma/lista-cronograma.component';
+import { CandidatoComponent } from './Candidato/candidato-lista/candidato/candidato.component';
+import { CandidatoListaComponent } from './Candidato/candidato-lista/candidato-lista.component';
+import { NavbarCandidatoComponent } from './Componentes/navbarCandidato/navbar-candidato/navbar-candidato.component';
+import { ListasComponent } from './listas/listas.component';
+
+
 
 const routes: Routes = [
    
@@ -23,6 +29,22 @@ const routes: Routes = [
   {
     path: 'lista-cronograma',
     component: ListaCronogramaComponent
+  },
+  {
+    path: 'candidato',
+    component: CandidatoComponent
+  },
+  {
+    path: 'candidato-lista',
+    component: CandidatoListaComponent
+  },
+  {
+    path: 'navbar-candidato',
+    component: NavbarCandidatoComponent
+   },
+{
+    path: 'listas',
+    component: ListasComponent
   }
 
 ];

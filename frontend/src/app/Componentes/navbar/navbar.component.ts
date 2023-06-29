@@ -26,6 +26,7 @@ export class NavbarComponent implements OnInit {
             },
             {
                 label: 'CANDIDATOS Y LISTA',
+        
             },
             {
                 label: 'USUSARIOS',
