@@ -3,21 +3,21 @@ import { Repository, FindOptionsWhere, ILike } from 'typeorm';
 import { CursoEntity } from '@core/entities';
 import { ServiceResponseHttpModel } from '@shared/models';
 import { RepositoryEnum } from '@shared/enums';
-import{ JornadasService, CarrerasService, ParalelosService } from '@core/services';
+import{ CarrerasService, JornadasService, ParalelosService} from '@core/services';
 
 @Injectable()
 export class CursosService {
   constructor(
     @Inject(RepositoryEnum.CURSO_REPOSITORY)
     private cursoRepository: Repository<CursoEntity>,
+    private carrerasService: CarrerasService,
     private jornadasService: JornadasService,
-    private paralelosService: ParalelosService,
-    private carrerasService: CarrerasService
+    private paralelosService: ParalelosService
   ) {}
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
     const response = await this.cursoRepository.findAndCount({
-      relations: ['carrera','jornada','paralelo'],
+      relations: ['carrera', 'jornada', 'paralelo'],
       take: 1000,
 
     });
@@ -36,21 +36,21 @@ export class CursosService {
 
     newCurso.carrera = await this.carrerasService.findOne(payload.carrera.id);
     newCurso.jornada = await this.jornadasService.findOne(payload.jornada.id);
-    newCurso.paralelo = await this.paralelosService.findOne (payload.paralelo.id)
+    newCurso.paralelo = await this.paralelosService.findOne(payload.paralelo.id)
 
     const cursoCreated = await this.cursoRepository.save(newCurso);
     return { data: cursoCreated };
   }
   async findAll(params?: any): Promise<ServiceResponseHttpModel> {
     const data = await this.cursoRepository.findAndCount({
-      relations: ['carrera','jornada','paralelo'],
+      relations: ['carrera'],
     });
 
     return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
   }
   async findOne(id: number): Promise<any> {
     const curso = await this.cursoRepository.findOne({
-      relations: ['carrera','jornada','paralelo'],
+      relations: ['carrera'],
       where: {
         id,
       },

@@ -3,7 +3,7 @@ import { Repository, FindOptionsWhere, ILike } from 'typeorm';
 import { ListaEntity, TipoListaEntity } from '@core/entities';
 import { ServiceResponseHttpModel } from '@shared/models';
 import { RepositoryEnum } from '@shared/enums';
-import { TipoListasService, DignidadesService } from '@core/services';
+import {  DignidadesService, TipoListasService } from '@core/services';
 
 
 @Injectable()

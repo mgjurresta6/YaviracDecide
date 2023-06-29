@@ -41,7 +41,7 @@ export class ActividadesService {
     return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
   }
 
-  async findOne(id: string): Promise<any> {
+  async findOne(id: number): Promise<any> {
     const actividad = await this.actividadRepository.findOne({
       where: {
         id,
@@ -55,7 +55,7 @@ export class ActividadesService {
   }
 
   async update(
-    id: string,
+    id: number,
     payload: any,
   ): Promise<ServiceResponseHttpModel> {
     const actividad = await this.actividadRepository.findOneBy({ id });
@@ -67,7 +67,7 @@ export class ActividadesService {
     return { data: actividadUpdated };
   }
 
-  async remove(id: string): Promise<ServiceResponseHttpModel> {
+  async remove(id: number): Promise<ServiceResponseHttpModel> {
     const actividad = await this.actividadRepository.findOneBy({ id });
 
     if (!actividad) {
