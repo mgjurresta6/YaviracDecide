@@ -1,7 +1,7 @@
 import { Repository } from 'typeorm';
 import { ResultadoEntity } from '@core/entities';
 import { ServiceResponseHttpModel } from '@shared/models';
-import { VotosService } from '@core/services';
+import { VotosService } from './votos.service';
 export declare class ResultadosService {
     private resultadoRepository;
     private votosService;

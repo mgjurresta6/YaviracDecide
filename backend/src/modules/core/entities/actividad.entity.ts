@@ -3,8 +3,8 @@ import { CronogramaEntity } from './cronograma.entity';
 
 @Entity('actividades', { schema: 'core' })
 export class ActividadEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column({
     name: 'nombre',

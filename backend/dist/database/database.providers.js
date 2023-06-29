@@ -18,6 +18,7 @@ exports.databaseProviders = [
                 password,
                 database,
                 entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+                dropSchema: true,
                 synchronize: true,
             });
             return dataSource.initialize();

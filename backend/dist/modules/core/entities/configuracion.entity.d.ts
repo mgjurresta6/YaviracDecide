@@ -4,5 +4,5 @@ export declare class ConfiguracionEntity {
     codigoReseteo: string;
     fechaReseteo: Date;
     duracionReseteo: Date;
-    configuraciones: UsuarioEntity;
+    configuracion: UsuarioEntity;
 }

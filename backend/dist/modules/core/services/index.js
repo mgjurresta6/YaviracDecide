@@ -16,19 +16,19 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./actividades.service"), exports);
 __exportStar(require("./carreras.service"), exports);
-__exportStar(require("./configuraciones.service"), exports);
-__exportStar(require("./cronogramas.service"), exports);
-__exportStar(require("./cursos.service"), exports);
-__exportStar(require("./dignidades.service"), exports);
 __exportStar(require("./jornadas.service"), exports);
-__exportStar(require("./listas.service"), exports);
 __exportStar(require("./paralelos.service"), exports);
-__exportStar(require("./periodolectivos.service"), exports);
+__exportStar(require("./configuraciones.service"), exports);
+__exportStar(require("./cursos.service"), exports);
+__exportStar(require("./tipolistas.service"), exports);
+__exportStar(require("./dignidades.service"), exports);
+__exportStar(require("./listas.service"), exports);
+__exportStar(require("./periodos.service"), exports);
+__exportStar(require("./cronogramas.service"), exports);
 __exportStar(require("./resultados.service"), exports);
 __exportStar(require("./roles.service"), exports);
-__exportStar(require("./tipolistas.service"), exports);
-__exportStar(require("./usuarios.service"), exports);
 __exportStar(require("./usuariotipos.service"), exports);
+__exportStar(require("./usuarios.service"), exports);
 __exportStar(require("./votos.service"), exports);
 __exportStar(require("./catalogues.service"), exports);
 //# sourceMappingURL=index.js.map

@@ -16,7 +16,7 @@ exports.ResultadosService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("typeorm");
 const enums_1 = require("../../../shared/enums");
-const services_1 = require("./");
+const votos_service_1 = require("./votos.service");
 let ResultadosService = class ResultadosService {
     constructor(resultadoRepository, votosService) {
         this.resultadoRepository = resultadoRepository;
@@ -82,7 +82,7 @@ ResultadosService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, common_1.Inject)(enums_1.RepositoryEnum.RESULTADO_REPOSITORY)),
     __metadata("design:paramtypes", [typeorm_1.Repository,
-        services_1.VotosService])
+        votos_service_1.VotosService])
 ], ResultadosService);
 exports.ResultadosService = ResultadosService;
 //# sourceMappingURL=resultados.service.js.map

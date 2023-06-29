@@ -1,7 +1,7 @@
 import { Repository } from 'typeorm';
 import { ListaEntity } from '@core/entities';
 import { ServiceResponseHttpModel } from '@shared/models';
-import { TipoListasService, DignidadesService } from '@core/services';
+import { DignidadesService, TipoListasService } from '@core/services';
 export declare class ListasService {
     private listaRepository;
     private tipolistasService;

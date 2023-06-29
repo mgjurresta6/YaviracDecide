@@ -18,11 +18,11 @@ const typeorm_1 = require("typeorm");
 const enums_1 = require("../../../shared/enums");
 const services_1 = require("./");
 let CursosService = class CursosService {
-    constructor(cursoRepository, jornadasService, paralelosService, carrerasService) {
+    constructor(cursoRepository, carrerasService, jornadasService, paralelosService) {
         this.cursoRepository = cursoRepository;
+        this.carrerasService = carrerasService;
         this.jornadasService = jornadasService;
         this.paralelosService = paralelosService;
-        this.carrerasService = carrerasService;
     }
     async catalogue() {
         const response = await this.cursoRepository.findAndCount({
@@ -47,13 +47,13 @@ let CursosService = class CursosService {
     }
     async findAll(params) {
         const data = await this.cursoRepository.findAndCount({
-            relations: ['carrera', 'jornada', 'paralelo'],
+            relations: ['carrera'],
         });
         return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
     }
     async findOne(id) {
         const curso = await this.cursoRepository.findOne({
-            relations: ['carrera', 'jornada', 'paralelo'],
+            relations: ['carrera'],
             where: {
                 id,
             },
@@ -89,9 +89,9 @@ CursosService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, common_1.Inject)(enums_1.RepositoryEnum.CURSO_REPOSITORY)),
     __metadata("design:paramtypes", [typeorm_1.Repository,
+        services_1.CarrerasService,
         services_1.JornadasService,
-        services_1.ParalelosService,
-        services_1.CarrerasService])
+        services_1.ParalelosService])
 ], CursosService);
 exports.CursosService = CursosService;
 //# sourceMappingURL=cursos.service.js.map

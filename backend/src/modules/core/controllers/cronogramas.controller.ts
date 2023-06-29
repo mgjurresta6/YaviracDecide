@@ -22,7 +22,7 @@ import { ResponseHttpModel } from '@shared/models';
 @Controller('cronogramas')
 export class CronogramasController {
   constructor(private cronogramasService: CronogramasService) {}
-
+/*
   @ApiOperation({ summary: 'Crear Cronograma' })
   @Post('')
   @HttpCode(HttpStatus.CREATED)
@@ -119,5 +119,5 @@ export class CronogramasController {
       message: `Cronogramas fueron eliminadas`,
       title: `Cronogramas Eliminadas`,
     };
-  }
+  }*/
 }

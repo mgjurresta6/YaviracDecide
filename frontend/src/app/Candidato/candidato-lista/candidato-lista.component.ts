@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { CandidatoListaService } from 'src/app/Servicios/candidato-lista.service';
+import { AprobacionComponent } from 'src/app/Componentes/aprobacion/aprobacion.component';
 import {Router} from "@angular/router";
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-candidato-lista',
@@ -8,26 +12,26 @@ import {Router} from "@angular/router";
   styleUrls: ['./candidato-lista.component.css']
 })
 export class CandidatoListaComponent {
+
   
   candidato: any[] = [];
   selectedPerson: any;
 
-  constructor(private candidatoListaService: CandidatoListaService, private router: Router){
+  form: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, 
+              private candidatoListaService: CandidatoListaService, 
+              private router: Router,
+              public dialog: MatDialog){
     this.candidato = this.candidatoListaService.candidato;
   }
 
-  crearCandidato(){
-    this.candidatoListaService.selectedPerson = null;
-    this.router.navigate(['candidato-lista']);
-  }
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(AprobacionComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
 
-  editCandidato(candidato: any) {
-    this.candidatoListaService.selectedPerson = candidato;
-    this.router.navigate(['candidato-lista']);
-  }
-
-  deleteCandidato(nombre: string) {
-    this.candidatoListaService.deleteCandidato(nombre);
-    console.log(this.candidatoListaService.candidato);
   }
 }

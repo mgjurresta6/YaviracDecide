@@ -47,13 +47,13 @@ let UsuariosService = class UsuariosService {
     }
     async findAll(params) {
         const data = await this.usuarioRepository.findAndCount({
-            relations: ['curso', 'rol', 'tipo'],
+            relations: ['curso', 'rol'],
         });
         return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
     }
     async findOne(cedula) {
         const usuario = await this.usuarioRepository.findOne({
-            relations: ['curso', 'rol', 'tipo'],
+            relations: ['curso', 'rol'],
             where: {
                 cedula,
             },

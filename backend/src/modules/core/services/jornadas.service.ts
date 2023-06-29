@@ -13,7 +13,6 @@ export class JornadasService {
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
     const response = await this.jornadasRepository.findAndCount({
-      relations: ['cursos'],
       take: 1000,
     });
 
