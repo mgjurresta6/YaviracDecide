@@ -99,6 +99,9 @@
       "@shared/validation": [
         "./src/shared/validation"
       ]
+      
     }
+    
   }
+  
 }

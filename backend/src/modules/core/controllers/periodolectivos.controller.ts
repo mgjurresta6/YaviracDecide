@@ -13,14 +13,14 @@ import {
     Query,
   } from '@nestjs/common';
   import { ApiTags, ApiOperation } from '@nestjs/swagger';
-  import { PeriodoLectivosService } from '@core/services';
+  import { PeriodosService } from '@core/services';
   import { PeriodoEntity } from '@core/entities';
   import { ResponseHttpModel } from '@shared/models';
   
   @Controller('periodos')
   export class PeriodoLectivosController {
-    constructor(private periodolectivosService: PeriodoLectivosService) {}
-  
+    constructor(private periodolectivosService: PeriodosService) {}
+  /*
     @ApiOperation({ summary: 'Catalogo Periodos lectivos' })
     @Get('catalogue')
     @HttpCode(HttpStatus.OK)
@@ -122,6 +122,6 @@ import {
         message: `Todos los Periodos lectivos fueron eliminadas`,
       title: ` Todos los Periodos lectivos Eliminadas`,
       };
-    }
+    }*/
   }
   

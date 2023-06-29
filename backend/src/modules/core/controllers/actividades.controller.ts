@@ -66,7 +66,7 @@ import {
     @Get(':id')
     @HttpCode(HttpStatus.OK)
     async findOne(
-      @Param('id', ParseUUIDPipe) id: string,
+      @Param('id', ParseUUIDPipe) id: number,
     ): Promise<ResponseHttpModel> {
       const serviceResponse = await this.actividadesService.findOne(id);
   
@@ -81,7 +81,7 @@ import {
     @Put(':id')
     @HttpCode(HttpStatus.CREATED)
     async update(
-      @Param('id', ParseUUIDPipe) id: string,
+      @Param('id', ParseUUIDPipe) id: number,
       @Body() payload: any,
     ): Promise<ResponseHttpModel> {
       const serviceResponse = await this.actividadesService.update(id, payload);
@@ -96,7 +96,7 @@ import {
     @Delete(':id')
     @HttpCode(HttpStatus.CREATED)
     async remove(
-      @Param('id', ParseUUIDPipe) id: string,
+      @Param('id', ParseUUIDPipe) id: number,
     ): Promise<ResponseHttpModel> {
       const serviceResponse = await this.actividadesService.remove(id);
       return {
