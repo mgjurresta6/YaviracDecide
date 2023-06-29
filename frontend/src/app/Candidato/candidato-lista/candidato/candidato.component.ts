@@ -125,7 +125,9 @@ export class CandidatoComponent {
   }
 
   addCandidato() {
-    this.candidatoListaService.addCandidato(this.form.value);
+    this.candidatoListaService.addCandidato(this.form.value).subscribe(response => {
+      console.log(response);
+    })
     console.log(this.candidatoListaService.candidato);
   }
 

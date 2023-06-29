@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ export class CandidatoListaService {
 candidato: any[] = [];
   selectedCandidato: any = null;
 
-  constructor() { 
+  constructor(private httpClient: HttpClient) { 
     this.loadCandidato();
   }
 
@@ -24,7 +25,7 @@ candidato: any[] = [];
     );
   }
   addCandidato(payload: any){
-    this.candidato.push(payload);
+    return this.httpClient.post('http://localhost:3000/api/v1/dignidades', payload);
   }
   updateCandidato(nombre: string, payload: any) {
     const index = this.candidato.findIndex(candidato => candidato.nombre == nombre);
