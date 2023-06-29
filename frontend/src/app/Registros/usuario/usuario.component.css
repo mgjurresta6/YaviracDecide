@@ -1,14 +1,12 @@
 .contenedor{
     position: relative;
-    padding: 0 15px;
 }
 .formgrid{
     position: absolute;
-    width: 1000px;
+    width: 650px;
     top: 15%;
-    left: 18%;
+    left: 30%;
     margin: -25px 0 0 -25px;
-    
 }
 .btn{
     background-color: #0F2846;
@@ -16,17 +14,3 @@
     border: #0F2846;
     left: 40%;
 }
-.column{
-    column-count: 2;
-}
-.column2{
-    column-count: 3;
-    
-}
-.parrafo{
-    text-align: justify;
-}
-
-small{
-    color: red;
-  }

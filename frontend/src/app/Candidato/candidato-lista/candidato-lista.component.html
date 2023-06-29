@@ -1,9 +1,6 @@
-
-<app-candidato></app-candidato>
-
   <div class="contenedor">
-      <p-table [value]="usuario"
-      selectionMode="single" [(selection)]="selectedPerson" dataKey="id">
+      <p-table [value]="candidato"
+      selectionMode="single" [(selection)]="selectedCandidato" dataKey="id">
   <ng-template pTemplate="header">
   <tr>
     
@@ -20,9 +17,9 @@
     <td>{{item.requisitos}}</td>
     <td>
       <button pButton type="button" class="p-button" icon="pi pi-pencil"
-              (click)="editUsuario(item)"></button>
+              (click)="editCandidato(item)"></button>
       <button pButton type="button" class="p-button" icon="pi pi-trash"
-              (click)="deleteUsuario(item.nombre)"></button>
+              (click)="deleteCandidato(item.nombre)"></button>
     </td>
   </tr>
   </ng-template>

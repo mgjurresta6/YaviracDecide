@@ -7,7 +7,6 @@ import { PanelModule } from 'primeng/panel';
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './Componentes/navbar/navbar.component';
 import { MenuComponent } from './Componentes/menu/menu.component';
@@ -17,6 +16,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { TreeSelectModule } from 'primeng/treeselect';
 import { TableModule } from "primeng/table";
+import { RadioButtonModule } from 'primeng/radiobutton';
 import { ListaEstudianteComponent } from './Registros/lista-estudiante/lista-estudiante.component';
 import { TieredMenuModule } from 'primeng/tieredmenu';
 import { AutoCompleteModule } from 'primeng/autocomplete';
@@ -28,7 +28,13 @@ import { CandidatoComponent } from './Candidato/candidato-lista/candidato/candid
 import { NavbarCandidatoComponent } from './Componentes/navbarCandidato/navbar-candidato/navbar-candidato.component';
 
 import { ListasComponent } from './listas/listas.component';
+
 import { NavbarListaComponent } from './Componentes/navbar-lista/navbar-lista.component';
+
+import { UsuarioComponent } from './Registros/usuario/usuario.component';
+import { ListaUsuarioComponent } from './Registros/lista-usuario/lista-usuario.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 
 
@@ -47,7 +53,9 @@ import { NavbarListaComponent } from './Componentes/navbar-lista/navbar-lista.co
     CandidatoComponent,
     NavbarCandidatoComponent,
     ListasComponent,
-    NavbarListaComponent
+    UsuarioComponent,
+    ListaUsuarioComponent,
+    DashboardComponent
 
 
 
@@ -69,7 +77,8 @@ import { NavbarListaComponent } from './Componentes/navbar-lista/navbar-lista.co
     TableModule,
     TieredMenuModule,
     AutoCompleteModule,
-    CalendarModule
+    CalendarModule,
+    RadioButtonModule
     
 
   ],

@@ -9,27 +9,25 @@ import {Router} from "@angular/router";
 })
 export class CandidatoListaComponent {
   
-  usuario: any[] = [];
-  selectedPerson: any;
+  candidato: any[] = [];
+  selectedCandidato: any;
 
   constructor(private candidatoListaService: CandidatoListaService, private router: Router){
-    this.usuario = this.candidatoListaService.usuario;
+    this.candidato = this.candidatoListaService.candidato;
   }
 
-  crearUsuario(){
-    this.candidatoListaService.selectedPerson = null;
+  crearCandidato(){
+    this.candidatoListaService.selectedCandidato = null;
     this.router.navigate(['candidato-lista']);
   }
 
-  editUsuario(usuario: any) {
-    this.candidatoListaService.selectedPerson = usuario;
+  editCandidato(candidato: any) {
+    this.candidatoListaService.selectedCandidato = candidato;
     this.router.navigate(['candidato-lista']);
   }
 
-  deleteUsuario(nombre: string) {
-    this.candidatoListaService.deleteUsuario(nombre);
-    console.log(this.candidatoListaService.usuario);
+  deleteCandidato(nombreLista: string) {
+    this.candidatoListaService.deleteCandidato(nombreLista);
+    console.log(this.candidatoListaService.candidato);
   }
 }
-
-

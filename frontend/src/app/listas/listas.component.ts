@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router} from "@angular/router"; 
 import { CandidatoListaService } from '../Servicios/candidato-lista.service';
+
 @Component({
   selector: 'app-listas',
   templateUrl: './listas.component.html',
@@ -11,7 +12,7 @@ export class ListasComponent {
   selectedPerson: any;
 
   constructor(private candidatoListaService: CandidatoListaService, private router: Router){
-    this.usuario = this.candidatoListaService.usuario;
+    this.usuario = this.candidatoListaService.candidato;
   }
   mostrarUsuario(nombre: string, payload: any) {
     const index = this.usuario.findIndex(usuario => usuario.nombre === nombre);

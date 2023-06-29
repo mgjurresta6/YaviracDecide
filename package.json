@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "primeng": "^16.0.0"
+    "ng2-pdf-viewer": "^9.1.5",
+    "primeng": "^16.0.0",
+    "sweetalert2": "^11.4.8"
   }
 }
