@@ -25,7 +25,7 @@ let CronogramasService = class CronogramasService {
     }
     async catalogue() {
         const response = await this.cronogramaRepository.findAndCount({
-            relations: ['actividad'],
+            relations: ['actividad', 'periodo'],
             take: 1000,
         });
         return {
@@ -39,6 +39,7 @@ let CronogramasService = class CronogramasService {
     async create(payload) {
         const newCronograma = this.cronogramaRepository.create(payload);
         newCronograma.actividad = await this.actividadesService.findOne(payload.actividad.id);
+        newCronograma.periodo = await this.periodosService.findOne(payload.periodo.id);
         const cronogramaCreated = await this.cronogramaRepository.save(newCronograma);
         return { data: cronogramaCreated };
     }

@@ -20,6 +20,59 @@ let PeriodosService = class PeriodosService {
     constructor(periodolectivoRepository) {
         this.periodolectivoRepository = periodolectivoRepository;
     }
+    async catalogue() {
+        const response = await this.periodolectivoRepository.findAndCount({
+            take: 1000,
+        });
+        return {
+            pagination: {
+                totalItems: response[1],
+                limit: 10,
+            },
+            data: response[0],
+        };
+    }
+    async create(payload) {
+        const newPeriodoLectivo = this.periodolectivoRepository.create(payload);
+        const periodoCreated = await this.periodolectivoRepository.save(newPeriodoLectivo);
+        return { data: periodoCreated };
+    }
+    async findAll(params) {
+        const data = await this.periodolectivoRepository.findAndCount({});
+        return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
+    }
+    async findOne(id) {
+        const periodo = await this.periodolectivoRepository.findOne({
+            where: {
+                id,
+            },
+        });
+        if (!periodo) {
+            throw new common_1.NotFoundException(`El periodo con id:  ${id} no se encontro`);
+        }
+        return { data: periodo };
+    }
+    async update(id, payload) {
+        const periodo = await this.periodolectivoRepository.findOneBy({ id });
+        if (!periodo) {
+            throw new common_1.NotFoundException(`El periodo con id:  ${id} no se encontro`);
+        }
+        this.periodolectivoRepository.merge(periodo, payload);
+        const periodoUpdated = await this.periodolectivoRepository.save(periodo);
+        return { data: periodoUpdated };
+    }
+    async remove(id) {
+        const periodo = await this.periodolectivoRepository.findOneBy({ id });
+        if (!periodo) {
+            throw new common_1.NotFoundException(`El periodo con id:  ${id} no se encontro`);
+        }
+        const periodoDeleted = await this.periodolectivoRepository.softRemove(periodo);
+        return { data: periodoDeleted };
+    }
+    async removeAll(payload) {
+        const periodosDeleted = await this.periodolectivoRepository.softRemove(payload);
+        return { data: periodosDeleted };
+    }
 };
 PeriodosService = __decorate([
     (0, common_1.Injectable)(),

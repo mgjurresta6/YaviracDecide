@@ -10,7 +10,7 @@ export class PeriodosService {
     @Inject(RepositoryEnum.PERIODO_REPOSITORY)
     private periodolectivoRepository: Repository<PeriodoEntity>,
   ) {}
-/*
+
   async catalogue(): Promise<ServiceResponseHttpModel> {
     const response = await this.periodolectivoRepository.findAndCount({
       take: 1000,
@@ -78,5 +78,5 @@ export class PeriodosService {
   async removeAll(payload: PeriodoEntity[]): Promise<ServiceResponseHttpModel> {
     const periodosDeleted = await this.periodolectivoRepository.softRemove(payload);
     return { data: periodosDeleted };
-  }*/
+  }
 }

@@ -3,6 +3,7 @@ import { Repository, FindOptionsWhere, ILike } from 'typeorm';
 import { ResultadoEntity } from '@core/entities';
 import { ServiceResponseHttpModel } from '@shared/models';
 import { RepositoryEnum } from '@shared/enums';
+import { VotosService } from './votos.service';
 
 
 @Injectable()
@@ -10,11 +11,12 @@ export class ResultadosService {
   constructor(
     @Inject(RepositoryEnum.RESULTADO_REPOSITORY)
     private resultadoRepository: Repository<ResultadoEntity>,
+    private votosService: VotosService
   ) {}
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
     const response = await this.resultadoRepository.findAndCount({
-      
+      relations: ['voto'],
       take: 1000,
     });
 
@@ -29,9 +31,7 @@ export class ResultadosService {
 
   async create(payload: ResultadoEntity): Promise<ServiceResponseHttpModel> {
     const newResultado = this.resultadoRepository.create(payload);
-
-
-
+    newResultado.voto = await this.votosService.findOne(payload.voto.id)
     const resultadoCreated = await this.resultadoRepository.save(newResultado);
 
     return { data: resultadoCreated };

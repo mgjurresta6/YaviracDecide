@@ -15,7 +15,7 @@ const typeorm_1 = require("typeorm");
 const usuario_entity_1 = require("./usuario.entity");
 let ConfiguracionEntity = class ConfiguracionEntity {
     static _OPENAPI_METADATA_FACTORY() {
-        return { id: { required: true, type: () => String }, codigoReseteo: { required: true, type: () => String }, fechaReseteo: { required: true, type: () => Date }, duracionReseteo: { required: true, type: () => Date }, configuraciones: { required: true, type: () => require("./usuario.entity").UsuarioEntity } };
+        return { id: { required: true, type: () => String }, codigoReseteo: { required: true, type: () => String }, fechaReseteo: { required: true, type: () => Date }, duracionReseteo: { required: true, type: () => Date }, configuracion: { required: true, type: () => require("./usuario.entity").UsuarioEntity } };
     }
 };
 __decorate([
@@ -50,7 +50,7 @@ __decorate([
     (0, typeorm_1.ManyToOne)(() => usuario_entity_1.UsuarioEntity),
     (0, typeorm_1.JoinColumn)({ name: 'configuracion' }),
     __metadata("design:type", usuario_entity_1.UsuarioEntity)
-], ConfiguracionEntity.prototype, "configuraciones", void 0);
+], ConfiguracionEntity.prototype, "configuracion", void 0);
 ConfiguracionEntity = __decorate([
     (0, typeorm_1.Entity)('configuraciones', { schema: 'core' })
 ], ConfiguracionEntity);

@@ -30,5 +30,5 @@ export class ConfiguracionEntity {
   
   @ManyToOne(() => UsuarioEntity)
   @JoinColumn ({name: 'configuracion'})
-  configuraciones: UsuarioEntity;
+  configuracion: UsuarioEntity;
 }

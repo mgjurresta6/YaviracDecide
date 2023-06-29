@@ -3,19 +3,21 @@ import { Repository, FindOptionsWhere, ILike } from 'typeorm';
 import { CursoEntity } from '@core/entities';
 import { ServiceResponseHttpModel } from '@shared/models';
 import { RepositoryEnum } from '@shared/enums';
-import{ CarrerasService} from '@core/services';
+import{ CarrerasService, JornadasService, ParalelosService} from '@core/services';
 
 @Injectable()
 export class CursosService {
   constructor(
     @Inject(RepositoryEnum.CURSO_REPOSITORY)
     private cursoRepository: Repository<CursoEntity>,
-    private carrerasService: CarrerasService
+    private carrerasService: CarrerasService,
+    private jornadasService: JornadasService,
+    private paralelosService: ParalelosService
   ) {}
 
   async catalogue(): Promise<ServiceResponseHttpModel> {
     const response = await this.cursoRepository.findAndCount({
-      relations: ['carrera'],
+      relations: ['carrera', 'jornada', 'paralelo'],
       take: 1000,
 
     });
@@ -33,6 +35,8 @@ export class CursosService {
     const newCurso = this.cursoRepository.create(payload);
 
     newCurso.carrera = await this.carrerasService.findOne(payload.carrera.id);
+    newCurso.jornada = await this.jornadasService.findOne(payload.jornada.id);
+    newCurso.paralelo = await this.paralelosService.findOne(payload.paralelo.id)
 
     const cursoCreated = await this.cursoRepository.save(newCurso);
     return { data: cursoCreated };

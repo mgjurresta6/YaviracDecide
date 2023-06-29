@@ -18,8 +18,9 @@ const typeorm_1 = require("typeorm");
 const enums_1 = require("../../../shared/enums");
 const services_1 = require("./");
 let ListasService = class ListasService {
-    constructor(listaRepository, dignidadesService) {
+    constructor(listaRepository, tipolistasService, dignidadesService) {
         this.listaRepository = listaRepository;
+        this.tipolistasService = tipolistasService;
         this.dignidadesService = dignidadesService;
     }
     async catalogue() {
@@ -37,6 +38,7 @@ let ListasService = class ListasService {
     }
     async create(payload) {
         const newLista = this.listaRepository.create(payload);
+        newLista.tipoLista = await this.tipolistasService.findOne(payload.tipoLista.id);
         newLista.dignidad = await this.dignidadesService.findOne(payload.dignidad.id);
         const listaCreated = await this.listaRepository.save(newLista);
         return { data: listaCreated };
@@ -82,6 +84,7 @@ ListasService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, common_1.Inject)(enums_1.RepositoryEnum.LISTA_REPOSITORY)),
     __metadata("design:paramtypes", [typeorm_1.Repository,
+        services_1.TipoListasService,
         services_1.DignidadesService])
 ], ListasService);
 exports.ListasService = ListasService;

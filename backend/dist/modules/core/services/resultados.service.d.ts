@@ -1,9 +1,11 @@
 import { Repository } from 'typeorm';
 import { ResultadoEntity } from '@core/entities';
 import { ServiceResponseHttpModel } from '@shared/models';
+import { VotosService } from './votos.service';
 export declare class ResultadosService {
     private resultadoRepository;
-    constructor(resultadoRepository: Repository<ResultadoEntity>);
+    private votosService;
+    constructor(resultadoRepository: Repository<ResultadoEntity>, votosService: VotosService);
     catalogue(): Promise<ServiceResponseHttpModel>;
     create(payload: ResultadoEntity): Promise<ServiceResponseHttpModel>;
     findAll(params?: any): Promise<ServiceResponseHttpModel>;
