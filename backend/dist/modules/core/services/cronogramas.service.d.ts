@@ -4,9 +4,9 @@ import { ServiceResponseHttpModel } from '@shared/models';
 import { PeriodoLectivosService, ActividadesService } from '@core/services';
 export declare class CronogramasService {
     private cronogramaRepository;
-    private periodosService;
+    private periodoLectivosService;
     private actividadesService;
-    constructor(cronogramaRepository: Repository<CronogramaEntity>, periodosService: PeriodoLectivosService, actividadesService: ActividadesService);
+    constructor(cronogramaRepository: Repository<CronogramaEntity>, periodoLectivosService: PeriodoLectivosService, actividadesService: ActividadesService);
     catalogue(): Promise<ServiceResponseHttpModel>;
     create(payload: CronogramaEntity): Promise<ServiceResponseHttpModel>;
     findAll(params?: any): Promise<ServiceResponseHttpModel>;

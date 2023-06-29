@@ -18,10 +18,8 @@ const typeorm_1 = require("typeorm");
 const enums_1 = require("../../../shared/enums");
 const services_1 = require("./");
 let CursosService = class CursosService {
-    constructor(cursoRepository, jornadasService, paralelosService, carrerasService) {
+    constructor(cursoRepository, carrerasService) {
         this.cursoRepository = cursoRepository;
-        this.jornadasService = jornadasService;
-        this.paralelosService = paralelosService;
         this.carrerasService = carrerasService;
     }
     async catalogue() {
@@ -40,8 +38,6 @@ let CursosService = class CursosService {
     async create(payload) {
         const newCurso = this.cursoRepository.create(payload);
         newCurso.carrera = await this.carrerasService.findOne(payload.carrera.id);
-        newCurso.jornada = await this.jornadasService.findOne(payload.jornada.id);
-        newCurso.paralelo = await this.paralelosService.findOne(payload.paralelo.id);
         const cursoCreated = await this.cursoRepository.save(newCurso);
         return { data: cursoCreated };
     }
@@ -89,8 +85,6 @@ CursosService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, common_1.Inject)(enums_1.RepositoryEnum.CURSO_REPOSITORY)),
     __metadata("design:paramtypes", [typeorm_1.Repository,
-        services_1.JornadasService,
-        services_1.ParalelosService,
         services_1.CarrerasService])
 ], CursosService);
 exports.CursosService = CursosService;

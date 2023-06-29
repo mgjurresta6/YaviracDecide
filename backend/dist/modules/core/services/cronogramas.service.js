@@ -18,9 +18,9 @@ const typeorm_1 = require("typeorm");
 const enums_1 = require("../../../shared/enums");
 const services_1 = require("./");
 let CronogramasService = class CronogramasService {
-    constructor(cronogramaRepository, periodosService, actividadesService) {
+    constructor(cronogramaRepository, periodoLectivosService, actividadesService) {
         this.cronogramaRepository = cronogramaRepository;
-        this.periodosService = periodosService;
+        this.periodoLectivosService = periodoLectivosService;
         this.actividadesService = actividadesService;
     }
     async catalogue() {
@@ -38,7 +38,6 @@ let CronogramasService = class CronogramasService {
     }
     async create(payload) {
         const newCronograma = this.cronogramaRepository.create(payload);
-        newCronograma.periodo = await this.periodosService.findOne(payload.periodo.id);
         newCronograma.actividad = await this.actividadesService.findOne(payload.actividad.id);
         const cronogramaCreated = await this.cronogramaRepository.save(newCronograma);
         return { data: cronogramaCreated };

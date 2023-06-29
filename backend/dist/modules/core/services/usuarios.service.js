@@ -18,11 +18,10 @@ const typeorm_1 = require("typeorm");
 const enums_1 = require("../../../shared/enums");
 const services_1 = require("./");
 let UsuariosService = class UsuariosService {
-    constructor(usuarioRepository, cursosService, rolesService, tiposService) {
+    constructor(usuarioRepository, cursosService, rolesService) {
         this.usuarioRepository = usuarioRepository;
         this.cursosService = cursosService;
         this.rolesService = rolesService;
-        this.tiposService = tiposService;
     }
     async catalogue() {
         const response = await this.usuarioRepository.findAndCount({
@@ -41,7 +40,6 @@ let UsuariosService = class UsuariosService {
         const newUsuario = this.usuarioRepository.create(payload);
         newUsuario.curso = await this.cursosService.findOne(payload.curso.id);
         newUsuario.rol = await this.rolesService.findOne(payload.rol.id);
-        newUsuario.tipo = await this.tiposService.findOne(payload.tipo.id);
         const usuarioCreated = await this.usuarioRepository.save(newUsuario);
         return { data: usuarioCreated };
     }
@@ -90,8 +88,7 @@ UsuariosService = __decorate([
     __param(0, (0, common_1.Inject)(enums_1.RepositoryEnum.USUARIO_REPOSITORY)),
     __metadata("design:paramtypes", [typeorm_1.Repository,
         services_1.CursosService,
-        services_1.RolesService,
-        services_1.TipoUsuariosService])
+        services_1.RolesService])
 ], UsuariosService);
 exports.UsuariosService = UsuariosService;
 //# sourceMappingURL=usuarios.service.js.map
