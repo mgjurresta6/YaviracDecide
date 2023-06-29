@@ -11,7 +11,7 @@ export class ListasService {
   constructor(
     @Inject(RepositoryEnum.LISTA_REPOSITORY)
     private listaRepository: Repository<ListaEntity>,
-    private tipolistasService: TipoListasService,
+    //private tipolistasService: TipoListasService,
     private dignidadesService: DignidadesService
   ) {}
 
@@ -33,7 +33,7 @@ export class ListasService {
   async create(payload: ListaEntity): Promise<ServiceResponseHttpModel> {
     const newLista = this.listaRepository.create(payload);
 
-    newLista.tipoLista = await this.tipolistasService.findOne(payload.tipoLista.id)
+   // newLista.tipoLista = await this.tipolistasService.findOne(payload.tipoLista.id)
     newLista.dignidad = await this.dignidadesService.findOne(payload.dignidad.id)
 
     const listaCreated = await this.listaRepository.save(newLista);

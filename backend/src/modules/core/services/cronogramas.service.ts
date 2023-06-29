@@ -10,7 +10,7 @@ export class CronogramasService {
   constructor(
     @Inject(RepositoryEnum.CRONOGRAMA_REPOSITORY)
     private cronogramaRepository: Repository<CronogramaEntity>,
-    private periodosService: PeriodoLectivosService,
+    private periodoLectivosService: PeriodoLectivosService,
     private actividadesService: ActividadesService
   ) {}
 
@@ -32,7 +32,7 @@ export class CronogramasService {
   async create(payload: CronogramaEntity): Promise<ServiceResponseHttpModel> {
     const newCronograma = this.cronogramaRepository.create(payload);
 
-    newCronograma.periodo = await this.periodosService.findOne(payload.periodo.id)
+    //newCronograma.periodo = await this.periodoLectivosService.findOne(payload.periodo.id)
     newCronograma.actividad = await this.actividadesService.findOne(payload.actividad.id)
 
     const cronogramaCreated = await this.cronogramaRepository.save(newCronograma);
