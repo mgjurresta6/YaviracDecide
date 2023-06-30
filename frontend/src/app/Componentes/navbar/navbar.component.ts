@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
             },
             {
                 label: 'CANDIDATOS Y LISTA',
-                routerLink: '/listas'
+                routerLink: '/candidato-lista'
             },
             {
                 label: 'USUSARIOS',

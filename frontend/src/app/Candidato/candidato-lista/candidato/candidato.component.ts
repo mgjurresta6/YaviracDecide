@@ -21,13 +21,7 @@ export class CandidatoComponent {
   logo: string='';
   color: string='';
   propuesta: string='';
-  rPresidente: string='';
-  rVice: string='';
-  rTesorero: string='';
-  rSecretario: string='';
-  rVocal1: string='';
-  rVocal2: string='';
-  rVocal3: string='';
+  requisitos: string='';
 
   form: FormGroup;
 
@@ -44,15 +38,9 @@ export class CandidatoComponent {
         vocal2: [this.candidatoListaService.selectedCandidato.vocal2,[Validators.required]],
         vocal3: [this.candidatoListaService.selectedCandidato.vocal3,[Validators.required]],
         logo: [this.candidatoListaService.selectedCandidato.logo,[Validators.required]],
-        color: [this.candidatoListaService.selectedCandidato.color,[Validators.required]],
+       color: [this.candidatoListaService.selectedCandidato.color,[Validators.required]],
         propuesta: [this.candidatoListaService.selectedCandidato.propuesta,[Validators.required]],
-        rPresidente: [this.candidatoListaService.selectedCandidato.rPresidente,[Validators.required]],
-        rVice: [this.candidatoListaService.selectedCandidato.rVice,[Validators.required]],
-        rTesorero: [this.candidatoListaService.selectedCandidato.rTesorero,[Validators.required]],
-        rSecretario: [this.candidatoListaService.selectedCandidato.rSecretario,[Validators.required]],
-        rVocal1: [this.candidatoListaService.selectedCandidato.rVocal1,[Validators.required]],
-        rVocal2: [this.candidatoListaService.selectedCandidato.rVocal2,[Validators.required]],
-        rVocal3: [this.candidatoListaService.selectedCandidato.rVocal3,[Validators.required]],
+        requisitos: [this.candidatoListaService.selectedCandidato.requisitos,[Validators.required]],
       });
     }else{
       this.form = formBuilder.group({
@@ -64,16 +52,10 @@ export class CandidatoComponent {
         vocal1: ['',[Validators.required]],
         vocal2: ['',[Validators.required]],
         vocal3: ['',[Validators.required]],
-        logo: ['',[Validators.required]],
+       logo: ['',[Validators.required]],
        color: ['',[Validators.required]],
-        propuesta: ['',[Validators.required]],
-        rPresidente: ['',[Validators.required]],
-        rVice: ['',[Validators.required]],
-        rTesorero: ['',[Validators.required]],
-        rSecretario: ['',[Validators.required]],
-        rVocal1: ['',[Validators.required]],
-        rVocal2: ['',[Validators.required]],
-        rVocal3: ['',[Validators.required]],
+      propuesta: ['',[Validators.required]],
+        requisitos: ['',[Validators.required]],
       });
     }
   }
