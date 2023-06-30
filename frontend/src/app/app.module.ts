@@ -30,9 +30,12 @@ import { NavbarCandidatoComponent } from './Componentes/navbarCandidato/navbar-c
 import { UsuarioComponent } from './Registros/usuario/usuario.component';
 import { ListaUsuarioComponent } from './Registros/lista-usuario/lista-usuario.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AprobacionComponent } from './Componentes/aprobacion/aprobacion.component';
 import { ListaAprobacionComponent } from './Registros/lista-aprobacion/lista-aprobacion.component';
 import { ListaComponent } from './Listas/lista/lista.component';
+import { NavbarVotanteComponent } from './Componentes/navbar-votante/navbar-votante.component';
+import { ListaVotacionComponent } from './Listas/lista-votacion/lista-votacion.component';
+import { CheckboxModule } from 'primeng/checkbox';
+import { DesaprobacionComponent } from './Listas/desaprobacion/desaprobacion.component';
 
 
 
@@ -51,9 +54,11 @@ import { ListaComponent } from './Listas/lista/lista.component';
     UsuarioComponent,
     ListaUsuarioComponent,
     DashboardComponent,
-    AprobacionComponent,
     ListaAprobacionComponent,
-    ListaComponent
+    ListaComponent,
+    NavbarVotanteComponent,
+    ListaVotacionComponent,
+    DesaprobacionComponent
 
 
 
@@ -78,7 +83,8 @@ import { ListaComponent } from './Listas/lista/lista.component';
     CalendarModule,
     RadioButtonModule,
     BreadcrumbModule,
-    MatDialogModule
+    MatDialogModule,
+    CheckboxModule
     
 
   ],

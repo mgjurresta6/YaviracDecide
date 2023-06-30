@@ -35,7 +35,8 @@ export class NavbarComponent implements OnInit {
                 routerLink: '/usuario'
             },
             {
-                label: ''
+                label: 'VOTACIONES',
+                routerLink: '/lista-votante'
             },
             {
                 label: ''

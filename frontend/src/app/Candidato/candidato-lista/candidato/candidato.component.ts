@@ -11,38 +11,41 @@ import Swal from 'sweetalert2';
 })
 export class CandidatoComponent {
   nombreLista: string = '';
-  nombre: string = '';
   presidente: string='';
   vicepresidente: string='';
   tesorero: string='';
   secretario: string= '';
   vocal1: string='';
   vocal2: string='';
-  cocal3: string='';
-  requisitos: string= '';
+  vocal3: string='';
   logo: string='';
   color: string='';
   propuesta: string='';
+  requisitos: string='';
+  estado: boolean = false;
 
   form: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private router: Router,
               private candidatoListaService: CandidatoListaService){
-    if(this.candidatoListaService.selectedPerson){
+    if(this.candidatoListaService.selectedCandidato){
       this.form = formBuilder.group({
-        nombreLista: [this.candidatoListaService.selectedPerson.nombreLista,[Validators.required]],
-        nombre: [this.candidatoListaService.selectedPerson.nombre,[Validators.required]],
-        presidente: [this.candidatoListaService.selectedPerson.presidente,[Validators.required]],
-        vicepresidente:[this.candidatoListaService.selectedPerson.vicepresidente,[Validators.required]],
-        tesorero: [this.candidatoListaService.selectedPerson.tesorero,[Validators.required]],
-        secretario: [this.candidatoListaService.selectedPerson.secretario,[Validators.required]],
-        vocal1: [this.candidatoListaService.selectedPerson.vocal1,[Validators.required]],
-        vocal2: [this.candidatoListaService.selectedPerson.vocal2,[Validators.required]],
-        vocal3: [this.candidatoListaService.selectedPerson.vocal3,[Validators.required]],
+        nombreLista: [this.candidatoListaService.selectedCandidato.nombreLista,[Validators.required]],
+        presidente: [this.candidatoListaService.selectedCandidato.presidente,[Validators.required]],
+        vicepresidente:[this.candidatoListaService.selectedCandidato.vicepresidente,[Validators.required]],
+        tesorero: [this.candidatoListaService.selectedCandidato.tesorero,[Validators.required]],
+        secretario: [this.candidatoListaService.selectedCandidato.secretario,[Validators.required]],
+        vocal1: [this.candidatoListaService.selectedCandidato.vocal1,[Validators.required]],
+        vocal2: [this.candidatoListaService.selectedCandidato.vocal2,[Validators.required]],
+        vocal3: [this.candidatoListaService.selectedCandidato.vocal3,[Validators.required]],
+        logo: [this.candidatoListaService.selectedCandidato.logo,[Validators.required]],
+       color: [this.candidatoListaService.selectedCandidato.color,[Validators.required]],
+        propuesta: [this.candidatoListaService.selectedCandidato.propuesta,[Validators.required]],
+        requisitos: [this.candidatoListaService.selectedCandidato.requisitos,[Validators.required]],
+        estado: [this.candidatoListaService.selectedCandidato.estado,[Validators.required]]
       });
     }else{
       this.form = formBuilder.group({
-        nombre: ['',[Validators.required ]],
         nombreLista: ['',[Validators.required]],
         presidente: ['',[Validators.required]],
         vicepresidente: ['',[Validators.required]],
@@ -51,9 +54,11 @@ export class CandidatoComponent {
         vocal1: ['',[Validators.required]],
         vocal2: ['',[Validators.required]],
         vocal3: ['',[Validators.required]],
-        
-       
-        
+       logo: ['',[Validators.required]],
+       color: ['',[Validators.required]],
+      propuesta: ['',[Validators.required]],
+        requisitos: ['',[Validators.required]],
+        estado: [false]
       });
     }
   }
@@ -69,20 +74,21 @@ export class CandidatoComponent {
       })
       
       swalWithBootstrapButtons.fire({
-        title: 'Esta seguro de que quiere registrar esta lista? ',
+        title: '¿Esta seguro de que quiere registrar esta lista? ',
         text: 'Una vez guardados los cambios ya no podrá editarlos',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Registrar lista',
+        confirmButtonText: 'Continuar',
         cancelButtonText: 'Cancelar',
         reverseButtons: true
       }).then((result) => {
         if (result.isConfirmed) {
           swalWithBootstrapButtons.fire(
             'Lista Registrada con Exito!',
-            'En una semana ingresa de nuevo a la platoforma para revisar si tu lista fue aceotada o no fue aceptada.',
+            'En una semana ingresa de nuevo a la platoforma para revisar si tu lista fue aceptada o no fue aceptada.',
             'success'
           )
+          this.router.navigate(['candidato-lista'])
         } else if (
           /* Read more about handling dismissals below */
           result.dismiss === Swal.DismissReason.cancel
@@ -115,12 +121,12 @@ export class CandidatoComponent {
   }
 
   validateForm() {
-    if (this.nombre === '' && this.nombre.length <= 3) {
+    if (this.nombreLista === '' && this.nombreLista.length <= 3) {
 
     }
   }
 
   get idField() {
-    return this.form.controls['nombre'];
+    return this.form.controls['nombreLista'];
   }
 }

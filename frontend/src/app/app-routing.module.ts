@@ -12,6 +12,8 @@ import { ListaUsuarioComponent } from './Registros/lista-usuario/lista-usuario.c
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ListaAprobacionComponent } from './Registros/lista-aprobacion/lista-aprobacion.component';
 import { ListaComponent } from './Listas/lista/lista.component';
+import { ListaVotacionComponent } from './Listas/lista-votacion/lista-votacion.component';
+import { DesaprobacionComponent } from './Listas/desaprobacion/desaprobacion.component';
 
 const routes: Routes = [
    
@@ -63,6 +65,14 @@ const routes: Routes = [
   {
     path: 'lista-aprobacion',
     component: ListaAprobacionComponent
+  },
+  {
+    path: 'lista-votante',
+    component: ListaVotacionComponent
+  },
+  {
+    path: 'desaprobacion',
+    component: DesaprobacionComponent
   }
 
 ];
