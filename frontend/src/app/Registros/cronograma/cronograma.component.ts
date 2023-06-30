@@ -92,7 +92,10 @@ export class CronogramaComponent implements OnInit {
   }
 
   addCron() {
-    this.cronogramaService.addCron(this.form.value);
+    this.cronogramaService.addCron(this.form.value).subscribe(response =>{
+      console.log(response)
+    });
+    
     console.log(this.cronogramaService.cronograma);
   }
 

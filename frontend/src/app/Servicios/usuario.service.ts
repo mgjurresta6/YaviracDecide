@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ export class UsuarioService {
   usuario: any[] = [];
   selectedUsuario: any = null;
 
-  constructor() { 
+  constructor(private httpCliente: HttpClient) { 
     this.loadUsuario();
   }
 
@@ -18,7 +19,7 @@ export class UsuarioService {
     );
   }
   addUsuario(payload: any){
-    this.usuario.push(payload);
+    return this.httpCliente.post('http://localhost:3000/api/v1/usuarios',payload)
   }
   updateUsuario(cedula: number, payload: any) {
     const index = this.usuario.findIndex(usuario => usuario.cedula === cedula);
