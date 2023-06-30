@@ -11,6 +11,7 @@ import { NavbarCandidatoComponent } from './Componentes/navbarCandidato/navbar-c
 import { UsuarioComponent } from './Registros/usuario/usuario.component';
 import { ListaUsuarioComponent } from './Registros/lista-usuario/lista-usuario.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CandidatoDetalleComponent } from './Candidato/candidato-detalle/candidato-detalle.component';
 
 
 
@@ -60,7 +61,8 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent
-  }
+  },
+  { path: 'candidato-detalle', component: CandidatoDetalleComponent }
 
 ];
 

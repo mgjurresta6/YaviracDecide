@@ -1,33 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CandidatoListaService } from 'src/app/Servicios/candidato-lista.service';
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-candidato-lista',
   templateUrl: './candidato-lista.component.html',
   styleUrls: ['./candidato-lista.component.css']
 })
-export class CandidatoListaComponent {
-  
-  candidato: any[] = [];
-  selectedCandidato: any;
+export class CandidatoListaComponent implements OnInit {
+  candidatos: any[] = [];
+  selectedCandidato: any = null;
 
-  constructor(private candidatoListaService: CandidatoListaService, private router: Router){
-    this.candidato = this.candidatoListaService.candidato;
+  constructor(private candidatoListaService: CandidatoListaService, private router: Router) { }
+
+  ngOnInit() {
+    this.candidatos = this.candidatoListaService.getCandidatos();
   }
 
-  crearCandidato(){
-    this.candidatoListaService.selectedCandidato = null;
-    this.router.navigate(['candidato-lista']);
+  crearCandidato() {
+    this.candidatoListaService.setSelectedCandidato(null);
+    this.router.navigate(['candidato']);
   }
 
   editCandidato(candidato: any) {
     this.candidatoListaService.selectedCandidato = candidato;
-    this.router.navigate(['candidato-lista']);
+    this.router.navigate(['candidato']);
   }
 
-  deleteCandidato(nombreLista: string) {
-    this.candidatoListaService.deleteCandidato(nombreLista);
-    console.log(this.candidatoListaService.candidato);
+  eliminarCandidato(nombreLista: string) {
+    this.candidatoListaService.eliminarCandidato(nombreLista);
+    this.candidatos = this.candidatoListaService.getCandidatos();
+  }
+
+  verDetalleCandidato(candidato: any) {
+    this.candidatoListaService.setSelectedCandidato(candidato);
+    this.router.navigate(['/candidato-detalle']);
   }
 }
