@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CandidatoListaService {
 candidato: any[] = [];
-  selectedCandidato: any = null;
+  selectedPerson: any = null;
 
   constructor() { 
     this.loadCandidato();
@@ -14,20 +14,19 @@ candidato: any[] = [];
   private loadCandidato(){
     this.candidato = [];
     this.candidato.push(
-      {nombreLista: 'Abejitas del saber',dignidad: 'Presidente/a', nombre:'Pedro Alejandro Cuenca Ortega', logo:'', color:'', propuesta:'',requisitos:'', estado:'Aprobado'},
-      {nombreLista: 'Yavirac Avanza',dignidad: 'Presidente/a', nombre:'Elizabeth Dayana Rodríguez Ramirez', logo:'', color:'', propuesta:'',requisitos:'', estado:'Denegado'}
+      {nombre:'Pedro', requisitos:''}
     );
   }
   addCandidato(payload: any){
     this.candidato.push(payload);
   }
-  updateCandidato(nombreLista: string, payload: any) {
-    const index = this.candidato.findIndex(candidato => candidato.nombreLista === nombreLista);
+  updateCandidato(nombre: string, payload: any) {
+    const index = this.candidato.findIndex(candidato => candidato.nombre === nombre);
     this.candidato[index] = payload;
   }
 
-  deleteCandidato(nombreLista: string) {
-    const index = this.candidato.findIndex(candidato => candidato.nombreLista === nombreLista);
+  deleteCandidato(nombre: string) {
+    const index = this.candidato.findIndex(candidato => candidato.nombre === nombre);
     if (index > -1) {
       this.candidato.splice(index, 1);
     }

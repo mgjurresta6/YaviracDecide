@@ -22,11 +22,8 @@ export class DashboardComponent {
       });
   }
   usuario: any[] = [];
-  selectedCandidato: any;
+  selectedPerson: any;
 
-<<<<<<< HEAD
-  constructor(){
-=======
   constructor(private candidatoListaService: CandidatoListaService, private router: Router){
    // this.usuario = this.candidatoListaService.usuario;
   }
@@ -53,6 +50,5 @@ export class DashboardComponent {
     } else {
       alert('Estas seguro de no aceptar esta lista?');
     }
->>>>>>> Administrador
   }
 }

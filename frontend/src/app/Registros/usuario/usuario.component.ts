@@ -48,10 +48,7 @@ export class UsuarioComponent {
   }
 
   addUsuario() {
-    this.usuarioService.addUsuario(this.form.value).subscribe(response =>{
-      console.log(response);
-    });
-    
+    this.usuarioService.addUsuario(this.form.value);
     console.log(this.usuarioService.usuario);
   }
 

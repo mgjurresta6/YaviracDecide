@@ -27,13 +27,7 @@ export class NavbarComponent implements OnInit {
             },
             {
                 label: 'CANDIDATOS Y LISTA',
-                routerLink: '/candidato-lista'
-<<<<<<< HEAD
-            },
-            {
-                label: 'USUSARIOS',
-            },
-=======
+                routerLink: '/lista'
         
             },
             {
@@ -87,7 +81,6 @@ export class NavbarComponent implements OnInit {
                 routerLink: '/usuario'
             },
             
->>>>>>> Administrador
         ];
     }
 }
