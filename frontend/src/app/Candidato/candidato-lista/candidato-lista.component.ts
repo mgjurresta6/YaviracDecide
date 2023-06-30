@@ -15,7 +15,7 @@ export class CandidatoListaComponent {
 
   
   candidato: any[] = [];
-  selectedPerson: any;
+  selectedCandidato: any;
 
   form: FormGroup;
 
@@ -26,6 +26,21 @@ export class CandidatoListaComponent {
     this.candidato = this.candidatoListaService.candidato;
   }
 
+<<<<<<< HEAD
+  crearCandidato(){
+    this.candidatoListaService.selectedCandidato = null;
+    this.router.navigate(['candidato-lista']);
+  }
+
+  editCandidato(candidato: any) {
+    this.candidatoListaService.selectedCandidato = candidato;
+    this.router.navigate(['candidato-lista']);
+  }
+
+  deleteCandidato(nombreLista: string) {
+    this.candidatoListaService.deleteCandidato(nombreLista);
+    console.log(this.candidatoListaService.candidato);
+=======
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(AprobacionComponent, {
       width: '250px',
@@ -33,5 +48,6 @@ export class CandidatoListaComponent {
       exitAnimationDuration,
     });
 
+>>>>>>> Administrador
   }
 }

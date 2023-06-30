@@ -27,11 +27,20 @@ import { ListaCronogramaComponent } from './Registros/lista-cronograma/lista-cro
 import { CandidatoListaComponent } from './Candidato/candidato-lista/candidato-lista.component';
 import { CandidatoComponent } from './Candidato/candidato-lista/candidato/candidato.component';
 import { NavbarCandidatoComponent } from './Componentes/navbarCandidato/navbar-candidato/navbar-candidato.component';
+<<<<<<< HEAD
+
+//import { ListasComponent } from './listas/listas.component';
+//import { NavbarListaComponent }
+//import { NavbarListaComponent } from './Componentes/navbar-lista/navbar-lista.component';
+
+=======
+>>>>>>> Administrador
 import { UsuarioComponent } from './Registros/usuario/usuario.component';
 import { ListaUsuarioComponent } from './Registros/lista-usuario/lista-usuario.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AprobacionComponent } from './Componentes/aprobacion/aprobacion.component';
 import { ListaAprobacionComponent } from './Registros/lista-aprobacion/lista-aprobacion.component';
+
 
 
 
@@ -47,6 +56,10 @@ import { ListaAprobacionComponent } from './Registros/lista-aprobacion/lista-apr
     CandidatoListaComponent,
     CandidatoComponent,
     NavbarCandidatoComponent,
+<<<<<<< HEAD
+  //  ListasComponent,
+=======
+>>>>>>> Administrador
     UsuarioComponent,
     ListaUsuarioComponent,
     DashboardComponent,

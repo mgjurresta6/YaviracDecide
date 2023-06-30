@@ -7,6 +7,10 @@ import { ListaCronogramaComponent } from './Registros/lista-cronograma/lista-cro
 import { CandidatoComponent } from './Candidato/candidato-lista/candidato/candidato.component';
 import { CandidatoListaComponent } from './Candidato/candidato-lista/candidato-lista.component';
 import { NavbarCandidatoComponent } from './Componentes/navbarCandidato/navbar-candidato/navbar-candidato.component';
+<<<<<<< HEAD
+//import { ListasComponent } from './listas/listas.component';
+=======
+>>>>>>> Administrador
 import { UsuarioComponent } from './Registros/usuario/usuario.component';
 import { ListaUsuarioComponent } from './Registros/lista-usuario/lista-usuario.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -43,6 +47,13 @@ const routes: Routes = [
     path: 'navbar-candidato',
     component: NavbarCandidatoComponent
    },
+<<<<<<< HEAD
+  /*{ 
+    path: 'listas',
+    component: ListasComponent
+  }*/
+=======
+>>>>>>> Administrador
   {
     path: 'usuario',
     component: UsuarioComponent
