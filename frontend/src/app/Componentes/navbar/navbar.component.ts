@@ -28,10 +28,66 @@ export class NavbarComponent implements OnInit {
             {
                 label: 'CANDIDATOS Y LISTA',
                 routerLink: '/candidato-lista'
+<<<<<<< HEAD
             },
             {
                 label: 'USUSARIOS',
             },
+=======
+        
+            },
+            {
+                label: 'USUARIOS',
+                routerLink: '/usuario'
+            },
+            {
+                label: ''
+            },
+            {
+                label: ''
+            },
+             {
+                label: ''
+            },
+            {
+                label: ''
+            },
+            {
+                label: ''
+            },
+            {
+                label: ''
+            },
+            {
+                label: ''
+            },
+            {
+                label: ''
+            },
+            {
+                label: ''
+            },
+            {
+                label: ''
+            },
+            {
+                label: ''
+            },
+            {
+                label: ''
+            },
+            {
+                label: ''
+            },
+            {
+                label: ''
+            },
+            {
+                label: 'CONFIGURACION',
+                routerLink: '/usuario'
+            },
+            
+>>>>>>> Administrador
         ];
     }
 }

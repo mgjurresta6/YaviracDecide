@@ -1,13 +1,14 @@
 .contenedor{
     position: absolute;
     width: 930px;
-    top: 90%;
+    top: 15%;
     left: 25%;
     margin: -25px 0 0 -25px;
 }
 .p-button{
     background-color: #0F2846;
     border-color: #0F2846;
+<<<<<<< HEAD
 }
 
 .formgrid{
@@ -18,3 +19,7 @@
     margin: -25px 0 0 -25px;
     
 }
+=======
+    border: #0F2846;
+}
+>>>>>>> Administrador

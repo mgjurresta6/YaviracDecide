@@ -24,6 +24,35 @@ export class DashboardComponent {
   usuario: any[] = [];
   selectedCandidato: any;
 
+<<<<<<< HEAD
   constructor(){
+=======
+  constructor(private candidatoListaService: CandidatoListaService, private router: Router){
+   // this.usuario = this.candidatoListaService.usuario;
+  }
+
+  crearUsuario(){
+    this.candidatoListaService.selectedPerson = null;
+    this.router.navigate(['candidato-lista']);
+  }
+
+  editUsuario(usuario: any) {
+    this.candidatoListaService.selectedPerson = usuario;
+    this.router.navigate(['candidato-lista']);
+  }
+
+  deleteUsuario(nombre: string) {
+    //this.candidatoListaService.deleteUsuario(nombre);
+    //console.log(this.candidatoListaService.usuario);
+  }
+
+  onSubmit() {
+    if (this.categories) {
+      alert('Estas seguro de aceptar esta lista?');
+      this.router.navigate(['candidato-lista']);
+    } else {
+      alert('Estas seguro de no aceptar esta lista?');
+    }
+>>>>>>> Administrador
   }
 }
