@@ -30,30 +30,12 @@
                         </div>
                         <br>
                         <div class="flex-auto">
-                            <label>Requisitos para ser registrado:</label>
-                            <input type="file" accept=".PDF" pInputText formControlName="rPresidente">
-                            <small *ngIf="form.controls['rPresidente'].errors && form.controls['rPresidente'].touched">
-                                El campo debe ser completado con un documento PDF.
-                            </small>
-                        </div>
-                        <br>
-                    </div>
-                    <div class="column">
-                        <div class="flex-auto">
                             <label>Vicepresidente/a:</label>
                             <input type="text" pInputText formControlName="vicepresidente"
                                 placeholder="Ej: Juan José Ordoñes Carrera" />
                                 <small *ngIf="form.controls['vicepresidente'].errors && form.controls['vicepresidente'].touched">
                                     El campo debe ser completado con el nombre completo de la dignidad.
                                 </small>
-                        </div>
-                        <br>
-                        <div class="flex-auto">
-                            <label>Requisitos para ser registrado:</label>
-                            <input type="file" accept=".PDF" pInputText formControlName="rVice">
-                            <small *ngIf="form.controls['rVice'].errors && form.controls['rVice'].touched">
-                                El campo debe ser completado con un documento PDF.
-                            </small>
                         </div>
                     </div>
                     <div class="column">
@@ -67,30 +49,12 @@
                         </div>
                         <br>
                         <div class="flex-auto">
-                            <label>Requisitos para ser registrado:</label>
-                            <input type="file" accept=".PDF" pInputText formControlName="rSecretario">
-                            <small *ngIf="form.controls['rSecretario'].errors && form.controls['rSecretario'].touched">
-                                El campo debe ser completado con un documento PDF.
-                            </small>
-                        </div>
-                        <br>
-                    </div>
-                    <div class="column">
-                        <div class="flex-auto">
                             <label>Tesorero/a:</label>
                             <input type="text" pInputText formControlName="tesorero"
                                 placeholder="Ej: Juan José Ordoñes Carrera" />
                                 <small *ngIf="form.controls['tesorero'].errors && form.controls['tesorero'].touched">
                                     El campo debe ser completado con el nombre completo de la dignidad.
                                 </small>
-                        </div>
-                        <br>
-                        <div class="flex-auto">
-                            <label>Requisitos para ser registrado:</label>
-                            <input type="file" accept=".PDF" pInputText formControlName="rTesorero">
-                            <small *ngIf="form.controls['rTesorero'].errors && form.controls['rTesorero'].touched">
-                                El campo debe ser completado con un documento PDF.
-                            </small>
                         </div>
                     </div>
                     <div class="column">
@@ -102,17 +66,6 @@
                                     El campo debe ser completado con el nombre completo de la dignidad.
                                 </small>
                         </div>
-                        <br>
-                        <div class="flex-auto">
-                            <label>Requisitos para ser registrado:</label>
-                            <input type="file" accept=".PDF" pInputText formControlName="rVocal1">
-                            <small *ngIf="form.controls['rVocal1'].errors && form.controls['rVocal1'].touched">
-                                El campo debe ser completado con un documento PDF.
-                            </small>
-                        </div>
-                        <br>
-                    </div>
-                    <div class="column">
                         <div class="flex-auto">
                             <label>Vocal 2:</label>
                             <input type="text" pInputText formControlName="vocal2"
@@ -121,16 +74,9 @@
                                     El campo debe ser completado con el nombre completo de la dignidad.
                                 </small>
                         </div>
-                        <br>
-                        <div class="flex-auto">
-                            <label>Requisitos para ser registrado:</label>
-                            <input type="file" accept=".PDF" pInputText formControlName="rVocal2">
-                            <small *ngIf="form.controls['rVocal2'].errors && form.controls['rVocal2'].touched">
-                                El campo debe ser completado con un documento PDF.
-                            </small>
-                        </div>
                     </div>
-                    <div class="column">
+                        <br>
+                        <div class="column">
                         <div class="flex-auto">
                             <label>Vocal 3:</label>
                             <input type="text" pInputText formControlName="vocal3"
@@ -139,22 +85,23 @@
                                     El campo debe ser completado con el nombre completo de la dignidad.
                                 </small>
                         </div>
-                        <br>
-                        <div class="flex-auto">
-                            <label>Requisitos para ser registrado:</label>
-                            <input type="file" accept=".PDF" pInputText formControlName="rVocal3">
-                            <small *ngIf="form.controls['rVocal3'].errors && form.controls['rVocal3'].touched">
-                                El campo debe ser completado con un documento PDF.
+                        <div class="flex-auto" >
+                            <label>Requisitos de las dignidades:</label>
+                            <br>
+                            <input type="file" accept=".PDF" pInputText formControlName="requisitos" >
+                            <br>
+                            <small *ngIf="form.controls['requisitos'].errors && form.controls['requisitos'].touched">
+                                El campo debe ser completado con un archivo PDF que contenga los requisitos de cada uno
+                                de las dignidades a registrar.
                             </small>
                         </div>
                     </div>
-
                     <br>
                     <hr>
                     <div class="column2">
                         <div class="flex-auto">
                             <label> Logo de la lista:</label>
-                            <input type="file" accept=".png, .jpg, .jpeg" pInputText formControlName="logo">
+                            <input type="file" accept=".png, .jpg, .jpeg" pInputText formControlName="logo" >
                             <small *ngIf="form.controls['logo'].errors && form.controls['logo'].touched">
                                 El campo debe ser completado con una imagen.
                             </small>
@@ -163,7 +110,7 @@
                         <div class="flex-auto" style="text-align: center;">
                             <label>Color de la lista:</label>
                             <br>
-                            <input type="color" formControlName="color" >
+                            <input type="color" formControlName="color">
                             <br>
                             <small *ngIf="form.controls['color'].errors && form.controls['color'].touched">
                                 El campo debe ser completado con un color.

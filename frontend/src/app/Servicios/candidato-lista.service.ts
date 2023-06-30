@@ -14,25 +14,20 @@ candidato: any[] = [];
   private loadCandidato(){
     this.candidato = [];
     this.candidato.push(
-      {dignidad: 'Presidente/a', nombre:'Pedro', requisitos:''},
-      {dignidad: 'Vicepresidente/a', nombre:'Pedro', requisitos:''},
-      {dignidad: 'Secretario/a', nombre:'Pedro', requisitos:''},
-      {dignidad: 'Tesorero/a', nombre:'Pedro', requisitos:''},
-      {dignidad: 'Vocal 1', nombre:'Pedro', requisitos:''},
-      {dignidad: 'Vocal 2', nombre:'Pedro', requisitos:''},
-      {dignidad: 'Vocal 3', nombre:'Pedro', requisitos:''},
+      {nombreLista: 'Abejitas del saber',dignidad: 'Presidente/a', nombre:'Pedro Alejandro Cuenca Ortega', logo:'', color:'', propuesta:'',requisitos:'', estado:'Aprobado'},
+      {nombreLista: 'Yavirac Avanza',dignidad: 'Presidente/a', nombre:'Elizabeth Dayana Rodríguez Ramirez', logo:'', color:'', propuesta:'',requisitos:'', estado:'Denegado'}
     );
   }
   addCandidato(payload: any){
     this.candidato.push(payload);
   }
-  updateCandidato(nombre: string, payload: any) {
-    const index = this.candidato.findIndex(candidato => candidato.nombre == nombre);
+  updateCandidato(nombreLista: string, payload: any) {
+    const index = this.candidato.findIndex(candidato => candidato.nombreLista === nombreLista);
     this.candidato[index] = payload;
   }
 
-  deleteCandidato(nombre: string) {
-    const index = this.candidato.findIndex(candidato => candidato.nombre === nombre);
+  deleteCandidato(nombreLista: string) {
+    const index = this.candidato.findIndex(candidato => candidato.nombreLista === nombreLista);
     if (index > -1) {
       this.candidato.splice(index, 1);
     }
