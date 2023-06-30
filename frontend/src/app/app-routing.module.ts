@@ -13,6 +13,11 @@ import { ListaUsuarioComponent } from './Registros/lista-usuario/lista-usuario.c
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CandidatoDetalleComponent } from './Candidato/candidato-detalle/candidato-detalle.component';
 
+import { LoginComponent } from './Login/login/login.component';
+import { HomeComponent } from './Componentes/home/home.component';
+
+
+
 
 
 const routes: Routes = [
@@ -62,7 +67,16 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent
   },
-  { path: 'candidato-detalle', component: CandidatoDetalleComponent }
+  { path: 'candidato-detalle', 
+    component: CandidatoDetalleComponent 
+  },
+  { path: 'login', 
+  component: LoginComponent 
+  },
+  { path: 'home:role', 
+  component: HomeComponent
+  },
+
 
 ];
 

@@ -35,6 +35,9 @@ import { UsuarioComponent } from './Registros/usuario/usuario.component';
 import { ListaUsuarioComponent } from './Registros/lista-usuario/lista-usuario.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CandidatoDetalleComponent } from './Candidato/candidato-detalle/candidato-detalle.component';
+import { LoginComponent } from './Login/login/login.component';
+import { HomeComponent } from './Componentes/home/home.component';
+
 
 
 
@@ -57,7 +60,9 @@ import { CandidatoDetalleComponent } from './Candidato/candidato-detalle/candida
     UsuarioComponent,
     ListaUsuarioComponent,
     DashboardComponent,
-    CandidatoDetalleComponent
+    CandidatoDetalleComponent,
+    LoginComponent,
+    HomeComponent
 
 
 
