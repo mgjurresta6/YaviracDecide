@@ -79,7 +79,7 @@ export class NavbarComponent implements OnInit {
             },
             {
                 label: 'CONFIGURACION',
-                routerLink: '/usuario'
+                routerLink: '/configuracion'
             },
             
         ];

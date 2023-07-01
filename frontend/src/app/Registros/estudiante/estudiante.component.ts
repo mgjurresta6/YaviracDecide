@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MenuItem } from 'primeng/api';
 import {Router} from "@angular/router";
 import { EstudianteService } from 'src/app/Servicios/estudiante.service';
 
@@ -10,6 +11,16 @@ import { EstudianteService } from 'src/app/Servicios/estudiante.service';
   styleUrls: ['./estudiante.component.css']
 })
 export class EstudianteComponent {
+
+  items: MenuItem[] | undefined;
+
+  home: MenuItem | undefined;
+
+  ngOnInit() {
+      this.items = [{ label: 'Votante' }];
+
+      this.home = { icon: 'pi pi-home', routerLink: '/dashboard' };
+  }
 
   cedula: number = 0 ;
   nombre: string = '';

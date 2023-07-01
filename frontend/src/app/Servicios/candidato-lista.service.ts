@@ -37,7 +37,7 @@ export class CandidatoListaService {
       logo:'', 
       color:'', 
       propuesta:'',
-      estado:'No Aprobado'},
+      estado: true},
 
       {nombreLista: 'Lista sapos',
       presidente: 'Pedro Alejandro Cuenca Ortega', 

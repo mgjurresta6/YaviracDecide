@@ -14,6 +14,8 @@ import { ListaAprobacionComponent } from './Registros/lista-aprobacion/lista-apr
 import { ListaComponent } from './Listas/lista/lista.component';
 import { ListaVotacionComponent } from './Listas/lista-votacion/lista-votacion.component';
 import { DesaprobacionComponent } from './Listas/desaprobacion/desaprobacion.component';
+import { ConfiguracionComponent } from './Componentes/configuracion/configuracion.component';
+import { VotacionComponent } from './Listas/votacion/votacion.component';
 
 const routes: Routes = [
    
@@ -73,6 +75,14 @@ const routes: Routes = [
   {
     path: 'desaprobacion',
     component: DesaprobacionComponent
+  },
+  {
+    path: 'configuracion',
+    component: ConfiguracionComponent
+  },
+  {
+    path: 'votacion',
+    component: VotacionComponent
   }
 
 ];

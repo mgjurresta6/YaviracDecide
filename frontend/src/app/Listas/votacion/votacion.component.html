@@ -1,0 +1,19 @@
+<div class="formgrid grid">
+    <div class="contenedor container_list">
+      <p-table [value]="candidato"
+      selectionMode="single" [(selection)]="selectedCandidato" dataKey="id">
+  <ng-template pTemplate="header">
+  
+  </ng-template>
+  <ng-template pTemplate="body" let-item>
+  <tr [pSelectableRow]="item">
+   
+    <td>{{item.nombreLista}}</td>
+    <td>{{item.color}}</td>
+    <td>Representante: 
+      {{item.presidente}}</td>
+  </tr>
+  </ng-template>
+  </p-table>
+  </div>
+  </div>

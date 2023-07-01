@@ -4,7 +4,6 @@
     selectionMode="single" [(selection)]="selectedCron" dataKey="id">
 <ng-template pTemplate="header">
 <tr>
-  <th>id</th>
   <th>Actividad</th>
   <th>Fecha Inicio</th>
   <th>Fecha Fin</th>
@@ -14,10 +13,10 @@
 </ng-template>
 <ng-template pTemplate="body" let-item>
 <tr [pSelectableRow]="item">
-  <td>{{item.id}}</td>
   <td>{{item.actividad}}</td>
   <td>{{item.fechaI}}</td>
   <td>{{item.fechaF}}</td>
+  <td>{{item.estado}}</td>
   <td>
     <button pButton type="button" class="p-button" icon="pi pi-pencil"
             (click)="editCron(item)"></button>

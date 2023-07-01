@@ -1,4 +1,5 @@
-<div class="contenedor container_list">
+<div class="formgrid grid">
+  <div class="contenedor container_list">
     <p-table [value]="candidato"
     selectionMode="single" [(selection)]="selectedCandidato" dataKey="id">
 <ng-template pTemplate="header">
@@ -10,9 +11,10 @@
   <td>{{item.nombreLista}}</td>
   <td>{{item.color}}</td>
   <td>Representante: 
-    {{item.nombre}}</td>
-  <td> <button pButton type="button" class="p-button-success" label="Ver Listado" ></button> </td>
+    {{item.presidente}}</td>
+  <td> <button pButton type="button" class="p-button-success" label="Ver Listado" routerLink="/votacion" ></button> </td>
 </tr>
 </ng-template>
 </p-table>
+</div>
 </div>

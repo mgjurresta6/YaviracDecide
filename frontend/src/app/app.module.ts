@@ -36,6 +36,8 @@ import { NavbarVotanteComponent } from './Componentes/navbar-votante/navbar-vota
 import { ListaVotacionComponent } from './Listas/lista-votacion/lista-votacion.component';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DesaprobacionComponent } from './Listas/desaprobacion/desaprobacion.component';
+import { ConfiguracionComponent } from './Componentes/configuracion/configuracion.component';
+import { VotacionComponent } from './Listas/votacion/votacion.component';
 
 
 
@@ -58,7 +60,9 @@ import { DesaprobacionComponent } from './Listas/desaprobacion/desaprobacion.com
     ListaComponent,
     NavbarVotanteComponent,
     ListaVotacionComponent,
-    DesaprobacionComponent
+    DesaprobacionComponent,
+    ConfiguracionComponent,
+    VotacionComponent
 
 
 

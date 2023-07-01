@@ -5,6 +5,7 @@ import { MenuItem } from 'primeng/api';
 import { CronogramaService } from 'src/app/Servicios/cronograma.service';
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-cronograma',
   templateUrl: './cronograma.component.html',
@@ -24,6 +25,7 @@ export class CronogramaComponent implements OnInit {
   actividad: string = '';
   fechaI: Date = new Date();
   fechaF: Date = new Date();
+  estado: boolean = false;
 
   form: FormGroup;
 
@@ -35,13 +37,15 @@ export class CronogramaComponent implements OnInit {
           actividad: [this.cronogramaService.selectedCron.actividad,[Validators.required]],
           fechaI: [this.cronogramaService.selectedCron.fechaI,[Validators.required]],
           fechaF: [this.cronogramaService.selectedCron.fechaF,[Validators.required]],
+          estado: [this.cronogramaService.selectedCron.estado],
         });
       }else{
         this.form = formBuilder.group({
           id: [0],
           actividad: ['',[Validators.required]],
           fechaI: [new Date(),[Validators.required]],
-          fechaF: [new Date(),[Validators.required]]
+          fechaF: [new Date(),[Validators.required]],
+          estado: [true]
         });
       }
   }
@@ -92,7 +96,9 @@ export class CronogramaComponent implements OnInit {
   }
 
   addCron() {
-    this.cronogramaService.addCron(this.form.value);
+    this.cronogramaService.addCron(this.form.value).subscribe(response => {
+      console.log(response);
+    });
     console.log(this.cronogramaService.cronograma);
   }
 

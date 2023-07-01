@@ -22,7 +22,7 @@ export class CandidatoComponent {
   color: string='';
   propuesta: string='';
   requisitos: string='';
-  estado: boolean = false;
+  estado: boolean;
 
   form: FormGroup;
 
@@ -58,7 +58,7 @@ export class CandidatoComponent {
        color: ['',[Validators.required]],
       propuesta: ['',[Validators.required]],
         requisitos: ['',[Validators.required]],
-        estado: [false]
+        estado: []
       });
     }
   }
