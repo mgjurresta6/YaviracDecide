@@ -9,6 +9,7 @@ export class RolEntity {
     name: 'nombre',
     type: 'varchar',
     comment: 'Nombre del rol de usuario: candidato, administrador, votante',
+    nullable: true,
   })
   rol: string;
   

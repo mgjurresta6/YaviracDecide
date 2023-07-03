@@ -71,6 +71,11 @@ exports.coreProviders = [
         inject: [enums_1.DataSourceEnum.PG_DATA_SOURCE],
     },
     {
+        provide: repository_enum_1.RepositoryEnum.ESTUDIANTE_REPOSITORY,
+        useFactory: (dataSource) => dataSource.getRepository(entities_1.EstudianteEntity),
+        inject: [enums_1.DataSourceEnum.PG_DATA_SOURCE],
+    },
+    {
         provide: repository_enum_1.RepositoryEnum.LISTA_REPOSITORY,
         useFactory: (dataSource) => dataSource.getRepository(entities_1.ListaEntity),
         inject: [enums_1.DataSourceEnum.PG_DATA_SOURCE],
@@ -89,6 +94,6 @@ exports.coreProviders = [
         provide: repository_enum_1.RepositoryEnum.CATALOGUE_REPOSITORY,
         useFactory: (dataSource) => dataSource.getRepository(entities_1.CatalogueEntity),
         inject: [enums_1.DataSourceEnum.PG_DATA_SOURCE],
-    },
+    }
 ];
 //# sourceMappingURL=core.providers.js.map

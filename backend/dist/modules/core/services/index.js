@@ -31,4 +31,5 @@ __exportStar(require("./usuariotipos.service"), exports);
 __exportStar(require("./usuarios.service"), exports);
 __exportStar(require("./votos.service"), exports);
 __exportStar(require("./catalogues.service"), exports);
+__exportStar(require("./estudiantes.service"), exports);
 //# sourceMappingURL=index.js.map

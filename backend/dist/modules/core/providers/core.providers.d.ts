@@ -1,5 +1,5 @@
 import { DataSource } from 'typeorm';
-import { ActividadEntity, CarreraEntity, ConfiguracionEntity, CatalogueEntity, CronogramaEntity, CursoEntity, JornadaEntity, ParaleloEntity, PeriodoEntity, ResultadoEntity, RolEntity, UsuarioEntity, VotoEntity, TipoEntity, TipoListaEntity, DignidadEntity, ListaEntity } from '@core/entities';
+import { ActividadEntity, CarreraEntity, ConfiguracionEntity, CatalogueEntity, CronogramaEntity, CursoEntity, JornadaEntity, ParaleloEntity, PeriodoEntity, ResultadoEntity, RolEntity, UsuarioEntity, VotoEntity, TipoEntity, TipoListaEntity, DignidadEntity, ListaEntity, EstudianteEntity } from '@core/entities';
 import { RepositoryEnum } from 'src/shared/enums/repository.enum';
 import { DataSourceEnum } from '@shared/enums';
 export declare const coreProviders: ({
@@ -53,6 +53,10 @@ export declare const coreProviders: ({
 } | {
     provide: RepositoryEnum;
     useFactory: (dataSource: DataSource) => import("typeorm").Repository<DignidadEntity>;
+    inject: DataSourceEnum[];
+} | {
+    provide: RepositoryEnum;
+    useFactory: (dataSource: DataSource) => import("typeorm").Repository<EstudianteEntity>;
     inject: DataSourceEnum[];
 } | {
     provide: RepositoryEnum;

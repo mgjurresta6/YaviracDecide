@@ -5,28 +5,26 @@
                 <div class="card flex flex-wrap gap-3 p-fluid">
                     <div class="flex-auto">
                         <label>Numero de cedula</label>
-                            <p-inputNumber mode="decimal" formControlName="cedula"></p-inputNumber>
+                            <p-inputNumber [useGrouping]="false" formControlName="cedula"></p-inputNumber>
                     </div>
                     <div class="flex-auto">
                         <label> Nombres:</label>
-                        <input type="text" pInputText formControlName="nombre"/>
+                        <input type="text" pInputText formControlName="nombreUsuario"/>
                     </div>
                     <div class="flex-auto">
                         <label> Apellidos:</label>
-                        <input type="text" pInputText formControlName="apellido"/>
+                        <input type="text" pInputText formControlName="apellidoUsuario"/>
                     </div>
                     <div class="flex-auto">
                         <label> Correo electronico:</label>
-                        <input type="text" pInputText formControlName="correo"/>
+                        <input type="text" pInputText formControlName="emailUsuario"/>
                     </div>
                     <div class="flex-auto">
                         <label>Rol:</label>
-                        <select class="form-select" aria-label="Default select example" formControlName="rol">
-                            <option selected>Selecciona</option>
-                            <option value="Administrador">Administrador</option>
-                            <option value="Candidato">Candidato</option>
-                            <option value="Votante">Votante</option>
-                          </select>
+                        <p-dropdown [options]="roles"
+                        formControlName="rol"
+                        placeholder="Seleccione..."
+                        optionLabel="rol"></p-dropdown>
                     </div>
                     <div class="flex-auto">
                         <button class="btn btn-primary" pButton type="submit" label="Guardar"></button>

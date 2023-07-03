@@ -34,7 +34,8 @@ CoreModule = __decorate([
             controllers_1.tipoUsuariosController,
             controllers_1.UsuariosController,
             controllers_1.TipoListasController,
-            controllers_1.VotosController
+            controllers_1.VotosController,
+            controllers_1.EstudiantesController
         ],
         providers: [
             ...providers_1.coreProviders,
@@ -54,7 +55,8 @@ CoreModule = __decorate([
             services_1.UsuariosService,
             services_1.TipoUsuariosService,
             services_1.VotosService,
-            services_1.CataloguesService
+            services_1.CataloguesService,
+            services_1.EstudiantesService
         ],
         exports: [
             ...providers_1.coreProviders,
@@ -72,7 +74,8 @@ CoreModule = __decorate([
             services_1.UsuariosService,
             services_1.TipoUsuariosService,
             services_1.VotosService,
-            services_1.CataloguesService
+            services_1.CataloguesService,
+            services_1.EstudiantesService
         ],
     })
 ], CoreModule);

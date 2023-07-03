@@ -11,8 +11,8 @@ export declare class UsuariosService {
     catalogue(): Promise<ServiceResponseHttpModel>;
     create(payload: UsuarioEntity): Promise<ServiceResponseHttpModel>;
     findAll(params?: any): Promise<ServiceResponseHttpModel>;
-    findOne(cedula: number): Promise<any>;
-    update(cedula: number, payload: any): Promise<ServiceResponseHttpModel>;
-    remove(cedula: number): Promise<ServiceResponseHttpModel>;
+    findOne(id: string): Promise<any>;
+    update(id: string, payload: any): Promise<ServiceResponseHttpModel>;
+    remove(id: string): Promise<ServiceResponseHttpModel>;
     removeAll(payload: UsuarioEntity[]): Promise<ServiceResponseHttpModel>;
 }

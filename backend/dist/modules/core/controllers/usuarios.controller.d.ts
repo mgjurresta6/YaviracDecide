@@ -7,8 +7,8 @@ export declare class UsuariosController {
     catalogue(): Promise<ResponseHttpModel>;
     create(payload: any): Promise<ResponseHttpModel>;
     findAll(params: any): Promise<ResponseHttpModel>;
-    findOne(cedula: number): Promise<ResponseHttpModel>;
-    update(cedula: number, payload: any): Promise<ResponseHttpModel>;
-    remove(cedula: number): Promise<ResponseHttpModel>;
+    findOne(id: string): Promise<ResponseHttpModel>;
+    update(id: string, payload: any): Promise<ResponseHttpModel>;
+    remove(id: string): Promise<ResponseHttpModel>;
     removeAll(payload: UsuarioEntity[]): Promise<ResponseHttpModel>;
 }

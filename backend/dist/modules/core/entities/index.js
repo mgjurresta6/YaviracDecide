@@ -31,4 +31,5 @@ __exportStar(require("./usuariotipo.entity"), exports);
 __exportStar(require("./voto.entity"), exports);
 __exportStar(require("./tipolista.entity"), exports);
 __exportStar(require("./catalogue.entity"), exports);
+__exportStar(require("./estudiante.entity"), exports);
 //# sourceMappingURL=index.js.map

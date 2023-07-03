@@ -6,6 +6,7 @@ import { MenuModule } from 'primeng/menu';
 import { PanelModule } from 'primeng/panel';
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule} from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './Componentes/navbar/navbar.component';
@@ -38,7 +39,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { DesaprobacionComponent } from './Listas/desaprobacion/desaprobacion.component';
 import { ConfiguracionComponent } from './Componentes/configuracion/configuracion.component';
 import { VotacionComponent } from './Listas/votacion/votacion.component';
-
+import { RolesComponent } from './Registros/roles/roles.component';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 
@@ -62,7 +64,8 @@ import { VotacionComponent } from './Listas/votacion/votacion.component';
     ListaVotacionComponent,
     DesaprobacionComponent,
     ConfiguracionComponent,
-    VotacionComponent
+    VotacionComponent,
+    RolesComponent
 
 
 
@@ -75,6 +78,7 @@ import { VotacionComponent } from './Listas/votacion/votacion.component';
     ButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     ButtonModule,
     PanelModule,
     InputTextModule,
@@ -88,7 +92,8 @@ import { VotacionComponent } from './Listas/votacion/votacion.component';
     RadioButtonModule,
     BreadcrumbModule,
     MatDialogModule,
-    CheckboxModule
+    CheckboxModule,
+    DropdownModule
     
 
   ],

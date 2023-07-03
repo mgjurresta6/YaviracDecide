@@ -47,24 +47,24 @@ let UsuariosController = class UsuariosController {
             title: 'Exitoso',
         };
     }
-    async findOne(cedula) {
-        const serviceResponse = await this.usuariosService.findOne(cedula);
+    async findOne(id) {
+        const serviceResponse = await this.usuariosService.findOne(id);
         return {
             data: serviceResponse.data,
             message: `Encontar una Usuario`,
             title: `Exitoso`,
         };
     }
-    async update(cedula, payload) {
-        const serviceResponse = await this.usuariosService.update(cedula, payload);
+    async update(id, payload) {
+        const serviceResponse = await this.usuariosService.update(id, payload);
         return {
             data: serviceResponse.data,
             message: `Usuario fue actualizada`,
             title: `Usuario Actualizada`,
         };
     }
-    async remove(cedula) {
-        const serviceResponse = await this.usuariosService.remove(cedula);
+    async remove(id) {
+        const serviceResponse = await this.usuariosService.remove(id);
         return {
             data: serviceResponse.data,
             message: `Usuario fue eliminada`,
@@ -112,7 +112,7 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], UsuariosController.prototype, "findOne", null);
 __decorate([
@@ -122,7 +122,7 @@ __decorate([
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, Object]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", Promise)
 ], UsuariosController.prototype, "update", null);
 __decorate([
@@ -131,7 +131,7 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], UsuariosController.prototype, "remove", null);
 __decorate([

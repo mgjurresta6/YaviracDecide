@@ -34,9 +34,9 @@ export class UsuariosService {
   async create(payload: UsuarioEntity): Promise<ServiceResponseHttpModel> {
     const newUsuario = this.usuarioRepository.create(payload);
 
-    newUsuario.curso = await this.cursosService.findOne(payload.curso.id);
+    /*newUsuario.curso = await this.cursosService.findOne(payload.curso.id);
     newUsuario.rol = await this.rolesService.findOne(payload.rol.id);
-    newUsuario.tipo = await this.tiposService.findOne(payload.tipo.id)
+    newUsuario.tipo = await this.tiposService.findOne(payload.tipo.id)*/
 
     const usuarioCreated = await this.usuarioRepository.save(newUsuario);
 
@@ -49,38 +49,38 @@ export class UsuariosService {
 
     return { pagination: { totalItems: data[1], limit: 10 }, data: data[0] };
   }
-  async findOne(cedula: number): Promise<any> {
+  async findOne(id: string): Promise<any> {
     const usuario = await this.usuarioRepository.findOne({
       relations:['curso', 'rol'],
       where: {
-        cedula,
+        id,
       },
     });
 
     if (!usuario) {
-      throw new NotFoundException(`El usuario con cedula:  ${cedula} no se encontro`);
+      throw new NotFoundException(`El usuario con cedula:  ${id} no se encontro`);
     }
-    return { data: cedula };
+    return { data: id };
   }
 
   async update(
-    cedula: number,
+    id: string,
     payload: any,
   ): Promise<ServiceResponseHttpModel> {
-    const usuario = await this.usuarioRepository.findOneBy({ cedula });
+    const usuario = await this.usuarioRepository.findOneBy({ id });
     if (!usuario) {
-      throw new NotFoundException(`El usuario con cedula:  ${cedula} no se encontro`);
+      throw new NotFoundException(`El usuario con cedula:  ${id} no se encontro`);
     }
     this.usuarioRepository.merge(usuario, payload);
     const usuarioUpdated = await this.usuarioRepository.save(usuario);
     return { data: usuarioUpdated };
   }
 
-  async remove(cedula: number): Promise<ServiceResponseHttpModel> {
-    const usuario = await this.usuarioRepository.findOneBy({ cedula });
+  async remove(id: string): Promise<ServiceResponseHttpModel> {
+    const usuario = await this.usuarioRepository.findOneBy({ id });
 
     if (!usuario) {
-      throw new NotFoundException(`El usuario con cedula:  ${cedula} no se encontro`);
+      throw new NotFoundException(`El usuario con cedula:  ${id} no se encontro`);
     }
 
     const usuarioDeleted = await this.usuarioRepository.softRemove(usuario);

@@ -16,6 +16,7 @@ import { ListaVotacionComponent } from './Listas/lista-votacion/lista-votacion.c
 import { DesaprobacionComponent } from './Listas/desaprobacion/desaprobacion.component';
 import { ConfiguracionComponent } from './Componentes/configuracion/configuracion.component';
 import { VotacionComponent } from './Listas/votacion/votacion.component';
+import { RolesComponent } from './Registros/roles/roles.component';
 
 const routes: Routes = [
    
@@ -83,6 +84,10 @@ const routes: Routes = [
   {
     path: 'votacion',
     component: VotacionComponent
+  },
+  {
+    path: 'roles',
+    component: RolesComponent
   }
 
 ];

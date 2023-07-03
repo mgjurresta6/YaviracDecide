@@ -14,3 +14,4 @@ export * from './tipolistas.controller';
 export * from './usuarios.controller';
 export * from './usuariotipos.controller';
 export * from './votos.controller';
+export * from './estudiantes.controller';

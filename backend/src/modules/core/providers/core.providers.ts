@@ -1,7 +1,7 @@
 import { DataSource } from 'typeorm';
 import { ActividadEntity, CarreraEntity, ConfiguracionEntity, CatalogueEntity, CronogramaEntity,
 CursoEntity, JornadaEntity, ParaleloEntity, PeriodoEntity, ResultadoEntity, RolEntity, UsuarioEntity,
-VotoEntity, TipoEntity, TipoListaEntity, DignidadEntity, ListaEntity } from '@core/entities';
+VotoEntity, TipoEntity, TipoListaEntity, DignidadEntity, ListaEntity, EstudianteEntity } from '@core/entities';
 import { RepositoryEnum } from 'src/shared/enums/repository.enum';
 import { DataSourceEnum } from '@shared/enums';
 
@@ -86,6 +86,12 @@ export const coreProviders = [
     inject: [DataSourceEnum.PG_DATA_SOURCE],
   },
   {
+  provide: RepositoryEnum.ESTUDIANTE_REPOSITORY,
+  useFactory: (dataSource: DataSource) =>
+    dataSource.getRepository(EstudianteEntity),
+  inject: [DataSourceEnum.PG_DATA_SOURCE],
+  },
+  {
     provide: RepositoryEnum.LISTA_REPOSITORY,
     useFactory: (dataSource: DataSource) =>
       dataSource.getRepository(ListaEntity),
@@ -108,5 +114,5 @@ export const coreProviders = [
     useFactory: (dataSource: DataSource) =>
       dataSource.getRepository(CatalogueEntity),
     inject: [DataSourceEnum.PG_DATA_SOURCE],
-  },
+  }
 ];

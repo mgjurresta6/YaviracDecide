@@ -21,10 +21,9 @@ export class CronogramaComponent implements OnInit {
 
       this.home = { icon: 'pi pi-home', routerLink: '/dashboard' };
   }
-  id: number = 0;
   actividad: string = '';
-  fechaI: Date = new Date();
-  fechaF: Date = new Date();
+  fechaCreacion: Date = new Date();
+  fechaFinalizacion: Date = new Date();
   estado: boolean = false;
 
   form: FormGroup;
@@ -33,18 +32,16 @@ export class CronogramaComponent implements OnInit {
     private cronogramaService: CronogramaService){
       if(this.cronogramaService.selectedCron){
         this.form = formBuilder.group({
-          id: [this.cronogramaService.selectedCron.id],
           actividad: [this.cronogramaService.selectedCron.actividad,[Validators.required]],
-          fechaI: [this.cronogramaService.selectedCron.fechaI,[Validators.required]],
-          fechaF: [this.cronogramaService.selectedCron.fechaF,[Validators.required]],
+          fechaCreacion: [this.cronogramaService.selectedCron.fechaCreacion,[Validators.required]],
+          fechaFinalizacion: [this.cronogramaService.selectedCron.fechaFinalizacion,[Validators.required]],
           estado: [this.cronogramaService.selectedCron.estado],
         });
       }else{
         this.form = formBuilder.group({
-          id: [0],
           actividad: ['',[Validators.required]],
-          fechaI: [new Date(),[Validators.required]],
-          fechaF: [new Date(),[Validators.required]],
+          fechaCreacion: [new Date(),[Validators.required]],
+          fechaFinalizacion: [new Date(),[Validators.required]],
           estado: [true]
         });
       }

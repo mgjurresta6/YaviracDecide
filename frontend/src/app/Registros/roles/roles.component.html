@@ -1,0 +1,22 @@
+<div class="formgrid grid">
+    <div class="contenedor">
+        <p-panel>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="card flex flex-wrap gap-3 p-fluid">
+                    <div class="flex-auto">
+                        <label>Nombres:</label>
+                            <input type="text" pInputText formControlName="id"/>
+
+                        <label>Apellidos:</label>
+                            <input type="text" pInputText formControlName="rol"/>
+                    </div>
+                    <div class="flex-auto">
+                        <button class="btn btn-primary" pButton type="submit" label="Guardar"></button>
+                    </div>
+                </div>
+            </form>
+        </p-panel>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

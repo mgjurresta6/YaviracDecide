@@ -15,3 +15,4 @@ export * from './usuariotipos.service';
 export * from './usuarios.service';
 export * from './votos.service';
 export * from './catalogues.service';
+export * from './estudiantes.service';

@@ -66,9 +66,9 @@ import {
     @Get(':id')
     @HttpCode(HttpStatus.OK)
     async findOne(
-      @Param('id', ParseUUIDPipe) cedula: number,
+      @Param('id', ParseUUIDPipe) id: string,
     ): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.usuariosService.findOne(cedula);
+      const serviceResponse = await this.usuariosService.findOne(id);
   
       return {
         data: serviceResponse.data,
@@ -81,10 +81,10 @@ import {
     @Put(':id')
     @HttpCode(HttpStatus.CREATED)
     async update(
-      @Param('id', ParseUUIDPipe) cedula: number,
+      @Param('id', ParseUUIDPipe) id: string,
       @Body() payload: any,
     ): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.usuariosService.update(cedula, payload);
+      const serviceResponse = await this.usuariosService.update(id, payload);
       return {
         data: serviceResponse.data,
         message: `Usuario fue actualizada`,
@@ -96,9 +96,9 @@ import {
     @Delete(':id')
     @HttpCode(HttpStatus.CREATED)
     async remove(
-      @Param('id', ParseUUIDPipe) cedula: number,
+      @Param('id', ParseUUIDPipe) id: string,
     ): Promise<ResponseHttpModel> {
-      const serviceResponse = await this.usuariosService.remove(cedula);
+      const serviceResponse = await this.usuariosService.remove(id);
       return {
         data: serviceResponse.data,
         message: `Usuario fue eliminada`,
