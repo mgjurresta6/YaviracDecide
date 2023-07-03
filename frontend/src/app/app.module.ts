@@ -37,6 +37,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CandidatoDetalleComponent } from './Candidato/candidato-detalle/candidato-detalle.component';
 import { LoginComponent } from './Login/login/login.component';
 import { HomeComponent } from './Componentes/home/home.component';
+import { ResetPasswordComponent } from './Login/reset-password/reset-password.component';
 
 
 
@@ -62,7 +63,8 @@ import { HomeComponent } from './Componentes/home/home.component';
     DashboardComponent,
     CandidatoDetalleComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ResetPasswordComponent
 
 
 

@@ -15,6 +15,7 @@ import { CandidatoDetalleComponent } from './Candidato/candidato-detalle/candida
 
 import { LoginComponent } from './Login/login/login.component';
 import { HomeComponent } from './Componentes/home/home.component';
+import { ResetPasswordComponent } from './Login/reset-password/reset-password.component';
 
 
 
@@ -75,6 +76,9 @@ const routes: Routes = [
   },
   { path: 'home:role', 
   component: HomeComponent
+  },
+  { path: 'reset-password', 
+  component: ResetPasswordComponent
   },
 
 

@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +16,17 @@ export class AuthService {
     } else {
       return null; // Credenciales inválidas
     }
+  }
+  private smsApiUrl = 'https://api.example.com/sms'; // URL del servicio de SMS
+
+  constructor(private http: HttpClient) { }
+
+  sendVerificationCode(phoneNumber: string, code: string): Observable<any> {
+    const message = `Your verification code is: ${code}`;
+    const payload = {
+      phoneNumber: phoneNumber,
+      message: message
+    };
+    return this.http.post(this.smsApiUrl, payload);
   }
 }
