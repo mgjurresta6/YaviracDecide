@@ -1,23 +1,24 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { UsuarioModel } from '../Models/usuarios.model';
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
+  resource: string = 'http://localhost:3000/api/v1/usuarios';
   usuario: any[] = [];
   selectedUsuario: any = null;
 
-  constructor() { 
+  constructor(private httpClient: HttpClient) { 
     this.loadUsuario();
   }
 
   private loadUsuario(){
     this.usuario = [];
-    this.usuario.push(
-      {cedula:1755221270, nombre:'Pedro', apellido:'Lol', correo:'djsnhx@gmail.com', rol:'Administrador'}
-    );
   }
-  addUsuario(payload: any){
+  addUsuario(payload){
     this.usuario.push(payload);
   }
   updateUsuario(cedula: number, payload: any) {

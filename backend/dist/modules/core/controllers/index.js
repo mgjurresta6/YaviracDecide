@@ -30,4 +30,5 @@ __exportStar(require("./tipolistas.controller"), exports);
 __exportStar(require("./usuarios.controller"), exports);
 __exportStar(require("./usuariotipos.controller"), exports);
 __exportStar(require("./votos.controller"), exports);
+__exportStar(require("./estudiantes.controller"), exports);
 //# sourceMappingURL=index.js.map

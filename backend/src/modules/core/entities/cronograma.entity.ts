@@ -7,6 +7,13 @@ export class CronogramaEntity {
   id: string;
 
   @Column({
+    name: 'actividad',
+    type: 'varchar',
+    comment: 'Actividad del cronograma',
+  })
+  actividad: string;
+
+  @Column({
     name: 'fecha_creacion',
     type: 'timestamptz',
     comment: 'Fecha que fue creado el cronograma',
@@ -14,18 +21,26 @@ export class CronogramaEntity {
   fechaCreacion: Date;
 
   @Column({
-    name: 'responsable',
-    type: 'varchar',
-    comment: 'Nombre del usuario que creo el cronograma',
+    name: 'fecha_finalizacion',
+    type: 'timestamptz',
+    comment: 'Fecha que fue finalizado el cronograma',
   })
-  responsable: string;
+  fechaFinalizacion: Date;
 
-  @ManyToMany(()=> ActividadEntity)
+  @Column({
+    name: 'estado',
+    type: 'boolean',
+    comment: 'Estado del cronograma',
+    nullable: true,
+  })
+  estado: boolean;
+
+ /*@ManyToMany(()=> ActividadEntity)
   @JoinTable({name: 'detalle_cronogramas'})
   actividad: ActividadEntity;
 
   @ManyToOne(()=> PeriodoEntity)
   @JoinColumn({name: 'cronogroma'})
-  periodo: PeriodoEntity;
+  periodo: PeriodoEntity;*/
   
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ export class CronogramaService {
   cronograma: any[] = [];
   selectedCron: any = null;
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   addCron(payload: any){
     this.cronograma.push(payload);

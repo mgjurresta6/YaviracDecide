@@ -7,19 +7,16 @@ import { ListaCronogramaComponent } from './Registros/lista-cronograma/lista-cro
 import { CandidatoComponent } from './Candidato/candidato-lista/candidato/candidato.component';
 import { CandidatoListaComponent } from './Candidato/candidato-lista/candidato-lista.component';
 import { NavbarCandidatoComponent } from './Componentes/navbarCandidato/navbar-candidato/navbar-candidato.component';
-//import { ListasComponent } from './listas/listas.component';
 import { UsuarioComponent } from './Registros/usuario/usuario.component';
 import { ListaUsuarioComponent } from './Registros/lista-usuario/lista-usuario.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CandidatoDetalleComponent } from './Candidato/candidato-detalle/candidato-detalle.component';
-
-import { LoginComponent } from './Login/login/login.component';
-import { HomeComponent } from './Componentes/home/home.component';
-import { ResetPasswordComponent } from './Login/reset-password/reset-password.component';
-
-
-
-
+import { ListaAprobacionComponent } from './Registros/lista-aprobacion/lista-aprobacion.component';
+import { ListaComponent } from './Listas/lista/lista.component';
+import { ListaVotacionComponent } from './Listas/lista-votacion/lista-votacion.component';
+import { DesaprobacionComponent } from './Listas/desaprobacion/desaprobacion.component';
+import { ConfiguracionComponent } from './Componentes/configuracion/configuracion.component';
+import { VotacionComponent } from './Listas/votacion/votacion.component';
+import { RolesComponent } from './Registros/roles/roles.component';
 
 const routes: Routes = [
    
@@ -52,10 +49,6 @@ const routes: Routes = [
     path: 'navbar-candidato',
     component: NavbarCandidatoComponent
    },
-  /*{ 
-    path: 'listas',
-    component: ListasComponent
-  }*/
   {
     path: 'usuario',
     component: UsuarioComponent
@@ -68,19 +61,34 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent
   },
-  { path: 'candidato-detalle', 
-    component: CandidatoDetalleComponent 
+  {
+    path: 'lista',
+    component: ListaComponent
   },
-  { path: 'login', 
-  component: LoginComponent 
+  {
+    path: 'lista-aprobacion',
+    component: ListaAprobacionComponent
   },
-  { path: 'home:role', 
-  component: HomeComponent
+  {
+    path: 'lista-votante',
+    component: ListaVotacionComponent
   },
-  { path: 'reset-password', 
-  component: ResetPasswordComponent
+  {
+    path: 'desaprobacion',
+    component: DesaprobacionComponent
   },
-
+  {
+    path: 'configuracion',
+    component: ConfiguracionComponent
+  },
+  {
+    path: 'votacion',
+    component: VotacionComponent
+  },
+  {
+    path: 'roles',
+    component: RolesComponent
+  }
 
 ];
 

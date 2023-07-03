@@ -1,7 +1,7 @@
   <app-estudiante></app-estudiante>
   <div class="contenedor">
-      <p-table [value]="usuario"
-      selectionMode="single" [(selection)]="selectedPerson" dataKey="id">
+      <p-table [value]="estudiante"
+      selectionMode="single" [(selection)]="selectedEstudiante" dataKey="id">
   <ng-template pTemplate="header">
   <tr>
     <th>Cedula</th>
@@ -13,8 +13,8 @@
   <ng-template pTemplate="body" let-item>
   <tr [pSelectableRow]="item">
     <td>{{item.cedula}}</td>
-    <td>{{item.nombre}}{{item.apellido}}</td>
-    <td>{{item.correo}}</td>
+    <td>{{item.nombreEstudiante}}{{item.apellidoEstudiante}}</td>
+    <td>{{item.emailEstudiante}}</td>
     <td>{{item.carrera}}{{item.jornada}}{{item.paralelo}}</td>
     <td>
       <button pButton type="button" class="p-button" icon="pi pi-pencil"

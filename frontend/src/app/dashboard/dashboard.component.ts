@@ -9,21 +9,5 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  formGroup!: FormGroup;
 
-  categories: any[] = [
-      { name: 'Si', key: 'S' },
-      { name: 'No', key: 'N' },
-  ];
-
-  ngOnInit() {
-      this.formGroup = new FormGroup({
-          selectedCategory: new FormControl()
-      });
-  }
-  usuario: any[] = [];
-  selectedCandidato: any;
-
-  constructor(){
-  }
 }

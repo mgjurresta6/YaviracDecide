@@ -1,3 +1,6 @@
+<div class="breadcrumb">
+    <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
+</div>
 <div class="formgrid grid">
     <div class="contenedor">
         <p-panel>
@@ -9,42 +12,42 @@
                     </div>
                     <div class="flex-auto">
                         <label>Nombres:</label>
-                            <input type="text" pInputText formControlName="nombre"/>
+                            <input type="text" pInputText formControlName="nombreEstudiante"/>
 
                         <label>Apellidos:</label>
-                            <input type="text" pInputText formControlName="apellido"/>
+                            <input type="text" pInputText formControlName="apellidoEstudiante"/>
                     </div>
                     <div class="flex-auto">
                         <label>Correo electronico:</label>
-                            <input type="text" pInputText formControlName="correo"/>
+                            <input type="text" pInputText formControlName="emailEstudiante"/>
                     </div>
-                        <div class="flex-auto">
-                            <label>Carrera:</label>
-                            <select class="form-select" aria-label="Default select example" formControlName="carrera">
-                                <option selected>Selecciona</option>
-                                <option value="Desarrollo de Software">Desarrollo de Software</option>
-                                <option value="Marketing">Marketing</option>
-                                <option value="Turismo">Turismo</option>
-                              </select>
-                        </div>
-                        <div class="flex-auto">
-                            <label>Jornada:</label>
-                            <select class="form-select" aria-label="Default select example" formControlName="jornada">
-                                <option selected>Selecciona</option>
-                                <option value="Matutina">Matutina</option>
-                                <option value="Vespertina">Vespertina</option>
-                                <option value="Nocturna">Nocturna</option>
-                              </select>
-                        </div>
-                        <div class="flex-auto">
-                            <label>Paralelo:</label>
-                            <select class="form-select" aria-label="Default select example" formControlName="paralelo">
-                                <option selected>Selecciona</option>
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="C">C</option>
-                              </select>
-                        </div>
+                    <div class="flex-auto">
+                        <label>Carrera:</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="carrera">
+                            <option selected>Selecciona</option>
+                            <option value="Desarrollo de Software">Desarrollo de Software</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Turismo">Turismo</option>
+                          </select>
+                    </div>
+                    <div class="flex-auto">
+                        <label>Jornada:</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="jornada">
+                            <option selected>Selecciona</option>
+                            <option value="Matutina">Matutina</option>
+                            <option value="Vespertina">Vespertina</option>
+                            <option value="Nocturna">Nocturna</option>
+                          </select>
+                    </div>
+                    <div class="flex-auto">
+                        <label>Paralelo:</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="paralelo">
+                            <option selected>Selecciona</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                          </select>
+                    </div>
                     <div class="flex-auto">
                         <button class="btn btn-primary" pButton type="submit" label="Guardar"></button>
                     </div>

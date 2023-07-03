@@ -1,0 +1,23 @@
+.container_list .p-element.p-selectable-row.ng-star-inserted {
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: rgba(168, 166, 164, 0.621);
+    margin-left: 30%;
+    top: 20%
+  }
+  
+  .container_list td{
+    border: none !important;
+  }
+  .formgrid{
+    position: absolute;
+    width: 1300px;
+    top: 15%;
+    left: 4%;
+    margin: -25px 0 0 -25px;
+    
+}

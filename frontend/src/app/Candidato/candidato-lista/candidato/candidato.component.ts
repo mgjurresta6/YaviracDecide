@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./candidato.component.css']
 })
 export class CandidatoComponent {
+<<<<<<< HEAD
   form: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private candidatoListaService: CandidatoListaService) {
@@ -27,6 +28,59 @@ export class CandidatoComponent {
       propuesta: ['', [Validators.required]],
       requisitos: ['', [Validators.required]],
     });
+=======
+  nombreLista: string = '';
+  presidente: string='';
+  vicepresidente: string='';
+  tesorero: string='';
+  secretario: string= '';
+  vocal1: string='';
+  vocal2: string='';
+  vocal3: string='';
+  logo: string='';
+  color: string='';
+  propuesta: string='';
+  requisitos: string='';
+  estado: boolean;
+
+  form: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private router: Router,
+              private candidatoListaService: CandidatoListaService){
+    if(this.candidatoListaService.selectedCandidato){
+      this.form = formBuilder.group({
+        nombreLista: [this.candidatoListaService.selectedCandidato.nombreLista,[Validators.required]],
+        presidente: [this.candidatoListaService.selectedCandidato.presidente,[Validators.required]],
+        vicepresidente:[this.candidatoListaService.selectedCandidato.vicepresidente,[Validators.required]],
+        tesorero: [this.candidatoListaService.selectedCandidato.tesorero,[Validators.required]],
+        secretario: [this.candidatoListaService.selectedCandidato.secretario,[Validators.required]],
+        vocal1: [this.candidatoListaService.selectedCandidato.vocal1,[Validators.required]],
+        vocal2: [this.candidatoListaService.selectedCandidato.vocal2,[Validators.required]],
+        vocal3: [this.candidatoListaService.selectedCandidato.vocal3,[Validators.required]],
+        logo: [this.candidatoListaService.selectedCandidato.logo,[Validators.required]],
+       color: [this.candidatoListaService.selectedCandidato.color,[Validators.required]],
+        propuesta: [this.candidatoListaService.selectedCandidato.propuesta,[Validators.required]],
+        requisitos: [this.candidatoListaService.selectedCandidato.requisitos,[Validators.required]],
+        estado: [this.candidatoListaService.selectedCandidato.estado,[Validators.required]]
+      });
+    }else{
+      this.form = formBuilder.group({
+        nombreLista: ['',[Validators.required]],
+        presidente: ['',[Validators.required]],
+        vicepresidente: ['',[Validators.required]],
+        tesorero: ['',[Validators.required]],
+        secretario:['',[Validators.required]],
+        vocal1: ['',[Validators.required]],
+        vocal2: ['',[Validators.required]],
+        vocal3: ['',[Validators.required]],
+       logo: ['',[Validators.required]],
+       color: ['',[Validators.required]],
+      propuesta: ['',[Validators.required]],
+        requisitos: ['',[Validators.required]],
+        estado: []
+      });
+    }
+>>>>>>> Administrador
   }
 
   onSubmit() {
@@ -54,11 +108,20 @@ export class CandidatoComponent {
             'Lista Registrada con Éxito!',
             'En una semana ingresa de nuevo a la plataforma para revisar si tu lista fue aceptada o no fue aceptada.',
             'success'
+<<<<<<< HEAD
           ).then(() => {
             // Navegar a la pantalla candidato-lista
             this.router.navigate(['candidato-lista']);
           });
         } else if (result.dismiss === Swal.DismissReason.cancel) {
+=======
+          )
+          this.router.navigate(['candidato-lista'])
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+>>>>>>> Administrador
           swalWithBootstrapButtons.fire(
             'Cancelado!',
             'No se ha Registrado la Lista :)',

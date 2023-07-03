@@ -4,13 +4,22 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CandidatoListaService {
+<<<<<<< HEAD
   candidatos: any[] = [];
   selectedCandidato: any = null;
 
+=======
+  candidato: any[] = [];
+  selectedCandidato: any ;
+  nombreLista: string;
+  candidatoVotacion: any;
+  nombreCandidatoSeleccionado: string ;
+>>>>>>> Administrador
   constructor() { 
     this.loadCandidatos();
   }
 
+<<<<<<< HEAD
   private loadCandidatos() {
     this.candidatos = [
       {
@@ -34,6 +43,47 @@ export class CandidatoListaService {
         estado: 'Denegado'
       }
     ];
+=======
+  private loadCandidato(){
+    this.candidato = [];
+    this.candidato.push(
+      {nombreLista: 'Abejitas del saber',
+      presidente: 'Pedro Alejandro Cuenca Ortega', 
+      vicepresidente:'Pedro Alejandro Cuenca Ortega', 
+      tesorero: '',
+      vocal1: '',
+      vocal2: '',
+      vocal3: '',
+      logo:'', 
+      color:'', 
+      propuesta:'',
+      estado:'No Aprobado'},
+
+      {nombreLista: 'Lista TUKI',
+      presidente: 'Pedro Alejandro Cuenca Ortega', 
+      vicepresidente:'Pedro Alejandro Cuenca Ortega', 
+      tesorero: '',
+      vocal1: '',
+      vocal2: '',
+      vocal3: '',
+      logo:'', 
+      color:'', 
+      propuesta:'',
+      estado: true},
+
+      {nombreLista: 'Lista sapos',
+      presidente: 'Pedro Alejandro Cuenca Ortega', 
+      vicepresidente:'Pedro Alejandro Cuenca Ortega', 
+      tesorero: '',
+      vocal1: '',
+      vocal2: '',
+      vocal3: '',
+      logo:'', 
+      color:'', 
+      propuesta:'',
+      estado:true}
+    );
+>>>>>>> Administrador
   }
 
   getCandidatos() {
@@ -64,5 +114,18 @@ export class CandidatoListaService {
     if (index > -1) {
       this.candidatos.splice(index, 1);
     }
+  }
+  actualizarEstadoCandidato(nombreLista: string) {
+    const index = this.candidato.findIndex(candidato => candidato.nombreLista === nombreLista);
+    if (index !== -1) {
+      this.candidato[index].estado = true;
+    }
+  }
+  setCandidatoSeleccionado(nombreLista: string, payload: any) {
+    const index = this.candidato.findIndex(candidato => candidato.nombreLista === nombreLista);
+    this.candidato[index] = payload;
+  }
+  setNombreCandidatoSeleccionado(nombre: string) {
+    this.nombreCandidatoSeleccionado = nombre;
   }
 }

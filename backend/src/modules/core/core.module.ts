@@ -15,7 +15,8 @@ import {
   tipoUsuariosController,
   UsuariosController,
   TipoListasController,
-  VotosController
+  VotosController,
+  EstudiantesController
   
 } from '@core/controllers';
 import {
@@ -36,7 +37,8 @@ import {
   UsuariosService,
   TipoUsuariosService,
   VotosService,
-  CataloguesService
+  CataloguesService,
+  EstudiantesService
 } from '@core/services';
 import { coreProviders } from '@core/providers';
 import { DatabaseModule } from '@database';
@@ -61,7 +63,8 @@ import { DatabaseModule } from '@database';
     tipoUsuariosController,
     UsuariosController,
     TipoListasController,
-    VotosController
+    VotosController,
+    EstudiantesController
   ],
   providers: [
     ...coreProviders,
@@ -81,7 +84,8 @@ import { DatabaseModule } from '@database';
     UsuariosService,
     TipoUsuariosService,
     VotosService,
-    CataloguesService
+    CataloguesService,
+    EstudiantesService
 
   ],
   exports: [
@@ -100,7 +104,8 @@ import { DatabaseModule } from '@database';
     UsuariosService,
     TipoUsuariosService,
     VotosService,
-    CataloguesService
+    CataloguesService,
+    EstudiantesService
   ],
 })
 export class CoreModule {}

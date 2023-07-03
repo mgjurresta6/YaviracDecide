@@ -1,34 +1,36 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
+import { Observable } from 'rxjs';
+import { EstudianteModel } from '../Models/estudiantes.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EstudianteService {
-  usuario: any[] = [];
-  selectedPerson: any = null;
+  ur: string = 'http://localhost:3000/api/v1/estudiantes';
+  estudiante: any[] = [];
+  selectedEstudiante: any = null;
 
-  constructor() { 
-    this.loadUsuario();
-  }
-
-  private loadUsuario(){
-    this.usuario = [];
-    this.usuario.push(
-      {cedula:1755221270, nombre:'Pedro', apellido:'Lol', correo:'djsnhx@gmail.com', carrera:'Desarrolo', jornada:'Mtutina', paralelo:'A'}
-    );
-  }
-  addUsuario(payload: any){
-    this.usuario.push(payload);
-  }
-  updateUsuario(cedula: number, payload: any) {
-    const index = this.usuario.findIndex(usuario => usuario.cedula === cedula);
-    this.usuario[index] = payload;
+  constructor(private httpClient: HttpClient) { 
+    this.loadEstudiante();
   }
 
-  deleteUsuario(cedula: number) {
-    const index = this.usuario.findIndex(usuario => usuario.cedula === cedula);
-    if (index > -1) {
-      this.usuario.splice(index, 1);
-    }
+  private loadEstudiante(){
+    this.estudiante = [];
   }
+  addEstudiante(payload){
+    this.estudiante.push(payload);
+  }
+  updateEstudiante(cedula: number, payload: EstudianteModel): Observable<EstudianteModel> {
+    const url = '${this.ur}/${cedula}';
+    return this.httpClient.put<EstudianteModel>(url,payload);
+  }
+
+  deleteEstudiante(cedula: number): Observable<EstudianteModel> {
+    const url = '${this.ur}/${cedula}';
+    return this.httpClient.delete<EstudianteModel>(url);
+  }
+  /*getEstudiantes(): Observable<EstudianteModel[]>{
+    return this.httpClient.get<EstudianteModel[]>('http://localhost:3000/api/v1/estudiantes');
+  }*/
 }

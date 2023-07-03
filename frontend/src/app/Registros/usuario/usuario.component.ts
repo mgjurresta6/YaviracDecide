@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
 import {Router} from "@angular/router";
+import { RolesService } from 'src/app/Servicios/roles.service';
+import { RolModel } from 'src/app/Models/roles.model';
 
 @Component({
   selector: 'app-usuario',
@@ -10,34 +12,56 @@ import {Router} from "@angular/router";
 })
 export class UsuarioComponent {
 
+  
+  selectedRol: any = null;
+
   cedula: number = 0;
-  nombre: string = '';
-  apellido: string = '';
-  correo: string = '';
+  nombreUsuario: string = '';
+  apellidoUsuario: string = '';
+  emailUsuario: string = '';
+  claveUsuario: string = '';
   rol: string = '';
+  roles: RolModel[] = [];
 
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router,
-    private usuarioService: UsuarioService){
+  constructor(private formBuilder: FormBuilder, 
+    private router: Router,
+    private usuarioService: UsuarioService,
+    private rolesService: RolesService){
+      //this.getRoles();
       if(this.usuarioService.selectedUsuario){
         this.form = formBuilder.group({
           cedula: [this.usuarioService.selectedUsuario.cedula],
-          nombre: [this.usuarioService.selectedUsuario.nombre,[Validators.required]],
-          apellido: [this.usuarioService.selectedUsuario.apellido,[Validators.required]],
-          correo: [this.usuarioService.selectedUsuario.correo,[Validators.required]],
-          rol: [this.usuarioService.selectedUsuario.rol,[Validators.required]],
+          nombreUsuario: [this.usuarioService.selectedUsuario.nombreUsuario,[Validators.required]],
+          apellidoUsuario: [this.usuarioService.selectedUsuario.apellidoUsuario,[Validators.required]],
+          emailUsuario: [this.usuarioService.selectedUsuario.emailUsuario,[Validators.required]],
+          rol: [this.usuarioService.selectedUsuario.rol],
         });
       }else{
         this.form = formBuilder.group({
           cedula: [0],
-          nombre: ['',[Validators.required]],
-          apellido: ['',[Validators.required]],
-          correo: ['',[Validators.required]],
-          rol: ['',[Validators.required]]
+          nombreUsuario: ['',[Validators.required]],
+          apellidoUsuario: ['',[Validators.required]],
+          emailUsuario: ['',[Validators.required]],
+          rol: [null]
         });
       }
   }
+      
+  
+
+
+
+  /*getRoles(){
+    /*this.rolesService.getRoles().subscribe(response=>{
+      this.roles = response.data;
+    });                                                                                                                                                                                                                                                                                                                                                                                                                  
+  console.log(this.rolesService.rol);
+    this.roles=[{id:1,rol:'Administrador'},
+                {id:2,rol:'Candidato'},
+                {id:3,rol:'Votante'}];
+  }*/
   onSubmit() {
     if (this.form.valid) {
       this.addUsuario();

@@ -7,13 +7,22 @@ import { ConfiguracionEntity } from './configuracion.entity';
 
 @Entity('usuarios', { schema: 'core' })
 export class UsuarioEntity {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column({
+    name: 'cedula',
+    type: 'integer',
+    comment: 'cedula del usuario',
+     nullable: true,
+  })
   cedula: number;
 
   @Column({
     name: 'nombre',
     type: 'varchar',
     comment: 'Nombre del usuario',
+     nullable: true,
   })
   nombreUsuario: string;
 
@@ -21,6 +30,7 @@ export class UsuarioEntity {
     name: 'apellido',
     type: 'varchar',
     comment: 'Apellido del usuario',
+    nullable: true,
   })
   apellidoUsuario: string;
 
@@ -28,6 +38,7 @@ export class UsuarioEntity {
     name: 'email',
     type: 'varchar',
     comment: 'Email del usuario',
+    nullable: true,
   })
   emailUsuario: string;
 
@@ -35,20 +46,31 @@ export class UsuarioEntity {
     name: 'clave',
     type: 'varchar',
     comment: 'Clave del usuario',
+    nullable: true,
   })
   claveUsuario: string;
 
   @Column({
+    name: 'rol',
+    type: 'varchar',
+    comment: 'rol del usuario',
+    nullable: true,
+  })
+  rol: string;
+
+ /*  @Column({
     name: 'estado_voto',
     type: 'boolean',
     comment: 'Si el usuario voto o aun no',
+    nullable: true,
   })
-  estadoVoto: boolean;
+ estadoVoto: boolean;
 
   @Column({
     name: 'periodo_ultimo_voto',
     type: 'varchar',
     comment: 'El ultimo periodo que voto',
+    nullable: true,
   })
   ultimoVoto: string;
 
@@ -56,6 +78,7 @@ export class UsuarioEntity {
     name: 'estado',
     type: 'boolean',
     comment: 'EStado del ususario: Activo, Inactivo',
+    nullable: true,
   })
   estadoUsuario: string;
 
@@ -78,5 +101,5 @@ export class UsuarioEntity {
   
   @OneToMany(() => ConfiguracionEntity, (configuracion) => configuracion.id)
   @JoinColumn ({name: 'configuracion'})
-  configuraciones: ConfiguracionEntity[];
+  configuraciones: ConfiguracionEntity[];*/
 }

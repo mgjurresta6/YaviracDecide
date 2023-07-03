@@ -15,3 +15,4 @@ export * from './usuariotipo.entity';
 export * from './voto.entity';
 export * from './tipolista.entity';
 export * from './catalogue.entity';
+export * from './estudiante.entity'

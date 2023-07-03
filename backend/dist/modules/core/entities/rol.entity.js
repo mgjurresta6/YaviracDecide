@@ -27,6 +27,7 @@ __decorate([
         name: 'nombre',
         type: 'varchar',
         comment: 'Nombre del rol de usuario: candidato, administrador, votante',
+        nullable: true,
     }),
     __metadata("design:type", String)
 ], RolEntity.prototype, "rol", void 0);
