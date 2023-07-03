@@ -23,44 +23,45 @@ export class UsuarioComponent {
   rol: string = '';
   roles: RolModel[] = [];
 
-  form: FormGroup= this.buildForm;
+  form: FormGroup;
 
   constructor(private formBuilder: FormBuilder, 
     private router: Router,
     private usuarioService: UsuarioService,
     private rolesService: RolesService){
-      this.getRoles();
+      //this.getRoles();
+      if(this.usuarioService.selectedUsuario){
+        this.form = formBuilder.group({
+          cedula: [this.usuarioService.selectedUsuario.cedula],
+          nombreUsuario: [this.usuarioService.selectedUsuario.nombreUsuario,[Validators.required]],
+          apellidoUsuario: [this.usuarioService.selectedUsuario.apellidoUsuario,[Validators.required]],
+          emailUsuario: [this.usuarioService.selectedUsuario.emailUsuario,[Validators.required]],
+          rol: [this.usuarioService.selectedUsuario.rol],
+        });
+      }else{
+        this.form = formBuilder.group({
+          cedula: [0],
+          nombreUsuario: ['',[Validators.required]],
+          apellidoUsuario: ['',[Validators.required]],
+          emailUsuario: ['',[Validators.required]],
+          rol: [null]
+        });
+      }
   }
       
-  get buildForm(){
-    if(this.usuarioService.selectedUsuario){
-      return this.form = this.formBuilder.group({
-        cedula: [this.usuarioService.selectedUsuario.cedula],
-        nombreUsuario: [this.usuarioService.selectedUsuario.nombreUsuario,[Validators.required]],
-        apellidoUsuario: [this.usuarioService.selectedUsuario.apellidoUsuario,[Validators.required]],
-        emailUsuario: [this.usuarioService.selectedUsuario.emailUsuario,[Validators.required]],
-        rol: [this.usuarioService.selectedUsuario.rol],
-      });
-    }else{
-     return this.form = this.formBuilder.group({
-        cedula: [0],
-        nombreUsuario: ['',[Validators.required]],
-        apellidoUsuario: ['',[Validators.required]],
-        emailUsuario: ['',[Validators.required]],
-        rol: [null]
-      });
-    }
-}
+  
 
-  getRoles(){
+
+
+  /*getRoles(){
     /*this.rolesService.getRoles().subscribe(response=>{
       this.roles = response.data;
     });                                                                                                                                                                                                                                                                                                                                                                                                                  
-    console.log(this.rolesService.rol);*/
+  console.log(this.rolesService.rol);
     this.roles=[{id:1,rol:'Administrador'},
                 {id:2,rol:'Candidato'},
                 {id:3,rol:'Votante'}];
-  }
+  }*/
   onSubmit() {
     if (this.form.valid) {
       this.addUsuario();
@@ -71,9 +72,7 @@ export class UsuarioComponent {
   }
 
   addUsuario() {
-    this.usuarioService.addUsuario(this.form.value).subscribe(response=>{
-      console.log(response);
-    });
+    this.usuarioService.addUsuario(this.form.value);
     console.log(this.usuarioService.usuario);
   }
 

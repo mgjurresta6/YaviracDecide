@@ -46,46 +46,46 @@ export class EstudianteComponent {
   
   estudiantes: EstudianteModel[] =  [];
 
-  form: FormGroup = this.buildForm;
+  form: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private router: Router,
               private estudianteService: EstudianteService,
               private carrerasService: CarrerasService){
-                this.getCarreras();
+                /*this.getCarreras();
                 this.getJornadas();
-                this.getParalelos();
-                this.getEstudiantes()
+                this.getParalelos();*/
+                //this.getEstudiantes()
+                if(this.estudianteService.selectedEstudiante){
+                  this.form = formBuilder.group({
+                    cedula: [this.estudianteService.selectedEstudiante.cedula, [Validators.required]],
+                    nombreEstudiante: [this.estudianteService.selectedEstudiante.nombreEstudiante,[Validators.required]],
+                    apellidoEstudiante: [this.estudianteService.selectedEstudiante.apellidoEstudiante,[Validators.required]],
+                    emailEstudiante: [this.estudianteService.selectedEstudiante.emailEstudiante,[Validators.required]],
+                    carrera: [this.estudianteService.selectedEstudiante.carrera,[Validators.required]],
+                    jornada: [this.estudianteService.selectedEstudiante.jornada,[Validators.required]],
+                    paralelo: [this.estudianteService.selectedEstudiante.paralelo,[Validators.required]]
+                  });
+                }else{
+                  this.form = formBuilder.group({
+                    cedula: [0,[Validators.required]],
+                    nombreEstudiante: ['',[Validators.required]],
+                    apellidoEstudiante: ['',[Validators.required]],
+                    emailEstudiante: ['',[Validators.required]],
+                    carrera: ['',[Validators.required]],
+                    jornada: ['',[Validators.required]],
+                    paralelo: ['',[Validators.required]]
+                  });
+                }
   }
-  get buildForm(){
-    if(this.estudianteService.selectedEstudiante){
-      return this.form = this.formBuilder.group({
-        cedula: [this.estudianteService.selectedEstudiante.cedula, [Validators.required]],
-        nombreEstudiante: [this.estudianteService.selectedEstudiante.nombreEstudiante,[Validators.required]],
-        apellidoEstudiante: [this.estudianteService.selectedEstudiante.apellidoEstudiante,[Validators.required]],
-        emailEstudiante: [this.estudianteService.selectedEstudiante.emailEstudiante,[Validators.required]],
-        carrera: [this.estudianteService.selectedEstudiante.carrera,[Validators.required]],
-        jornada: [this.estudianteService.selectedEstudiante.jornada,[Validators.required]],
-        paralelo: [this.estudianteService.selectedEstudiante.paralelo,[Validators.required]]
-      });
-    }else{
-     return this.form = this.formBuilder.group({
-        cedula: [0,[Validators.required]],
-        nombreEstudiante: ['',[Validators.required]],
-        apellidoEstudiante: ['',[Validators.required]],
-        emailEstudiante: ['',[Validators.required]],
-        carrera: ['',[Validators.required]],
-        jornada: ['',[Validators.required]],
-        paralelo: ['',[Validators.required]]
-      });
-    }
-  }
+  
+  
 
 
-  getCarreras(){
+  /*getCarreras(){
      /*this.carrerasService.getCarreras().subscribe(response=>{
       this.carreras = response.data;
     });                                                                                                                                                                                                                                                                                                                                                                                                                  
-    console.log(this.rolesService.rol);*/
+    console.log(this.rolesService.rol);
     this.carreras=[{id:1,carrera:'Desarrollo de Software'},
                 {id:2,carrera:'Marketing'},
                 {id:3,carrera:'Control de Incendios'},
@@ -96,7 +96,7 @@ export class EstudianteComponent {
     /*this.carrerasService.getCarreras().subscribe(response=>{
      this.carreras = response.data;
    });                                                                                                                                                                                                                                                                                                                                                                                                                  
-   console.log(this.rolesService.rol);*/
+   console.log(this.rolesService.rol);
    this.jornadas=[{id:1, jornada: 'Matutina'},
                {id:2,jornada:'Vespertina'},
                {id:3,jornada:'Nocturna'}]
@@ -105,21 +105,21 @@ export class EstudianteComponent {
           /*this.carrerasService.getCarreras().subscribe(response=>{
             this.carreras = response.data;
             });                                                                                                                                                                                                                                                                                                                                                                                                                  
-    console.log(this.rolesService.rol);*/
+    console.log(this.rolesService.rol);
     this.paralelos=[{id:1, paralelo: 'A'},
                   {id:2,paralelo:'B'},
                   {id:3,paralelo:'C'},
                   {id:4,paralelo:'E'}]
                   }
 
-    getEstudiantes(){
+    /*getEstudiantes(){
       this.estudianteService.getEstudiantes().subscribe(response => 
         console.log(response),
         err => console.log(err)
 
         );
       console.log(this.estudianteService.estudiante);
-    }
+    }*/
   onSubmit() {
     if (this.form.valid) {
       this.addEstudiante();
@@ -130,9 +130,7 @@ export class EstudianteComponent {
   }
 
   addEstudiante() {
-    this.estudianteService.addEstudiante(this.form.value).subscribe(response => {
-      console.log(response);
-    });
+    this.estudianteService.addEstudiante(this.form.value);
     console.log(this.estudianteService.estudiante);
   }
 

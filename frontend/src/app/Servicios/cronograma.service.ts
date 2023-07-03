@@ -11,7 +11,7 @@ export class CronogramaService {
   constructor(private httpClient: HttpClient) { }
 
   addCron(payload: any){
-    return this.httpClient.post('http://localhost:3000/api/v1/cronogramas',payload)
+    this.cronograma.push(payload);
   }
   updateCron(id: number, payload: any) {
     const index = this.cronograma.findIndex(usuario => usuario.id === id);

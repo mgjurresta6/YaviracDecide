@@ -18,8 +18,8 @@ export class UsuarioService {
   private loadUsuario(){
     this.usuario = [];
   }
-  addUsuario(payload: UsuarioModel): Observable<UsuarioModel>{
-    return this.httpClient.post<UsuarioModel>('http://localhost:3000/api/v1/usuarios',payload);
+  addUsuario(payload){
+    this.usuario.push(payload);
   }
   updateUsuario(cedula: number, payload: any) {
     const index = this.usuario.findIndex(usuario => usuario.cedula === cedula);

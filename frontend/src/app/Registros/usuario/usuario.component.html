@@ -20,11 +20,13 @@
                         <input type="text" pInputText formControlName="emailUsuario"/>
                     </div>
                     <div class="flex-auto">
-                        <label>Rol:</label>
-                        <p-dropdown [options]="roles"
-                        formControlName="rol"
-                        placeholder="Seleccione..."
-                        optionLabel="rol"></p-dropdown>
+                        <label>Carrera:</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="rol">
+                            <option selected>Selecciona</option>
+                            <option value="Desarrollo de Software">Desarrollo de Software</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Turismo">Turismo</option>
+                          </select>
                     </div>
                     <div class="flex-auto">
                         <button class="btn btn-primary" pButton type="submit" label="Guardar"></button>

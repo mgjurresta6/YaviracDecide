@@ -18,8 +18,8 @@ export class EstudianteService {
   private loadEstudiante(){
     this.estudiante = [];
   }
-  addEstudiante(payload: EstudianteModel): Observable<EstudianteModel>{
-    return this.httpClient.post<EstudianteModel>('http://localhost:3000/api/v1/estudiantes',payload)
+  addEstudiante(payload){
+    this.estudiante.push(payload);
   }
   updateEstudiante(cedula: number, payload: EstudianteModel): Observable<EstudianteModel> {
     const url = '${this.ur}/${cedula}';
@@ -30,7 +30,7 @@ export class EstudianteService {
     const url = '${this.ur}/${cedula}';
     return this.httpClient.delete<EstudianteModel>(url);
   }
-  getEstudiantes(): Observable<EstudianteModel[]>{
+  /*getEstudiantes(): Observable<EstudianteModel[]>{
     return this.httpClient.get<EstudianteModel[]>('http://localhost:3000/api/v1/estudiantes');
-  }
+  }*/
 }
