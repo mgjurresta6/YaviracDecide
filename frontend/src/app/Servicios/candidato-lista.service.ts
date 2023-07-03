@@ -5,9 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class CandidatoListaService {
   candidato: any[] = [];
-  selectedCandidato: any = null;
+  selectedCandidato: any ;
   nombreLista: string;
-
+  candidatoVotacion: any;
+  nombreCandidatoSeleccionado: string ;
   constructor() { 
     this.loadCandidato();
   }
@@ -49,7 +50,7 @@ export class CandidatoListaService {
       logo:'', 
       color:'', 
       propuesta:'',
-      estado:'No Aprobado'}
+      estado:true}
     );
   }
   addCandidato(payload: any){
@@ -71,5 +72,12 @@ export class CandidatoListaService {
     if (index !== -1) {
       this.candidato[index].estado = true;
     }
+  }
+  setCandidatoSeleccionado(nombreLista: string, payload: any) {
+    const index = this.candidato.findIndex(candidato => candidato.nombreLista === nombreLista);
+    this.candidato[index] = payload;
+  }
+  setNombreCandidatoSeleccionado(nombre: string) {
+    this.nombreCandidatoSeleccionado = nombre;
   }
 }

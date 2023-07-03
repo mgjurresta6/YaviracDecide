@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CandidatoListaService } from 'src/app/Servicios/candidato-lista.service';
+
 @Component({
   selector: 'app-votacion',
   templateUrl: './votacion.component.html',
@@ -8,9 +9,12 @@ import { CandidatoListaService } from 'src/app/Servicios/candidato-lista.service
 export class VotacionComponent {
   candidato: any[] = [];
   selectedCandidato: any;
+  
 
-  constructor(private candidatoListaService: CandidatoListaService){
-    this.candidato = this.candidatoListaService.candidato.filter(candidato => candidato.estado === true );
-    
+  constructor(private candidatoListaService: CandidatoListaService,
+     ) {
+      console.log(candidatoListaService.nombreCandidatoSeleccionado)
+    this.candidato = this.candidatoListaService.candidato.filter(candidato => candidato.nombreLista === candidatoListaService.nombreCandidatoSeleccionado  );
+    console.log(this.candidato)
   }
 }

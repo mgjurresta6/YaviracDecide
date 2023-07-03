@@ -9,25 +9,25 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./lista-estudiante.component.css']
 })
 export class ListaEstudianteComponent {
-  usuario: any[] = [];
-  selectedPerson: any;
+  estudiante: any[] = [];
+  selectedEstudiante: any;
 
   constructor(private estudianteService: EstudianteService, private router: Router){
-    this.usuario = this.estudianteService.usuario;
+    this.estudiante = this.estudianteService.estudiante;
   }
 
   crearUsuario(){
-    this.estudianteService.selectedPerson = null;
+    this.estudianteService.selectedEstudiante = null;
     this.router.navigate(['estudiante']);
   }
 
-  editUsuario(usuario: any) {
-    this.estudianteService.selectedPerson = usuario;
+  editUsuario(estudiante: any) {
+    this.estudianteService.selectedEstudiante = estudiante;
     this.router.navigate(['estudiante']);
   }
 
   deleteUsuario(cedula: number) {
-    this.estudianteService.deleteUsuario(cedula);
-    console.log(this.estudianteService.usuario);
+    this.estudianteService.deleteEstudiante(cedula);
+    console.log(this.estudianteService.estudiante);
   }
 }

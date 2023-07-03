@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import{ CandidatoListaService} from 'src/app/Servicios/candidato-lista.service'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-lista-votacion',
   templateUrl: './lista-votacion.component.html',
@@ -8,11 +9,21 @@ import{ CandidatoListaService} from 'src/app/Servicios/candidato-lista.service'
 export class ListaVotacionComponent {
   candidato: any[] = [];
   selectedCandidato: any;
+  candidatoVotacion: any;
 
-  constructor(private candidatoListaService: CandidatoListaService){
+  constructor(private candidatoListaService: CandidatoListaService, private router: Router){
     this.candidato = this.candidatoListaService.candidato.filter(candidato => candidato.estado === true );
     
   }
-  
+  seleccionarCandidato(candidato: any) {
+    this.selectedCandidato = candidato;
+    const nombreLista = candidato.nombreLista;
+    const payload = candidato; // Puedes ajustar el valor del payload según tus necesidades
+    this.candidatoListaService.setCandidatoSeleccionado(nombreLista, payload);
+    console.log(nombreLista);
+    this.candidatoListaService.setNombreCandidatoSeleccionado(nombreLista);
+    this.router.navigate(['votacion'])
+  }
+
 }
 
