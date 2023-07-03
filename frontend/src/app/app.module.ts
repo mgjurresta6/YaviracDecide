@@ -41,6 +41,7 @@ import { ConfiguracionComponent } from './Componentes/configuracion/configuracio
 import { VotacionComponent } from './Listas/votacion/votacion.component';
 import { RolesComponent } from './Registros/roles/roles.component';
 import { DropdownModule } from 'primeng/dropdown';
+import { FormVotosComponent } from './Listas/form-votos/form-votos.component';
 
 
 
@@ -65,7 +66,8 @@ import { DropdownModule } from 'primeng/dropdown';
     DesaprobacionComponent,
     ConfiguracionComponent,
     VotacionComponent,
-    RolesComponent
+    RolesComponent,
+    FormVotosComponent
 
 
 

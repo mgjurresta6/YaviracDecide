@@ -18,12 +18,13 @@ export class ListaVotacionComponent {
   seleccionarCandidato(candidato: any) {
     this.selectedCandidato = candidato;
     const nombreLista = candidato.nombreLista;
-    const payload = candidato; // Puedes ajustar el valor del payload según tus necesidades
+    const payload = candidato; 
     this.candidatoListaService.setCandidatoSeleccionado(nombreLista, payload);
     console.log(nombreLista);
-    this.candidatoListaService.setNombreCandidatoSeleccionado(nombreLista);
     this.router.navigate(['votacion'])
+    this.candidatoListaService.setNombreCandidatoSeleccionado(nombreLista);
   }
+  
 
 }
 

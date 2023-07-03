@@ -13,8 +13,9 @@ export class VotacionComponent {
 
   constructor(private candidatoListaService: CandidatoListaService,
      ) {
-      console.log(candidatoListaService.nombreCandidatoSeleccionado)
-    this.candidato = this.candidatoListaService.candidato.filter(candidato => candidato.nombreLista === candidatoListaService.nombreCandidatoSeleccionado  );
+    console.log(candidatoListaService.nombreCandidatoSeleccionado);
+    console.log("holi")
+    this.candidato = this.candidatoListaService.candidato.filter(candidato => candidato.nombreLista === candidatoListaService.nombreCandidatoSeleccionado );
     console.log(this.candidato)
   }
 }
